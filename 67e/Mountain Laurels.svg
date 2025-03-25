@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?><!--
 
 border
--1000000 0
+-1e6 0
 -579192 579192
-0 1000000
+0 1e6
 579192 579192
-1000000 0
+1e6 0
 579192 -579192
-0 -1000000
+0 -1e6
 -579192 -579192
 return to start
--1000000 0
+-1e6 0
 
 three flowers
 -579192 579192
@@ -27,8 +27,10 @@ three flowers
 -421719 -693603
 return to start
 -579192 -579192
--1000000 0
+-1e6 0
 -579192 579192
+
+https://home.6t.lt/679/?f=return+JSON.stringify(this.getNumbers().match(/%5B%5E,%5D%2B,%5B%5E,%5D%2B/g).map(p=%3Ep.split(%22,%22).map(Number)))
 
 anthers
 -316289 770203
@@ -43,6 +45,14 @@ anthers
 120812 -628180
 -120812 -628180
 -316289 -770203
+
+bud 1
+
+bud 2
+
+bud 3
+
+bud 4
 
 --><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.2 87" style="background-color: CornflowerBlue">
 </svg>
