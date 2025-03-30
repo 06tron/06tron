@@ -5,6 +5,27 @@ String.prototype.slashEscaped = function () {
 	return JSON.stringify(this).slice(1, -1).replace(/\\"/g, '"');
 };
 
+String.prototype.pullNumberArray = function () {
+	return (this.match(/-?(?:\d*\.)?\d+(?:[eE]-?\d+)?/g) ?? []).map(Number);
+};
+
+function numberCSV(...nums) {
+	return nums.map(function (n) {
+		let str = n.toString();
+		const decimal = str.indexOf(".");
+		const exponen = str.indexOf("e");
+		if (decimal < 0 && exponen < 0) {
+			let i = str.length - 1;
+			let numTrailingZeros = 0;
+			while (str[i] == "0") {
+				numTrailingZeros += 1;
+				--i;
+			}
+			return numTrailingZeros > 2 ? str.slice(0, i + 1) + "e" + numTrailingZeros : str;
+		}
+	}).join();
+}
+
 const stringFunctions = {
 	toWebpage: ["HTML to Webpage", defaultCharMap.slashEscaped(), "(leave blank for default character swapping map)", function (arg, fellback) {
 		if (fellback) {
@@ -13,7 +34,30 @@ const stringFunctions = {
 		return `https://6t.lt?m=${arg.toQueryValue()}&h=${this.charSwap(arg).toQueryValue()}`;
 	}],
 	getNumbers: ["Retrieve Numbers", ",", "(separator)", function (arg) {
-		return (this.match(/-?(?:\d*\.)?\d+(?:[eE]-?\d+)?/g) ?? []).map(Number).join(arg);
+		return this.pullNumberArray().join(arg);
+	}],
+	getPolygonPath: ["Convert to SVG Polygon Path", "Unused", "", function () {
+		const nums = this.pullNumberArray();
+		if (nums.length < 6) {
+			return "Not enough numbers to generate a polygon path.";
+		}
+		let path = '<path d="M' + numberCSV(nums[i], nums[i + 1]);
+		for (let i = 2; i < nums.length - 1; i += 2) {
+			const ax = nums[i - 2];
+			const ay = nums[i - 1];
+			const bx = nums[i];
+			const by = nums[i + 1];
+			const hChange = ax != bx;
+			const vChange = ay != by;
+			if (hChange && vChange) {
+				path += "L" + numberCSV(bx, by);
+			} else if (hChange) {
+				path += "H" + numberCSV(bx);
+			} else if (vChange) {
+				path += "V" + numberCSV(by);
+			}
+		}
+		return path + 'Z"/>';
 	}],
 	noIndentation: ["Remove Newlines and Tabs", "Unused", "", function () {
 		return this.replace(/[\n\r\t]/g, "");
