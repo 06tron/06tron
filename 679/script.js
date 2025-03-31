@@ -41,7 +41,7 @@ const stringFunctions = {
 		if (nums.length < 6) {
 			return "Not enough numbers to generate a polygon path.";
 		}
-		let path = '<path d="M' + numberCSV(nums[i], nums[i + 1]);
+		let path = 'd="M' + numberCSV(nums[0], nums[1]);
 		for (let i = 2; i < nums.length - 1; i += 2) {
 			const ax = nums[i - 2];
 			const ay = nums[i - 1];
@@ -57,7 +57,7 @@ const stringFunctions = {
 				path += "V" + numberCSV(by);
 			}
 		}
-		return path + 'Z"/>';
+		return path + 'Z"';
 	}],
 	noIndentation: ["Remove Newlines and Tabs", "Unused", "", function () {
 		return this.replace(/[\n\r\t]/g, "");
