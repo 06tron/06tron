@@ -9,21 +9,34 @@ String.prototype.pullNumberArray = function () {
 	return (this.match(/-?(?:\d*\.)?\d+(?:[eE]-?\d+)?/g) ?? []).map(Number);
 };
 
-function numberCSV(...nums) {
-	return nums.map(function (n) {
-		let str = n.toString();
-		const decimal = str.indexOf(".");
-		const exponen = str.indexOf("e");
-		if (decimal < 0 && exponen < 0) {
-			let i = str.length - 1;
-			let numTrailingZeros = 0;
-			while (str[i] == "0") {
-				numTrailingZeros += 1;
-				--i;
-			}
-			return numTrailingZeros > 2 ? str.slice(0, i + 1) + "e" + numTrailingZeros : str;
-		}
-	}).join();
+function shortNumberString(n) {
+	const parts = n.toString().match(/^\+?(-?)0*(\d*)\.?(\d*)e?(.*)/);
+	let power = Number(parts[4]) - parts[3].length;
+	const a = parts[2] + parts[3];
+	const b = a.replace(/0+$/, "");
+	if (b.length == 0) {
+		return "0";
+	}
+	power += a.length - b.length;
+	const intPart = b.replace(/^0+/, "");
+	// At this point we have converted a nonzero number to an integer part,
+	// which has no leading or trailing zeros, multiplied by 10 to the integer
+	// variable 'power'.
+	if (0 <= power && power <= 2) {
+		return parts[1] + intPart + "0".repeat(power);
+	}
+	if (-intPart.length <= power && power <= -1) {
+		const dotLoc = intPart.length + power;
+		return parts[1] + intPart.slice(0, dotLoc) + "." + intPart.slice(dotLoc);
+	}
+	if (power == -intPart.length - 1) {
+		return parts[1] + ".0" + intPart;
+	}
+	return parts[1] + intPart + "e" + power.toString();
+}
+
+function numberCSV(...numbers) {
+	return numbers.map(shortNumberString).join();
 }
 
 const stringFunctions = {
@@ -37,24 +50,30 @@ const stringFunctions = {
 		return this.pullNumberArray().join(arg);
 	}],
 	getPolygonPath: ["Convert to SVG Polygon Path", "Unused", "", function () {
-		const nums = this.pullNumberArray();
-		if (nums.length < 6) {
+		const numbers = this.pullNumberArray();
+		if (numbers.length < 6) {
 			return "Not enough numbers to generate a polygon path.";
 		}
-		let path = 'd="M' + numberCSV(nums[0], nums[1]);
-		for (let i = 2; i < nums.length - 1; i += 2) {
-			const ax = nums[i - 2];
-			const ay = nums[i - 1];
-			const bx = nums[i];
-			const by = nums[i + 1];
+		let path = 'd="M' + numberCSV(numbers[0], numbers[1]);
+		for (let i = 2; i < numbers.length - 1; i += 2) {
+			const ax = numbers[i - 2];
+			const ay = numbers[i - 1];
+			const bx = numbers[i];
+			const by = numbers[i + 1];
 			const hChange = ax != bx;
 			const vChange = ay != by;
 			if (hChange && vChange) {
-				path += "L" + numberCSV(bx, by);
+				const abs = numberCSV(bx, by);
+				const rel = numberCSV(bx - ax, by - ay);
+				path += abs.length > rel.length ? "l" + rel : "L" + abs;
 			} else if (hChange) {
-				path += "H" + numberCSV(bx);
+				const abs = numberCSV(bx);
+				const rel = numberCSV(bx - ax);
+				path += abs.length > rel.length ? "h" + rel : "H" + abs;
 			} else if (vChange) {
-				path += "V" + numberCSV(by);
+				const abs = numberCSV(by);
+				const rel = numberCSV(by - ay);
+				path += abs.length > rel.length ? "v" + rel : "V" + abs;
 			}
 		}
 		return path + 'Z"';
