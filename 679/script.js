@@ -9,30 +9,40 @@ String.prototype.pullNumberArray = function () {
 	return (this.match(/-?(?:\d*\.)?\d+(?:[eE]-?\d+)?/g) ?? []).map(Number);
 };
 
+/**
+ * Start by converting n to a string and isolating the important parts. If string's last character is not numeric, as is the case when n is Infinity, return the string unchanged. First pull the decimal out of the base and adjust the exponent accordingly. If the base is zero return "0". Then shorten the base by removing trailing zeros, and adjust the exponent. At this point n is represented as an integer base with no leading or trailing zeros multiplied by 10 to some integer power. Next there are three cases to consider. If the exponent is 0, 1, or 2 add trailing zeros to the base and return. Example: "60" is shorter than "6e1". If the exponent is negative and its absolute value is no more than one greater than the length of the base, add a decimal point and return. Example: ".06" is shorter than "6e-2". Otherwise return the base, "e", and the exponent concatenated together. Examples: "6e3" is shorter than "6000" and "16e-9" is shorter than "1.6e-8".
+ *
+ * @param {number} n - The number to create a string representation for.
+ */
 function shortNumberString(n) {
-	const parts = n.toString().match(/^\+?(-?)0*(\d*)\.?(\d*)e?(.*)/);
-	let power = Number(parts[4]) - parts[3].length;
-	const a = parts[2] + parts[3];
-	const b = a.replace(/0+$/, "");
-	if (b.length == 0) {
+	const [
+		unchangedString,
+		sign,
+		integerPart,
+		decimalPart,
+		exponentPart
+	] = n.toString().match(/^(-?)0*(\d*)\.?(\d*)e?(.*)/);
+	if (!/^$|\d$/.test(exponentPart)) {
+		return unchangedString;
+	}
+	const fullBase = (integerPart + decimalPart).replace(/^0+/, "");
+	if (fullBase.length == 0) {
 		return "0";
 	}
-	power += a.length - b.length;
-	const intPart = b.replace(/^0+/, "");
-	// At this point we have converted a nonzero number to an integer part,
-	// which has no leading or trailing zeros, multiplied by 10 to the integer
-	// variable 'power'.
+	let power = Number(exponentPart) - decimalPart.length;
+	const shortBase = fullBase.replace(/0+$/, "");
+	power += fullBase.length - shortBase.length;
 	if (0 <= power && power <= 2) {
-		return parts[1] + intPart + "0".repeat(power);
+		return sign + shortBase + "0".repeat(power);
 	}
-	if (-intPart.length <= power && power <= -1) {
-		const dotLoc = intPart.length + power;
-		return parts[1] + intPart.slice(0, dotLoc) + "." + intPart.slice(dotLoc);
+	if (-shortBase.length <= power && power <= -1) {
+		const i = shortBase.length + power;
+		return sign + shortBase.slice(0, i) + "." + shortBase.slice(i);
 	}
-	if (power == -intPart.length - 1) {
-		return parts[1] + ".0" + intPart;
+	if (power == -shortBase.length - 1) {
+		return sign + ".0" + shortBase;
 	}
-	return parts[1] + intPart + "e" + power.toString();
+	return sign + shortBase + "e" + power.toString();
 }
 
 function numberCSV(...numbers) {
