@@ -10,21 +10,29 @@ String.prototype.pullNumberArray = function () {
 };
 
 /**
- * Start by converting n to a string and isolating the important parts. If string's last character is not numeric, as is the case when n is Infinity, return the string unchanged. First pull the decimal out of the base and adjust the exponent accordingly. If the base is zero return "0". Then shorten the base by removing trailing zeros, and adjust the exponent. At this point n is represented as an integer base with no leading or trailing zeros multiplied by 10 to some integer power. Next there are three cases to consider. If the exponent is 0, 1, or 2 add trailing zeros to the base and return. Example: "60" is shorter than "6e1". If the exponent is negative and its absolute value is no more than one greater than the length of the base, add a decimal point and return. Example: ".06" is shorter than "6e-2". Otherwise return the base, "e", and the exponent concatenated together. Examples: "6e3" is shorter than "6000" and "16e-9" is shorter than "1.6e-8".
+ * Start by converting n to a string and isolating the important parts. If
+ * string's last character is not numeric, as is the case when n is Infinity,
+ * return the string unchanged. First pull the decimal out of the base and
+ * adjust the exponent accordingly. If the base is zero return "0". Then shorten
+ * the base by removing trailing zeros, and adjust the exponent. At this point n
+ * is represented as an integer base with no leading or trailing zeros
+ * multiplied by 10 to some integer power. Next there are three cases to
+ * consider. If the exponent is 0, 1, or 2 add trailing zeros to the base and
+ * return. Example: "60" is shorter than "6e1". If the exponent is negative and
+ * its absolute value is no more than one greater than the length of the base,
+ * add a decimal point and return. Example: ".06" is shorter than "6e-2".
+ * Otherwise return the base, "e", and the exponent concatenated together.
+ * Examples: "6e3" is shorter than "6000" and "16e-9" is shorter than "1.6e-8".
  *
  * @param {number} n - The number to create a string representation for.
  */
 function shortNumberString(n) {
+	if (!Number.isFinite(n)) {
+        return n.toString();
+    }
 	const [
-		unchangedString,
-		sign,
-		integerPart,
-		decimalPart,
-		exponentPart
+		_, sign, integerPart, decimalPart, exponentPart
 	] = n.toString().match(/^(-?)0*(\d*)\.?(\d*)e?(.*)/);
-	if (!/^$|\d$/.test(exponentPart)) {
-		return unchangedString;
-	}
 	const fullBase = (integerPart + decimalPart).replace(/^0+/, "");
 	if (fullBase.length == 0) {
 		return "0";
@@ -96,6 +104,24 @@ const stringFunctions = {
 				path += abs.length > rel.length ? "v" + rel : "V" + abs;
 			}
 		}
+		// TODO improvements: shorten colors option -> round to #RGB format from #RRGGBB or named colors less than 4 characters.
+		// take cycle and use Z to remove the edge which contributes the most characters
+		// one main goal: reduce size without losing information. Exception would be rounding numbers or colors. But this means I don't want to remove points which are midway along a line segment, even though removing it would not change the image. Could remove adjacent points that are identical though.
+		// Short <paint> Values Allowed in SVG stroke attribute:
+		// Blue #0000FF
+		// Cyan #00FFFF
+		// Gold #FFD700
+		// Gray #808080
+		// Lime #00FF00
+		// Navy #000080
+		// Peru #CD853F
+		// Pink #FFC0CB
+		// Plum #DDA0DD
+		//  Red #FF0000
+		// Snow #FFFAFA
+		//  Tan #D2B48C
+		// Teal #008080
+		// note: Mark, Menu system colors
 		return path + (noLines ? '" stroke="CanvasText" stroke-linecap="round"' : 'Z"');
 	}],
 	noIndentation: ["Remove Newlines and Tabs", "Unused", "", function () {
