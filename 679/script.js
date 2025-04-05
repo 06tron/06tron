@@ -35,8 +35,8 @@ function shortNumberString(n) {
 	return parts[1] + intPart + "e" + power.toString();
 }
 
-function numberCSV(...numbers) {
-	return numbers.map(shortNumberString).join();
+function svgNumbers(...numbers) {
+	return numbers.map(shortNumberString).join().replaceAll(",-", "-");
 }
 
 const stringFunctions = {
@@ -49,12 +49,17 @@ const stringFunctions = {
 	getNumbers: ["Retrieve Numbers", ",", "(separator)", function (arg) {
 		return this.pullNumberArray().join(arg);
 	}],
-	getPolygonPath: ["Convert to SVG Polygon Path", "Unused", "", function () {
+	getPolygonPath: ["Convert to SVG Polygon Path", "Unused", '(pass a stroke width to draw only vertices)', function (arg) {
 		const numbers = this.pullNumberArray();
-		if (numbers.length < 6) {
-			return "Not enough numbers to generate a polygon path.";
+		if (numbers.length < 2) {
+			return "Not enough numbers in the input text.";
 		}
-		let path = 'd="M' + numberCSV(numbers[0], numbers[1]);
+		const strokeWidth = Number(arg);
+		const noLines = strokeWidth > 0;
+		let path = 'd="M' + svgNumbers(numbers[0], numbers[1]);
+		if (noLines) {
+			path = `stroke-width="${svgNumbers(strokeWidth)}" ${path}v0`;
+		}
 		for (let i = 2; i < numbers.length - 1; i += 2) {
 			const ax = numbers[i - 2];
 			const ay = numbers[i - 1];
@@ -62,21 +67,26 @@ const stringFunctions = {
 			const by = numbers[i + 1];
 			const hChange = ax != bx;
 			const vChange = ay != by;
-			if (hChange && vChange) {
-				const abs = numberCSV(bx, by);
-				const rel = numberCSV(bx - ax, by - ay);
+			if (noLines) {
+				const abs = svgNumbers(bx, by);
+				const rel = svgNumbers(bx - ax, by - ay);
+				path += abs.length > rel.length ? "m" + rel : "M" + abs;
+				path += "v0";
+			} else if (hChange && vChange) {
+				const abs = svgNumbers(bx, by);
+				const rel = svgNumbers(bx - ax, by - ay);
 				path += abs.length > rel.length ? "l" + rel : "L" + abs;
 			} else if (hChange) {
-				const abs = numberCSV(bx);
-				const rel = numberCSV(bx - ax);
+				const abs = svgNumbers(bx);
+				const rel = svgNumbers(bx - ax);
 				path += abs.length > rel.length ? "h" + rel : "H" + abs;
 			} else if (vChange) {
-				const abs = numberCSV(by);
-				const rel = numberCSV(by - ay);
+				const abs = svgNumbers(by);
+				const rel = svgNumbers(by - ay);
 				path += abs.length > rel.length ? "v" + rel : "V" + abs;
 			}
 		}
-		return path + 'Z"';
+		return path + (noLines ? '" stroke="CanvasText" stroke-linecap="round"' : 'Z"');
 	}],
 	noIndentation: ["Remove Newlines and Tabs", "Unused", "", function () {
 		return this.replace(/[\n\r\t]/g, "");
