@@ -25,11 +25,14 @@ String.prototype.pullNumberArray = function () {
  * Examples: "6e3" is shorter than "6000" and "16e-9" is shorter than "1.6e-8".
  *
  * @param {number} n - The number to create a string representation for.
+ * @param {number} maxDigits - Limits the number of digits in the produced
+ * string, not including an exponent. The initial value is large to prevent any
+ * rounding.
  */
-function shortNumberString(n) {
+function shortNumberString(n, maxDigits = 99) {
 	if (!Number.isFinite(n)) {
-        return n.toString();
-    }
+		return typeof n === "number" ? n.toString() : "NaN";
+	}
 	const [
 		_, sign, integerPart, decimalPart, exponentPart
 	] = n.toString().match(/^(-?)0*(\d*)\.?(\d*)e?(.*)/);
@@ -38,7 +41,8 @@ function shortNumberString(n) {
 		return "0";
 	}
 	let power = Number(exponentPart) - decimalPart.length;
-	const shortBase = fullBase.replace(/0+$/, "");
+	// slice fullBase, round
+	const shortBase = fullBase.replace(/0+$/, "").slice(0, maxDigits);
 	power += fullBase.length - shortBase.length;
 	if (0 <= power && power <= 2) {
 		return sign + shortBase + "0".repeat(power);
