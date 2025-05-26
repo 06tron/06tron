@@ -1,0 +1,23 @@
+website, if the repo is downloaded and moved to some local folder, the files should still work. Should links ever be relative?
+
+time folders (ex: 66c)
+	/index.html -> overview of folder contents, links and maybe iframes. View at "https://home.6t.lt/66c"
+	/entry.xhtml.m4 -> html fragment to be inserted into an atom feed. This will probably not be valid XML
+	named html (ex: /note.html) -> fully standalone, can be downloaded individually
+	/script.js -> most javascript in the folder should be in this file
+	other files (ex: mirror_polygon.svg) -> work which is somewhat separate from entry.xhtml.m4
+
+atom.xml -> Read "https://www.rfc-editor.org/rfc/rfc5005", should there be more than one feed file?
+
+draft.html -> pass time like "66c" as query parameter, and display 66c/entry.xhtml.m4
+
+icons -> folder for icons for all my webpages
+
+
+DOMAIN MAPPING
+
+numberspace ->				6vt.nl
+blog ->						xn--7ugaaa034ebacb.6t.lt
+note.html ->				6t.lt/note
+
+move html files to shortcuts folder, then map shortcuts folder to 6t.lt domain
