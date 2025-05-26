@@ -19,5 +19,6 @@ DOMAIN MAPPING
 numberspace ->				6vt.nl
 blog ->						xn--7ugaaa034ebacb.6t.lt
 note.html ->				6t.lt/note
+cycling ->					bike.6t.lt
 
 move html files to shortcuts folder, then map shortcuts folder to 6t.lt domain
