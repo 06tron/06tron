@@ -245,10 +245,9 @@ function svgNumbers(...numbers) {
  */
 
 /**
- * 
- * @param {number} sideLength 
- * @param {[number, number][]} coords 
- * @param {Point[]} quad 
+ * @param {number} sideLength
+ * @param {[number, number][]} coords
+ * @param {Point[]} quad
  * @returns {[number, number][]}
  */
 function squareCoordsToQuad(sideLength, coords, quad) {
@@ -269,7 +268,7 @@ function squareCoordsToQuad(sideLength, coords, quad) {
 
 /**
  * @param {Point} p
- * @param {number} scalar 
+ * @param {number} scalar
  */
 function scale(p, scalar) {
 	if ("x" in p) {
@@ -280,7 +279,7 @@ function scale(p, scalar) {
 
 /**
  * @param {Point} p
- * @param {Point} q 
+ * @param {Point} q
  * @param {boolean} negate - If true, returns p - q. The second
  * point is negated in the sum.
  * @param {number} s - Scale the resulting sum by this scalar

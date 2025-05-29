@@ -1,9 +1,9 @@
-function clickToCopy(button: HTMLElement, getText) { // getText is function () => string
+function clickToCopy(button: HTMLElement, getText: () => string): void {
 	const initialMessage = button.innerText;
-	button.addEventListener("mousedown", function () {
+	button.addEventListener("mousedown", () => {
 		navigator.clipboard.writeText(getText());
 		button.innerText = "Copied!";
-		setTimeout(function () {
+		setTimeout(() => {
 			button.innerText = initialMessage;
 		}, 1200);
 	});
