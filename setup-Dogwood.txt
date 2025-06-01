@@ -1,0 +1,17 @@
+Use Shift-Option-Command-R to start up from Internet Recovery and install macOS 10.13.6 High Sierra
+There was an issue with the "Reinstall macOS" option, but I used Fix #3 from https://mrmacintosh.com/how-to-fix-the-recovery-server-could-not-be-contacted-error-high-sierra-recovery-is-still-online-but-broken/
+This involves running the following command:
+    nvram IASUCatalogURL="http://swscan.apple.com/content/catalogs/others/index-10.13-10.12-10.11-10.10-10.9-mountainlion-lion-snowleopard-leopard.merged-1.sucatalog"
+Then I downloaded the following version of the command line tools:
+    https://download.developer.apple.com/Developer_Tools/Command_Line_Tools_macOS_10.13_for_Xcode_10.1/Command_Line_Tools_macOS_10.13_for_Xcode_10.1.dmg
+Download Firefox ESR 115: https://download.mozilla.org/?product=firefox-esr115-latest-ssl&os=osx&lang=en-US
+Download VSCode version 1.85: https://update.code.visualstudio.com/1.85.2/darwin/stable
+Download Node.js v17.9.1: https://nodejs.org/download/release/v17.9.1/node-v17.9.1.pkg
+Then run "sudo npm install --location=global typescript"
+
+For the 06tron repository specifically:
+    npm install --save-dev typescript@5.3.3
+    npm install --save-dev eslint@8.57.0
+    npm install --save-dev @typescript-eslint/parser@6.21.0 @typescript-eslint/eslint-plugin@6.21.0
+    npm install --save-dev eslint-plugin-tsdoc
+    npm install --save-dev typedoc
