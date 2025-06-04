@@ -15,3 +15,4 @@ For the 06tron repository specifically:
     npm install --save-dev @typescript-eslint/parser@6.21.0 @typescript-eslint/eslint-plugin@6.21.0
     npm install --save-dev eslint-plugin-tsdoc
     npm install --save-dev typedoc
+    Download version 2.4.4 of the ESLint extension for VSCode: https://www.vsixhub.com/vsix/136511/
