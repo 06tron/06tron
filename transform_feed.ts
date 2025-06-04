@@ -5,7 +5,7 @@ interface FeedAttachment {
 }
 
 interface FeedItem {
-	id: string; // unique identifer
+	id: string; // unique identifier
 	url: string; // main url for item
 	title: string;
 	content_html: string; // HTML
@@ -30,7 +30,7 @@ interface Feed {
 	language: string; // in RFC 5646 format, ex: "en-US"
 	items: Array<FeedItem>;
 	_atom_elements: {
-		"id": string; // unique identifer
+		"id": string; // unique identifier
 		"updated": string; // time of last feed modification
 		"self_link": string; // link to this feed in Atom format
 	};
