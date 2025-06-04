@@ -15,3 +15,17 @@ interface FeedItem {
 	tags: Array<string>; // usually just one word for each tag
 	attachments: Array<FeedAttachment>;
 }
+
+interface Feed {
+	version: "https://jsonfeed.org/version/1.1";
+	title: string;
+	home_page_url: string; // main url for website associated with the feed
+	feed_url: string; // url of the feed itself
+	description: string;
+	next_url?: string; // url of the continuation of this feed, if not all entries are included in this one
+	authors: Array<{
+		name: string;
+		url: string; // url to identify author
+	}>;
+	language: string; // in RFC 5646 format, ex: "en-US"
+}
