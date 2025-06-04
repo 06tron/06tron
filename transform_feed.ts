@@ -22,10 +22,16 @@ interface Feed {
 	home_page_url: string; // main url for website associated with the feed
 	feed_url: string; // url of the feed itself
 	description: string;
-	next_url?: string; // url of the continuation of this feed, if not all entries are included in this one
+	icon: string; // url of icon image
 	authors: Array<{
 		name: string;
 		url: string; // url to identify author
 	}>;
 	language: string; // in RFC 5646 format, ex: "en-US"
+	items: Array<FeedItem>;
+	_atom_elements: {
+		"id": string; // unique identifer
+		"updated": string; // time of last feed modification
+		"self_link": string; // link to this feed in Atom format
+	};
 }
