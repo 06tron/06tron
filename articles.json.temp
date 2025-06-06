@@ -1,10 +1,10 @@
 {
 	"version": "https://jsonfeed.org/version/1.1",
 	"title": "○–○––○–○ blog",
-	"home_page_url": "{"}shortcuts/blog",
-	"feed_url": "{"}articles.json",
+	"home_page_url": "{home"url}/shortcuts/blog",
+	"feed_url": "{home"url}/articles.json",
 	"description": "",
-	"icon": "{"}icons/48.svg",
+	"icon": "{home"url}/icons/48.svg",
 	"authors": [
 		{
 			"name": "Matthew Richardson",
@@ -15,7 +15,7 @@
 	"items": [
 		{
 			"id": "urn:uuid:EAEDA2A5-9298-4206-9724-33AB1158DF5B",
-			"url": "{"}shortcuts/blog/#3",
+			"url": "{home"url}/shortcuts/blog/#3",
 			"title": "677 - URI Encoding",
 			"content_html": "",
 			"summary": "",
@@ -26,7 +26,7 @@
 		},
 		{
 			"id": "urn:uuid:61121CBE-CE84-4E17-8134-A62BBC81EEA6",
-			"url": "{"}shortcuts/blog/#2",
+			"url": "{home"url}/shortcuts/blog/#2",
 			"title": "66f - Square Mesh Navigation",
 			"content_html": "",
 			"summary": "",
@@ -37,7 +37,7 @@
 		},
 		{
 			"id": "urn:uuid:6A561B0B-4176-417B-A9E2-82651C30A705",
-			"url": "{"}shortcuts/blog/#1",
+			"url": "{home"url}/shortcuts/blog/#1",
 			"title": "66c - Death and the Compass",
 			"content_html": "",
 			"summary": "",
@@ -50,6 +50,6 @@
 	"_atom_elements": {
 		"id": "urn:uuid:22620929-5413-4211-BE95-59BD3594FD14",
 		"updated": "2025-01-15T20:51:38-07:00",
-		"self_link": "{"}atom.xml"
+		"self_link": "{home"url}/atom.xml"
 	}
 }
