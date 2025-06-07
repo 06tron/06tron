@@ -1,6 +1,5 @@
+build/
 .DS_Store
-package.json
-package-lock.json
-node_modules/
-docs/
-.vscode/
+ts/node_modules/
+ts/package.json
+ts/package-lock.json
