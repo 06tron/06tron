@@ -1,5 +1,6 @@
 [
-	"<?xml version=\"1.0\" encoding=\"utf-8\"?><feed xmlns=\"http://www.w3.org/2005/Atom\"><title>",
+	"<?xml version=\"1.0\" encoding=\"utf-8\"?>",
+	"<feed xmlns=\"http://www.w3.org/2005/Atom\"><title>",
 	.title,
 	"</title><subtitle>",
 	.description,
@@ -16,7 +17,7 @@
 		"</uri></author>"
 	]),
 	"<link rel=\"self\" href=\"",
-	._atom_elements.self_link,
+	._atom_elements.link_self,
 	"\"/><icon>",
 	.icon,
 	"</icon>",
@@ -29,8 +30,8 @@
 		.date_published,
 		"</published><updated>",
 		.date_modified,
-		"</updated><content type=\"xhtml\">",
-		.content_html,
+		"</updated><content type=\"html\">",
+		(.content_html | @html),
 		"</content><link rel=\"alternate\" href=\"",
 		.url,
 		"\"/></entry>"

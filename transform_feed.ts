@@ -30,8 +30,8 @@ interface Feed {
 	language: string; // in RFC 5646 format, ex: "en-US"
 	items: Array<FeedItem>;
 	_atom_elements: {
-		"id": string; // unique identifier
-		"updated": string; // time of last feed modification
-		"self_link": string; // link to this feed in Atom format
+		id: string; // unique identifier
+		updated: string; // time of last feed modification
+		link_self: string; // link to this feed in Atom format
 	};
 }
