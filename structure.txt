@@ -1,19 +1,19 @@
 draft.xht
 feed.json.temp
+.git
 .gitignore
 .gitmodules
 icons
  ├── 16.png
  └── 48.svg
-in-{period-b}
- ├── {any-file-b-i}
- └── {nickname-b-i}.html
 json-feed-to-atom.jq
 json-feed-to-html.jq
 mirror.html
+periods
+ └── {period-b}
+      ├── {any-file-b-i}
+      └── {nickname-b-i}.html
 README.rst
-robots.txt
-structure.txt
 style.css
 ts
  ├── .eslintrc.json
@@ -29,25 +29,48 @@ ts
 
 GENERATED
 
-build
- ├── atom.xml
- ├── docs
- │    └── ...
- ├── feed.json
- ├── icons
- │   ├── 16.png
- │   └── 48.svg
- ├── robots.txt
- ├── shortcuts
- │    ├── blog
- │    │    └── index.html
- │    ├── index.html
+build                         1
+ ├── atom.xml                 3
+ ├── docs                     5
+ │    └── ...                 5
+ ├── feed.json                2
+ ├── icons                    6
+ │   ├── 16.png               6
+ │   └── 48.svg               6
+ ├── index.html
+ ├── robots.txt               
+ ├── shortcuts                1
+ │    ├── blog                1
+ │    │    └── index.html     4
+ │    ├── index.html          10
+ │    ├── robots.txt
+ │    ├── sitemap.xml
  │    ├── {submodule-x}
  │    │    └── ...
- │    └── {nickname-y-i}
- │         └── index.html
+ │    └── {nickname-y-i}      7
+ │         └── index.html     7
  ├── sitemap.xml
- ├── style.css
- └── {period-z}
-      ├── index.html
-      └── {any-file-z-i}
+ ├── style.css                6
+ └── {period-z}               9
+      ├── index.html          
+      └── {any-file-z-i}      9
+
+Given complete feed.json.temp, we can construct the build directory with the following commands:
+
+1. mkdir -p build/shortcuts/blog
+
+2. sed 's;{home"url};https://home.6t.lt;g' feed.json.temp | jq '.' --compact-output > build/feed.json
+
+3. cat build/feed.json | jq --from-file json-feed-to-atom.jq --raw-output > build/atom.xml
+
+4. cat build/feed.json | jq --from-file json-feed-to-html.jq --raw-output > build/shortcuts/blog/index.html
+
+5. (cd ts && npx typedoc) MUST CONFIGURE ts DIRECTORY AND typedoc.json
+
+6. cp -R icons periods robots.txt style.css build
+
+7. for line in ./build/periods/*/*.html; do name=$(basename "$line" .html) && mkdir "build/shortcuts/$name" && cp "$line" "build/shortcuts/$name/index.html"; done
+
+9. mv build/periods/* build && rmdir build/periods
+
+10. cp mirror.html build/shortcuts/index.html

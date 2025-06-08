@@ -2,7 +2,7 @@
 	"version": "https://jsonfeed.org/version/1.1",
 	"title": "○–○––○–○ blog",
 	"home_page_url": "{home"url}/shortcuts/blog",
-	"feed_url": "{home"url}/articles.json",
+	"feed_url": "{home"url}/feed.json",
 	"description": "",
 	"icon": "{home"url}/icons/48.svg",
 	"authors": [
