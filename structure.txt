@@ -45,8 +45,6 @@ build                         1
  │    ├── blog                1
  │    │    └── index.html     4
  │    ├── index.html          10
- │    ├── robots.txt          12
- │    ├── sitemap.xml
  │    ├── {submodule-x}       11
  │    │    └── ...            11
  │    └── {nickname-y-i}      7
@@ -61,11 +59,11 @@ Given complete feed.json.temp, we can construct the build directory with the fol
 
 1. mkdir -p build/shortcuts/blog
 
-2. sed 's;{home"url};https://home.6t.lt;g' feed.json.temp | jq '.' --compact-output > build/feed.json
+2. cat feed.json | jq '.' --compact-output > build/feed.json
 
-3. cat build/feed.json | jq --from-file json-feed-to-atom.jq --raw-output > build/atom.xml
+3. cat feed.json | jq --from-file json-feed-to-atom.jq --raw-output > build/atom.xml
 
-4. cat build/feed.json | jq --from-file json-feed-to-html.jq --raw-output > build/shortcuts/blog/index.html
+4. cat feed.json | jq --from-file json-feed-to-html.jq --raw-output > build/shortcuts/blog/index.html
 
 5. (cd ts && npx typedoc) MUST CONFIGURE ts DIRECTORY AND typedoc.json
 
@@ -79,4 +77,4 @@ Given complete feed.json.temp, we can construct the build directory with the fol
 
 11. MOVE CONTENTS OF ts/{submodule-b}/build TO build/{submodule-b}
 
-12. USE echo TO ADD SITEMAP URL TO build/robots.txt AND build/shortcuts/robots.txt
+12. USE echo TO ADD SITEMAP URL TO build/robots.txt
