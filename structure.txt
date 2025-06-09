@@ -1,5 +1,6 @@
+add-item.sh
 draft.xht
-feed.json.temp
+feed.json
 .git
 .gitignore
 .gitmodules
