@@ -56,7 +56,7 @@ build                         1
       ├── index.html          
       └── {any-file-z-i}      9
 
-Given complete feed.json.temp, we can construct the build directory with the following commands:
+Given the complete feed.json file, we can construct the build directory with the following commands:
 
 1. mkdir -p build/shortcuts/blog
 
@@ -79,3 +79,5 @@ Given complete feed.json.temp, we can construct the build directory with the fol
 11. MOVE CONTENTS OF ts/{submodule-b}/build TO build/{submodule-b}
 
 12. USE echo TO ADD SITEMAP URL TO build/robots.txt
+
+14. zip build folder?
