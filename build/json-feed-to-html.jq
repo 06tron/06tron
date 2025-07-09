@@ -9,7 +9,7 @@
 	"\"><meta name=\"viewport\" content=\"width=device-width\">",
 	"<link rel=\"icon\" href=\"",
 	.icon,
-	"\"><link rel=\"stylesheet\" href=\"style.css\"></head><body><header><h1>",
+	"\"><link rel=\"stylesheet\" href=\"../../style.css\"></head><body><header><h1>",
 	.title,
 	"</h1><p>",
 	.description,

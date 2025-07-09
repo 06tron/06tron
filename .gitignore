@@ -1,5 +1,6 @@
-build/
+export.zip
 .DS_Store
+home/
 ts/node_modules/
 ts/package.json
 ts/package-lock.json
