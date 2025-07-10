@@ -11,7 +11,7 @@
 	<updated>2025-01-04T23:49:20-05:00</updated>
 	<id>urn:uuid:255660A3-DC5B-4545-95A0-593EC117C27B</id>
 	<link rel="self" href="&page_path;atom.xml"/>
-	<link rel="alternate" href="https://github.com/06tron/06tron.github.io/blob/main/677/atom.xml"/>
+	<link rel="alternate" href="https://github.com/06tron/06tron/blob/main/periods/677/atom.xml"/>
 
 	<entry>
 		<title>Ampersand (&amp;)</title>
@@ -22,7 +22,7 @@
 				<p>R &amp; D at &page_path;atom.xml</p>
 			</div>
 		</content>
-		<link rel="alternate" href="&page_path;?m=%26%3E%3C()@&amp;h=(h1)Ampersand+%3C@amp;%3E(/h1)(p)R+@amp;+D+at+&page_path;atom.xml(/p)"/>
+		<link rel="alternate" href="https://6t.lt?m=%26%3E%3C()@&amp;h=(h1)Ampersand+%3C@amp;%3E(/h1)(p)R+@amp;+D+at+&page_path;atom.xml(/p)"/>
 	</entry>
 
 </feed>

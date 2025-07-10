@@ -15,7 +15,7 @@ do
 done
 for line in home/periods/*/
 do
-	(cd "$line" && tree -H './' -I '*index.html' --info --hintro=../../../sitemap.html -o index.html) # 45
+	(cd "$line" && tree -H './' -I '*index.html' --hintro=../../../sitemap.html -o index.html) # 45
 done
 (cd home/icons && tree -H './' -I '*index.html' --hintro=../../sitemap.html -o index.html) # 48
 mv home/periods/* home && rm -r home/periods # 50
