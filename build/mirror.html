@@ -6,7 +6,7 @@
 	<meta charset="utf-8">
 	<meta name="author" content="https://orcid.org/0009-0001-0977-2029">
 	<meta name="color-scheme" content="light dark">
-	<meta name="description" content="HTML passed through the 'b' query parameter is sanitized and then copied into the body of this page">
+	<meta name="description" content="HTML passed through the 'b' query parameter is sanitized and then copied into the body of this page.">
 	<meta name="viewport" content="width=device-width">
 </head>
 
@@ -35,7 +35,7 @@
 		const query = new URLSearchParams(window.location.search);
 		const input = query.get("b")
 			?? charSwap(query.get("h"), query.get("m") ?? `&"><'%X\tZ\n$~()*@`)
-			?? document.querySelector('meta[name="description"]').content;
+			?? document.querySelector('meta[name="description"]').content + ` You might also be looking for this website's <a href="https://home.6t.lt">homepage</a>.`;
 		document.body.innerHTML = DOMPurify.sanitize(input);
 	</script>
 </body>

@@ -6,6 +6,7 @@ cat feed.json | jq '.' --compact-output > home/feed.json # 10
 cat feed.json | jq --from-file json-feed-to-atom.jq --raw-output > home/atom.xml # 11
 cat feed.json | jq --from-file json-feed-to-html.jq --raw-output | sed 's;href="https://home.6t.lt/;href="../../;g' > home/shortcuts/blog/index.html # 12
 cp -R ../icons ../periods ../style.css _redirects index.html home # 20
+echo 'const jsonFeed=' | cat - home/feed.json mainpage.js > home/mainpage.js # 25
 for line in home/periods/*/*.html
 do
 	name=$(basename "$line" .html)
@@ -20,8 +21,9 @@ done
 mv home/periods/* home && rm -r home/periods # 50
 cp mirror.html home/shortcuts/index.html # 60
 mkdir home/sitemap # 80
-(cd home && tree -H '../' -I '*index.html' -I '_redirects' --noreport --hintro=../sitemap.html -o sitemap/index.html) # 82
-zip -r export.zip home # 90
+cd home # 81
+tree -H '../' -I '*index.html' -I '_redirects' --noreport --hintro=../sitemap.html -o sitemap/index.html # 82
+zip -r ../export.zip ./* # 90
 
 # build
 #  ├── add-item.sh
@@ -38,6 +40,7 @@ zip -r export.zip home # 90
 #  │    │   ├── 48.svg               20
 #  │    │   └── index.html           48
 #  │    ├── index.html               20
+#  │    ├── mainpage.js              25
 #  │    ├── _redirects               20
 #  │    ├── robots.txt               
 #  │    ├── shortcuts                01
