@@ -5,7 +5,7 @@ function getItemHTML(selector, verbose, relativeLinks) {
 		return acc + content_html;
 	}, "");
 	if (relativeLinks) {
-		fullHTML = fullHTML.replaceAll('href="https://home.6t.lt/', 'href="./');
+		fullHTML = fullHTML.replaceAll('="https://home.6t.lt/', '="./');
 	}
 	const doc = new DOMParser().parseFromString(fullHTML, "text/html");
 	const selected = doc.querySelectorAll(selector);

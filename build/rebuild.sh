@@ -4,7 +4,7 @@ rm -r home export.zip # 00
 mkdir -p home/shortcuts/blog # 01
 cat feed.json | jq '.' --compact-output > home/feed.json # 10
 cat feed.json | jq --from-file json-feed-to-atom.jq --raw-output > home/atom.xml # 11
-cat feed.json | jq --from-file json-feed-to-html.jq --raw-output | sed 's;href="https://home.6t.lt/;href="../../;g' > home/shortcuts/blog/index.html # 12
+cat feed.json | jq --from-file json-feed-to-html.jq --raw-output | sed 's;="https://home.6t.lt/;="../../;g' > home/shortcuts/blog/index.html # 12
 cp -R ../icons ../periods ../style.css _redirects index.html home # 20
 echo 'const jsonFeed=' | cat - home/feed.json mainpage.js > home/mainpage.js # 25
 for line in home/periods/*/*.html
@@ -25,9 +25,8 @@ cd home # 81
 tree -H '../' -I '*index.html' -I '_redirects' --noreport --hintro=../sitemap.html -o sitemap/index.html # 82
 zip -r ../export.zip ./* # 90
 
+# add-item.sh
 # build
-#  ├── add-item.sh
-#  ├── draft.xht
 #  ├── export.zip                    90
 #  ├── feed.json
 #  ├── home                          01
@@ -63,6 +62,7 @@ zip -r ../export.zip ./* # 90
 #  ├── mirror.html
 #  ├── rebuild.sh
 #  └── sitemap.html
+# draft.xht
 # .git
 # .gitignore
 # .gitmodules
