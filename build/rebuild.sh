@@ -5,7 +5,7 @@ mkdir -p home/shortcuts/blog # 01
 cat feed.json | jq '.' --compact-output > home/feed.json # 10
 cat feed.json | jq --from-file json-feed-to-atom.jq --raw-output > home/atom.xml # 11
 cat feed.json | jq --from-file json-feed-to-html.jq --raw-output | sed 's;="https://home.6t.lt/;="../../;g' > home/shortcuts/blog/index.html # 12
-cp -R ../icons ../periods ../style.css _redirects index.html home # 20
+cp -R ../icons ../periods ../style.css _* index.html home # 20
 echo 'const jsonFeed=' | cat - home/feed.json mainpage.js > home/mainpage.js # 25
 for line in home/periods/*/*.html
 do
@@ -22,8 +22,8 @@ mv home/periods/* home && rm -r home/periods # 50
 cp mirror.html home/shortcuts/index.html # 60
 mkdir home/sitemap # 80
 cd home # 81
-tree -H '../' -I '*index.html' -I '_redirects' --noreport --hintro=../sitemap.html -o sitemap/index.html # 82
-zip -r ../export.zip ./* # 90
+tree -H '../' -I '*index.html' -I '_*' --noreport --hintro=../sitemap.html -o sitemap/index.html # 82
+zip -r ../export.zip ./* -x "*.DS_Store" # 90
 
 # add-item.sh
 # build
@@ -34,6 +34,7 @@ zip -r ../export.zip ./* # 90
 #  │    ├── docs                     
 #  │    │    └── ...                  
 #  │    ├── feed.json                10
+#  │    ├── _headers                 20
 #  │    ├── icons                    20
 #  │    │   ├── 16.png               20
 #  │    │   ├── 48.svg               20

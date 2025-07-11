@@ -17,7 +17,7 @@
 		"</uri></author>"
 	]),
 	"<link rel=\"self\" href=\"",
-	._atom_elements.link_self,
+	._atom_elements.self_link,
 	"\"/><icon>",
 	.icon,
 	"</icon>",
