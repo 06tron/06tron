@@ -25,5 +25,11 @@
 		.value.content_html,
 		"</article>"
 	]),
-	"</body></html>"
+	"<footer><i><a href=\"",
+	._atom_elements.self_link,
+	"\">Atom</a> | <a href=\"",
+	.feed_url,
+	"\">JSON</a> | Updated ",
+	._atom_elements.updated,
+	"</i></footer></body></html>"
 ] | flatten | join("")
