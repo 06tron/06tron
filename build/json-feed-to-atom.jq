@@ -18,6 +18,8 @@
 	]),
 	"<link rel=\"self\" href=\"",
 	._atom_elements.self_link,
+	"\"/><link rel=\"alternate\" href=\"",
+	.home_page_url,
 	"\"/><icon>",
 	.icon,
 	"</icon>",

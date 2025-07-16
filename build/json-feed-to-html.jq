@@ -17,9 +17,11 @@
 	(.items | length as $len | to_entries[] | [
 		"<article id=\"",
 		$len - .key,
-		"\"><h2>",
+		"\"><hgroup><h2>",
 		.value.title,
-		"</h2>",
+		"</h2><p>",
+		.value.date_published,
+		"</p></hgroup>",
 		.value.content_html,
 		"</article>"
 	]),
