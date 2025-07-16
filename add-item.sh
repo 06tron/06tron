@@ -2,7 +2,7 @@
 
 cat build/feed.json | jq '.items |= [{
 	id: $uuid,
-	url: ["https://home.6t.lt/shortcuts/blog/#", length + 1] | join(""),
+	url: ["https://6t.lt/blog/#", length + 1] | join(""),
 	title: "",
 	content_html: $html,
 	summary: "",
