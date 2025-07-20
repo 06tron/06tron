@@ -14,7 +14,7 @@ aside {
 }
 
 body {
-	font-family: "Segoe UI", Courier, monospace;
+	font-family: "Avenir", "Segoe UI", sans-serif;
 	margin: 0 2rem 1rem;
 	max-width: 60rem;
 }
@@ -47,6 +47,10 @@ footer i {
 	font-size: 0.8em;
 	font-style: italic;
 	opacity: 0.7;
+}
+
+h1 {
+	font-family: "Courier", monospace;
 }
 
 hgroup h2 {
@@ -96,9 +100,10 @@ pre {
 	background-color: color-mix(in srgb-linear, #808080, Canvas 90%);
 	border: 2px solid;
 	font-size: larger;
-	max-width: max-content;
+	max-width: calc(100vw - 5.4rem - 4px);
 	overflow-x: auto;
 	padding: 0.7rem;
+	width: max-content;
 }
 
 q code {
