@@ -23,6 +23,7 @@ cp mirror.html home/shortcuts/index.html # 60
 mkdir home/sitemap # 80
 cd home # 81
 tree -H '../' -I '*index.html' -I '_*' --noreport --hintro=../sitemap.html -o sitemap/index.html # 82
+cp ~/rsync/Documents/Resumes/latest.pdf shortcuts/resume # 85
 zip -r ../export.zip ./* -x "*.DS_Store" # 90
 
 # add-item.sh

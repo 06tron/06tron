@@ -3,3 +3,6 @@
 
 /feed.json
 	Content-Type: application/feed+json
+
+/shortcuts/resume
+	Content-Type: application/pdf
