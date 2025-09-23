@@ -9,19 +9,82 @@
 	<meta name="color-scheme" content="dark light"/>
 	<meta name="viewport" content="width=device-width"/>
 	<link rel="stylesheet" href="style.css"/>
+	<style>
+		@font-face {
+			font-family: "Granjon Boxes";
+			src: url("build/fonts/granjon-boxes.woff2") format("woff2");
+		}
+		@font-face {
+			font-family: "Kreative Square";
+			src: url("build/fonts/kreative-square-boxes.woff2") format("woff2");
+		}
+	</style>
 </head>
 
 <body>
-<h2></h2>
-<!-- To retrieve an article, run the command "cat build/feed.json | jq '.items[1].content_html' -r | pbcopy" and paste next to this comment. -->
-<p></p>
-<section class="featured">
+<header>
+	<h1>○–○––○–○ blog</h1>
+	<p>Matthew R. Richardson’s blog, on topics such as web programming and recreational math.</p>
+</header>
+<article>
+	<hgroup>
+		<h2>68a - Ornamental Box-drawing</h2>
+		<p>2024-12-29T22:35:12-05:00</p>
+	</hgroup>
+	<p>During this summer and my last semester at UMass I read a few good books:</p>
+	<dl>
+		<dt>Tall Trees and Wild Bees</dt><dd><a href="https://www.wikidata.org/wiki/Q7615752">Stewart Coffin</a> writes about growing up in Amherst.</dd>
+		<dt>The Last Man on the Moon</dt><dd>Astronaut Eugene Cernan's biography that he wrote with coauthor Don Davis.</dd>
+		<dt>Wise Blood</dt><dd>My suggestion for the Page to Screen book club, a novel by Flannery O'Connor.</dd>
+		<dt>As I Lay Dying</dt><dd>1930 novel by William Faulkner, set in Mississippi.</dd>
+		<dt><a href="https://standardebooks.org/ebooks/leo-tolstoy/hadji-murad/aylmer-maude">Hadji Murád</a></dt><dd>Leo Tolstoy's story as translated by Aylmer Maude.</dd>
+	</dl>
+	<p>Also during the semester I wrote an SVG to stylize the initials of the recreational math club. It's supposed to look similar to Escher's <cite>Circle Limit</cite> series, and is based on the surface of a <a href="https://en.wikipedia.org/wiki/Mucube">mucube</a> with a repeating pattern. The thinly outlined quadrilaterals are distorted square faces.</p>
+	<figure>
+		<img height="400" loading="lazy" src="periods/67f/o6_rmc.svg" alt="circular design featuring the letters RMC"/>
+	</figure>
+	<section class="projects art svg">
+		<h3>Granjon Boxes</h3>
+		<p>This month I started working on font which will recreate some of the typographical ornaments created by <a href="https://en.wikipedia.org/wiki/Robert_Granjon">Robert Granjon</a>. A few years ago, in an essay by <a href="https://elliotoffner.com/bio.html">Elliot Offner</a>, I was introduced to the following set of six pieces of moveable type which can serve as the building blocks for complex printed arabesques.</p>
+		<figure>
+			<img height="50" loading="lazy" src="periods/689/six-piece.png" alt="six decorative printed characters"/>
+		</figure>
+		<p>Offner published a book <cite>The Granjon Arabesque</cite></p>
+		<pre class="fl">╺┑┏╸╺┑┏╸╺┑┏╸╺┑┏╸
+┨┝┫├┨┝┫├┨┝┫├┨┝┫├
+┖╴╶┘┖╴╶┘┖╴╶┘┖╴╶┘</pre>
+		<p>The arrangement of Unicode box-drawing characters above is my recreation of a design featured on page 105 of <cite>Granjon's flowers</cite> by Hendrik D. L. Vervliet. The characters were traced in Inkscape, creating <a href="https://home.6t.lt/689/granjon-boxes.svg">an SVG</a> file, which was converted <a href="https://home.6t.lt/fonts/granjon-boxes.woff2">to WOFF2</a> using FontForge. So far, the <cite>Granjon Boxes</cite> font contains the characters <q><code>┑┘┖┏╺╸╷╻╴╶╹╵┝┫┬┰┨├┻┷</code></q> and the space character U+20.</p>
+		<p>If you're reading this on my website, you should be able to click or press down on the arrangements and reveal the typical box-drawing character designs by displaying them in the <cite><a href="https://www.kreativekorp.com/software/fonts/ksquare/">Kreative Square</a></cite> font.</p>
+		<pre class="fl">┬┨├┰┬┨ ┏┑ ├┰┬┨├┰
+┝┻┷┫┝┻ ┖┘ ┷┫┝┻┷┫</pre>
+		<p>The much more comprehensive font <cite><a href="https://www.juanjez.com/designing-a-revival-graveur/">Graveur</a></cite> by Juanjo López is based on the work of Robert Granjon and also includes some of these decorative characters.</p>
+	</section>
+	<section class="changelog">
+		<h3>Website Changes</h3>
+		<p>added sitemap, using cloudflare pages</p>
+	</section>
+	<section class="featured">
+		<p>Library window
+- svg art projects
+- link to mirror polygon
 
-</section>
-<form id="contact_687" target="_blank" action="https://formsubmit.co/e325235ad49c1cfbcf72c6b8a17f44ef" method="post"><p><label>Send a message to my email:
-<textarea name="message" required="1"></textarea></label><label>Select the string with two-fold rotational symmetry: <!-- "PODOBOQ, OSSDPSSO, PUSOSNB, UQPSDBN, UDBXQPU, QUPODNB, UQPODBN, OSXDPXSO" -->
-<select name="rotation"><option value="oSSdpSSo">pOdobOq</option><option value="pOdObOq">udbxqpu</option><option value="NbdspqU">uqpsdbn</option><option value="udboqpn">qUpodNb</option><option value="puSOSnb">pusosnb</option></select></label><br/><button type="submit">Submit</button>
-(you may be asked to complete a CAPTCHA)</p></form>
+s2s
+new note
+- use keyboard shortcut to copy data uri instead of link OR use 6t.lt
+- can I update query parameters upon refresh? then just refresh and bookmark to save</p>
+	</section>
+	<form id="contact_68a" target="_blank" action="https://formsubmit.co/e325235ad49c1cfbcf72c6b8a17f44ef" method="post">
+		<p><label>Send a message to my email: <textarea name="message" required="1"></textarea></label></p>
+		<p><button type="submit">Submit</button> (you may be asked to complete a CAPTCHA)</p>
+	</form>
+	<pre class="fl">┏╸╺┑
+╹╷╴╵
+╻╺╹╷
+┖╴╶┘</pre>
+</article>
+
+<!-- To retrieve an article, run the command "cat build/feed.json | jq '.items[1].content_html' -r | pbcopy" and paste next to this comment. -->
+
 </body>
 
 </html>

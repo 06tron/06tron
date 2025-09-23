@@ -14,6 +14,10 @@ aside {
 	width: max-content;
 }
 
+aside pre:not(.fl) {
+	max-width: calc(100vw - 9.4rem - 4px);
+}
+
 body {
 	font-family: "Avenir", "Segoe UI", sans-serif;
 	margin: 0 2rem 1rem;
@@ -98,7 +102,19 @@ p {
 	overflow-wrap: break-word;
 }
 
-pre {
+pre.fl {
+	font-family: "Granjon Boxes", monospace;
+	font-size: min(3.75rem, (100vw - 4rem) / 16);
+	line-height: 1;
+	margin: 0;
+	text-align: center;
+}
+
+pre.fl:active {
+	font-family: "Kreative Square", monospace;
+}
+
+pre:not(.fl) {
 	background-color: color-mix(in srgb-linear, #808080, Canvas 90%);
 	border: 2px solid;
 	font-size: larger;
@@ -126,6 +142,10 @@ section.featured h3 {
 
 section.featured p:last-child {
 	margin-bottom: 0;
+}
+
+section.featured pre:not(.fl) {
+	max-width: min(56.6rem - 34px, 100vw - 7.4rem - 34px);
 }
 
 span.fl {

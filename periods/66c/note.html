@@ -6,27 +6,42 @@
 	<meta charset="utf-8">
 	<meta name="author" content="https://orcid.org/0009-0001-0977-2029">
 	<meta name="color-scheme" content="dark light">
-	<meta name="description" content="A text area for short notes. Designed to be downloaded so that &quot;file:///note.html?s=export+to+txt&quot; can be bookmarked.">
+	<meta name="description" content="A text area for short notes. Designed to be downloaded so that &quot;file:///note.html&quot; can be bookmarked. You can also bookmark a data URI containing your own version of the html. Ex: [data:text/html,%3Chead%3E%3Ctitle%3EUnsaved%20Note%3C/title%3E%3C/head%3E%3Cbody%20contenteditable=%22plaintext-only%22%20style=%22font-family:monospace;line-height:1.4;padding:4rem;%22%3E%3C/body%3E].">
 	<meta name="viewport" content="width=device-width">
 </head>
 
-<body id="note" contenteditable="true" style="font-family:Courier,monospace; line-height:1.4; padding:4em">
-	<br>
-	<div contenteditable="false" style="position:fixed; top:1em; right:1em">
-		<a id="export" target="_blank" href="data:,your_text_here" style="color:CanvasText"></a>
-	</div>
+<body style="font-family:monospace;margin:0;position:relative">
+	<p id="note" title="Press Alt or Option to toggle text wrapping, and Ctrl+C or Command+C for a data URI containing the text." contenteditable="plaintext-only" style="line-height:1.4;margin:0;min-height:calc(100vh - 8rem);overflow-wrap:break-word;overflow-x:auto;padding:4rem;white-space:pre"><br/></p>
+	<p id="notice" style="margin:0;opacity:0;position:absolute;top:1rem;transition:opacity 0.2s ease-out;right:1rem;z-index:-1">Copied data URI to clipboard</p>
 	<script>
 		const note = document.getElementById("note");
-		const link = document.getElementById("export");
+		const notice = document.getElementById("notice");
+		if (new URLSearchParams(window.location.search).get("no-title") !== null) {
+			note.removeAttribute("title");
+		}
 		note.focus();
-		link.innerText = new URLSearchParams(window.location.search).get('s') ?? "save";
-		link.addEventListener("click", function () {
-			const text = note.innerText.slice(0, -(link.innerText.length + 2));
-			link.href = "data:text/plain;charset=UTF-8," + encodeURI(text).replaceAll("#", "%23");
+		document.addEventListener("keydown", function (event) {
+			if (event.altKey) {
+				note.style.whiteSpace = (note.style.whiteSpace == "pre") ? "pre-wrap" : "pre";
+				return;
+			}
+			if (event.key.toLowerCase() != "c") {
+				return;
+			}
+			if (!event.ctrlKey && !event.metaKey) {
+				return;
+			}
+			if (window.getSelection().toString().length > 0) {
+				return;
+			}
+			const content = encodeURI(note.textContent).replaceAll("#", "%23");
+			navigator.clipboard.writeText("data:text/plain;charset=UTF-8," + content);
+			notice.style.opacity = "1";
+			setTimeout(function () {
+				notice.style.opacity = "0";
+			}, 1800);
 		});
 	</script>
 </body>
-
-<!-- You can also bookmark a data url with your own version of the html: data:text/html,<head><title>Unsaved Note</title></head><body contenteditable="plaintext-only" style="font-family:Courier,monospace;line-height:1.4;padding:4em;"></body> -->
 
 </html>
