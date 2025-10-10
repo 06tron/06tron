@@ -8,6 +8,30 @@
 	<meta name="color-scheme" content="light dark">
 	<meta name="description" content="HTML passed through the 'b' query parameter is sanitized and then copied into the body of this page.">
 	<meta name="viewport" content="width=device-width">
+	<style>
+		@font-face {
+			font-family: "EB Garamond";
+			font-style: normal;
+			src: url("../fonts/eb-garamond-normal.woff") format("woff");
+		}
+		@font-face {
+			font-family: "EB Garamond";
+			font-style: italic;
+			src: url("../fonts/eb-garamond-italic.woff") format("woff");
+		}
+		@font-face {
+			font-family: "Granjon Boxes";
+			src: url("../fonts/granjon-boxes.woff2") format("woff2");
+		}
+		@font-face {
+			font-family: "Kreative Square";
+			src: url("../fonts/kreative-square-boxes.woff2") format("woff2");
+		}
+		body {
+			margin: 0;
+			min-width: min-content;
+		}
+	</style>
 </head>
 
 <body>
@@ -32,11 +56,21 @@
 			return str?.replace(new RegExp(`[${m.replace(/[\\^\]-]/g, "\\$&")}]`, "g"), char => m.charAt(m.length - m.indexOf(char) - 1));
 		}
 
+		DOMPurify.addHook("uponSanitizeAttribute", function (node, data) {
+			if (node.tagName === "A") {
+				const valStart = data.attrValue.trimStart().slice(0, 15);
+				if (valStart.startsWith("data:") && valStart !== "data:text/vcard") {
+					data.keepAttr = false;
+				}
+			}
+		});
+
 		const query = new URLSearchParams(window.location.search);
 		const input = query.get("b")
 			?? charSwap(query.get("h"), query.get("m") ?? `&"><'%X\tZ\n$~()*@`)
 			?? document.querySelector('meta[name="description"]').content + ` You might also be looking for this website's <a href="https://home.6t.lt">homepage</a>.`;
-		document.body.innerHTML = DOMPurify.sanitize(input);
+		document.body.innerHTML = DOMPurify.sanitize(input, { ADD_DATA_URI_TAGS: ["a"] });
+		
 	</script>
 </body>
 
