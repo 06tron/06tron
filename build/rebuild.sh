@@ -18,6 +18,7 @@ do
 	(cd "$line" && tree -H './' -I '*index.html' --hintro=../../../sitemap.html -o index.html) # 45
 done
 (cd home/icons && tree -H './' -I '*index.html' --hintro=../../sitemap.html -o index.html) # 48
+(cd home/fonts && tree -H './' -I '*index.html' --hintro=../../sitemap.html -o index.html) # 49
 mv home/periods/* home && rm -r home/periods # 50
 cp mirror.html home/shortcuts/index.html # 60
 mkdir home/sitemap # 80

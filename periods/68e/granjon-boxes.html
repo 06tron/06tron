@@ -2,9 +2,9 @@
 <html lang="en">
 
 <head>
-	<title>Granjon Boxes Specimen</title>
+	<title>Z₂ Granjon Boxes</title>
 	<meta name="author" content="https://orcid.org/0009-0001-0977-2029">
-	<meta name="color-scheme" content="light">
+	<meta name="color-scheme" content="dark light">
 	<meta name="description" content="A list of all characters present in the Granjon Boxes font.">
 	<meta name="viewport" content="width=device-width">
 	<style>
@@ -22,16 +22,48 @@
 		th {
 			text-align: left;
 		}
-		tr td:nth-child(1) {
+		table.spec tr td:nth-child(1) {
 			font-family: monospace;
 		}
-		tr td:nth-child(2) {
+		table.spec tr td:nth-child(2) {
 			font-family: "Kreative Square";
 			font-size: 1.2rem;
 		}
-		tr td:nth-child(3) {
+		table.spec tr td:nth-child(3) {
 			font-family: "Granjon Boxes";
 			font-size: 1.2rem;
+		}
+		table.spec {
+			counter-reset: desc-number;
+		}
+		table.spec tr td.desc::before {
+			counter-increment: desc-number;
+			content: counter(desc-number) ". ";
+		}
+		table.adj {
+			border-spacing: 0;
+			width: 100%;
+		}
+		table.adj tr td {
+			text-align: center;
+		}
+		table.adj tr:nth-child(2n+1) td {
+			font-family: "Kreative Square";
+			font-size: 2rem;
+			padding-bottom: 0.7rem;
+			text-decoration: light-dark(#EEE, rgba(187, 187, 187, 0.25)) underline;
+			text-underline-offset: 0.7rem;
+		}
+		table.adj tr:nth-child(2n+2) {
+			font-family: "Granjon Boxes";
+			font-size: 10vw;
+			line-height: 1;
+		}
+		table.adj tr:nth-child(4n+1) td:nth-child(2n+1),
+		table.adj tr:nth-child(4n+2) td:nth-child(2n+1),
+		table.adj tr:nth-child(4n+3) td:nth-child(2n+2),
+		table.adj tr:nth-child(4n+4) td:nth-child(2n+2) {
+			background-color: rgba(115, 115, 115, 0.25);
 		}
 		.v42ef,
 		.r21-c,
@@ -44,8 +76,9 @@
 		.v42g,
 		.edge-var-2,
 		.v42cdg,
-		.right-angle { /* first */
-			background-color: Lavender;
+		.right-angle,
+		.stripe { /* first */
+			background-color: rgba(155, 155, 235, 0.25);
 		}
 		.r21-v,
 		.r21-vc,
@@ -54,55 +87,63 @@
 		.skew-corner,
 		.three-way-1,
 		.four-way-1 { /* second */
-			background-color: PapayaWhip;
+			background-color: rgba(255, 191, 87, 0.25);
 		}
 		.block-diag,
 		.v42ab,
 		.r21-hc,
 		.three-way-2,
 		.v96 { /* third */
-			background-color: LightCyan;
+			background-color: rgba(131, 255, 255, 0.25);
 		}
 		.block-3,
 		.r21-hv,
 		.three-way-3,
 		.four-way-3 { /* fourth */
-			background-color: MistyRose;
+			background-color: rgba(255, 147, 135, 0.25);
 		}
-		.single {
-			background-color: HoneyDew;
+		.four-way-4 {
+			background-color: rgba(255, 255, 195, 0.25);
+		}
+		.single,
+		.stripe-cross {
+			background-color: rgba(195, 255, 195, 0.25);
+		}
+		details summary {
+			font-size: x-large;
+			font-weight: bold;
+			margin: 1rem;
 		}
 	</style>
 </head>
 
 <body>
-<h1>Granjon Boxes</h1>
+<h1>Z<sub style="font-size: large">2</sub> Granjon Boxes</h1>
 <p>This table was adapted from webpages provided by Unicode for the <a href="https://unicode.org/charts/nameslist/n_2500.html">Box Drawing</a> and <a href="https://unicode.org/charts/nameslist/n_1CC00.html">Symbols for Legacy Computing Supplement</a> blocks.</p>
-<table>
-<tbody>
+<table class="spec"><tbody>
 <tr><th colspan="4"><h2>Box Drawing</h2></th></tr>
 
 <tr><th colspan="4">Light and heavy solid lines</th></tr>
-<tr class="v42g"><td>2500</td><td>─</td><td>─</td><td>Box Drawings Light Horizontal</td><td>TBA</td></tr>
+<tr class="v42g"><td>2500</td><td>─</td><td>─</td><td>Box Drawings Light Horizontal</td><td class="desc">Half of entry 42 unit <var>g</var> in <cite>Granjon's flowers</cite> by Hendrik D. L. Vervliet.</td></tr>
 <tr class="v42g"><td>2501</td><td>━</td><td>━</td><td>Box Drawings Heavy Horizontal</td></tr>
 <tr class="v42g"><td>2502</td><td>│</td><td>│</td><td>Box Drawings Light Vertical</td></tr>
 <tr class="v42g"><td>2503</td><td>┃</td><td>┃</td><td>Box Drawings Heavy Vertical</td></tr>
 
 <tr><th colspan="4">Light and heavy dashed lines</th></tr>
-<tr class="edge-var-2"><td>2504</td><td>┄</td><td>┄</td><td>Box Drawings Light Triple Dash Horizontal</td><td>TBA</td></tr>
+<tr class="edge-var-2"><td>2504</td><td>┄</td><td>┄</td><td>Box Drawings Light Triple Dash Horizontal</td><td class="desc">TBA</td></tr>
 <tr class="edge-var-2"><td>2505</td><td>┅</td><td>┅</td><td>Box Drawings Heavy Triple Dash Horizontal</td></tr>
 <tr class="edge-var-2"><td>2506</td><td>┆</td><td>┆</td><td>Box Drawings Light Triple Dash Vertical</td></tr>
 <tr class="edge-var-2"><td>2507</td><td>┇</td><td>┇</td><td>Box Drawings Heavy Triple Dash Vertical</td></tr>
-<tr class="edge-var-3"><td>2508</td><td>┈</td><td>┈</td><td>Box Drawings Light Quadruple Dash Horizontal</td><td>TBA</td></tr>
+<tr class="edge-var-3"><td>2508</td><td>┈</td><td>┈</td><td>Box Drawings Light Quadruple Dash Horizontal</td><td class="desc">TBA</td></tr>
 <tr class="edge-var-3"><td>2509</td><td>┉</td><td>┉</td><td>Box Drawings Heavy Quadruple Dash Horizontal</td></tr>
 <tr class="edge-var-3"><td>250A</td><td>┊</td><td>┊</td><td>Box Drawings Light Quadruple Dash Vertical</td></tr>
 <tr class="edge-var-3"><td>250B</td><td>┋</td><td>┋</td><td>Box Drawings Heavy Quadruple Dash Vertical</td></tr>
 
 <tr><th colspan="4">Light and heavy line box components (two-way)</th></tr>
-<tr class="v42g"><td>250C</td><td>┌</td><td>┌</td><td>Box Drawings Light Down And Right</td><td>TBA</td></tr>
-<tr class="skew-corner"><td>250D</td><td>┍</td><td>┍</td><td>Box Drawings Down Light And Right Heavy</td><td>TBA</td></tr>
+<tr class="v42g"><td>250C</td><td>┌</td><td>┌</td><td>Box Drawings Light Down And Right</td><td class="desc">Two halves of entry 42 unit <var>g</var> in <cite>Granjon's flowers</cite> forming a corner.</td></tr>
+<tr class="skew-corner"><td>250D</td><td>┍</td><td>┍</td><td>Box Drawings Down Light And Right Heavy</td><td class="desc">TBA</td></tr>
 <tr class="skew-corner"><td>250E</td><td>┎</td><td>┎</td><td>Box Drawings Down Heavy And Right Light</td></tr>
-<tr class="v42ab"><td>250F</td><td>┏</td><td>┏</td><td>Box Drawings Heavy Down And Right</td><td>TBA</td></tr>
+<tr class="v42ab"><td>250F</td><td>┏</td><td>┏</td><td>Box Drawings Heavy Down And Right</td><td class="desc">Entry 42 unit <var>a</var> in <cite>Granjon's flowers</cite>.</td></tr>
 <tr class="skew-corner"><td>2510</td><td>┐</td><td>┐</td><td>Box Drawings Light Down And Left</td></tr>
 <tr class="v42ab"><td>2511</td><td>┑</td><td>┑</td><td>Box Drawings Down Light And Left Heavy</td></tr>
 <tr class="v42g"><td>2512</td><td>┒</td><td>┒</td><td>Box Drawings Down Heavy And Left Light</td></tr>
@@ -117,11 +158,11 @@
 <tr class="v42g"><td>251B</td><td>┛</td><td>┛</td><td>Box Drawings Heavy Up And Left</td></tr>
 
 <tr><th colspan="4">Light and heavy line box components (three-way)</th></tr>
-<tr class="v42cdg"><td>251C</td><td>├</td><td>├</td><td>Box Drawings Light Vertical And Right</td><td>TBA</td></tr>
+<tr class="v42cdg"><td>251C</td><td>├</td><td>├</td><td>Box Drawings Light Vertical And Right</td><td class="desc">Unit <var>c</var> or <var>d</var> combined with half of unit <var>g</var>. All from entry 42 in <cite>Granjon's flowers</cite>.</td></tr>
 <tr class="v42cdg"><td>251D</td><td>┝</td><td>┝</td><td>Box Drawings Vertical Light And Right Heavy</td></tr>
-<tr class="three-way-1"><td>251E</td><td>┞</td><td>┞</td><td>Box Drawings Up Heavy And Right Down Light</td><td>TBA</td></tr>
-<tr class="three-way-2"><td>251F</td><td>┟</td><td>┟</td><td>Box Drawings Down Heavy And Right Up Light</td><td>TBA</td></tr>
-<tr class="three-way-3"><td>2520</td><td>┠</td><td>┠</td><td>Box Drawings Vertical Heavy And Right Light</td><td>TBA</td></tr>
+<tr class="three-way-1"><td>251E</td><td>┞</td><td>┞</td><td>Box Drawings Up Heavy And Right Down Light</td><td class="desc">TBA</td></tr>
+<tr class="three-way-2"><td>251F</td><td>┟</td><td>┟</td><td>Box Drawings Down Heavy And Right Up Light</td><td class="desc">TBA</td></tr>
+<tr class="three-way-3"><td>2520</td><td>┠</td><td>┠</td><td>Box Drawings Vertical Heavy And Right Light</td><td class="desc">TBA</td></tr>
 <tr class="three-way-2"><td>2521</td><td>┡</td><td>┡</td><td>Box Drawings Down Light And Right Up Heavy</td></tr>
 <tr class="three-way-1"><td>2522</td><td>┢</td><td>┢</td><td>Box Drawings Up Light And Right Down Heavy</td></tr>
 <tr class="three-way-3"><td>2523</td><td>┣</td><td>┣</td><td>Box Drawings Heavy Vertical And Right</td></tr>
@@ -151,51 +192,55 @@
 <tr class="v42cdg"><td>253B</td><td>┻</td><td>┻</td><td>Box Drawings Heavy Up And Horizontal</td></tr>
 
 <tr><th colspan="4">Light and heavy line box components (four-way)</th></tr>
-<tr class="right-angle"><td>253C</td><td>┼</td><td>┼</td><td>Box Drawings Light Vertical And Horizontal</td><td>A corner connector.</td></tr>
-<tr class="four-way-1"><td>253D</td><td>┽</td><td>┽</td><td>Box Drawings Left Heavy And Right Vertical Light</td><td>TBA</td></tr>
+<tr class="right-angle"><td>253C</td><td>┼</td><td>┼</td><td>Box Drawings Light Vertical And Horizontal</td><td class="desc">A small corner to pair with units from entry 42 in <cite>Granjon's flowers</cite>.</td></tr>
+<tr class="four-way-1"><td>253D</td><td>┽</td><td>┽</td><td>Box Drawings Left Heavy And Right Vertical Light</td><td class="desc">TBA</td></tr>
 <tr class="four-way-1"><td>253E</td><td>┾</td><td>┾</td><td>Box Drawings Right Heavy And Left Vertical Light</td></tr>
 <tr class="right-angle"><td>253F</td><td>┿</td><td>┿</td><td>Box Drawings Vertical Light And Horizontal Heavy</td></tr>
 <tr class="four-way-1"><td>2540</td><td>╀</td><td>╀</td><td>Box Drawings Up Heavy And Down Horizontal Light</td></tr>
 <tr class="four-way-1"><td>2541</td><td>╁</td><td>╁</td><td>Box Drawings Down Heavy And Up Horizontal Light</td></tr>
 <tr class="right-angle"><td>2542</td><td>╂</td><td>╂</td><td>Box Drawings Vertical Heavy And Horizontal Light</td></tr>
-<tr class="v96"><td>2543</td><td>╃</td><td>╃</td><td>Box Drawings Left Up Heavy And Right Down Light</td><td>Entry 96 in <cite>Granjon's flowers</cite> split into two quarters.</td></tr>
-<tr class="four-way-3"><td>2544</td><td>╄</td><td>╄</td><td>Box Drawings Right Up Heavy And Left Down Light</td><td>TBA</td></tr>
-<tr class="four-way-3"><td>2545</td><td>╅</td><td>╅</td><td>Box Drawings Left Down Heavy And Right Up Light</td></tr>
+<tr class="v96"><td>2543</td><td>╃</td><td>╃</td><td>Box Drawings Left Up Heavy And Right Down Light</td><td class="desc">Entry 96 in <cite>Granjon's flowers</cite> split into two quarters.</td></tr>
+<tr class="four-way-3"><td>2544</td><td>╄</td><td>╄</td><td>Box Drawings Right Up Heavy And Left Down Light</td><td class="desc">TBA</td></tr>
+<tr class="four-way-4"><td>2545</td><td>╅</td><td>╅</td><td>Box Drawings Left Down Heavy And Right Up Light</td><td class="desc">TBA</td></tr>
 <tr class="v96"><td>2546</td><td>╆</td><td>╆</td><td>Box Drawings Right Down Heavy And Left Up Light</td></tr>
 <tr class="four-way-1"><td>2547</td><td>╇</td><td>╇</td><td>Box Drawings Down Light And Up Horizontal Heavy</td></tr>
 <tr class="four-way-1"><td>2548</td><td>╈</td><td>╈</td><td>Box Drawings Up Light And Down Horizontal Heavy</td></tr>
 <tr class="four-way-1"><td>2549</td><td>╉</td><td>╉</td><td>Box Drawings Right Light And Left Vertical Heavy</td></tr>
 <tr class="four-way-1"><td>254A</td><td>╊</td><td>╊</td><td>Box Drawings Left Light And Right Vertical Heavy</td></tr>
 <tr class="right-angle"><td>254B</td><td>╋</td><td>╋</td><td>Box Drawings Heavy Vertical And Horizontal</td></tr>
+<tr class="v96"><td>E000</td><td></td><td></td><td>PUA Left Up Heavy Arc And Right Down Light Arc</td></tr>
+<tr class="four-way-4"><td>E001</td><td></td><td></td><td>PUA Right Up Heavy Arc And Left Down Light Arc</td></tr>
+<tr class="four-way-3"><td>E002</td><td></td><td></td><td>PUA Left Down Heavy Arc And Right Up Light Arc</td></tr>
+<tr class="v96"><td>E003</td><td></td><td></td><td>PUA Right Down Heavy Arc And Left Up Light Arc</td></tr>
 
 <tr><th colspan="4">Light and heavy dashed lines</th></tr>
-<tr class="edge-var-1"><td>254C</td><td>╌</td><td>╌</td><td>Box Drawings Light Double Dash Horizontal</td><td>TBA</td></tr>
+<tr class="edge-var-1"><td>254C</td><td>╌</td><td>╌</td><td>Box Drawings Light Double Dash Horizontal</td><td class="desc">TBA</td></tr>
 <tr class="edge-var-1"><td>254D</td><td>╍</td><td>╍</td><td>Box Drawings Heavy Double Dash Horizontal</td></tr>
 <tr class="edge-var-1"><td>254E</td><td>╎</td><td>╎</td><td>Box Drawings Light Double Dash Vertical</td></tr>
 <tr class="edge-var-1"><td>254F</td><td>╏</td><td>╏</td><td>Box Drawings Heavy Double Dash Vertical</td></tr>
 
 <tr><th colspan="4">Double lines</th></tr>
-<tr class="r21-h"><td>2550</td><td>═</td><td>═</td><td>Box Drawings Double Horizontal</td><td>Two full copies of a Venetian arabesque featured on page 21 of <cite>A Suite of Fleurons</cite>.</td></tr>
-<tr class="r21-v"><td>2551</td><td>║</td><td>║</td><td>Box Drawings Double Vertical</td><td>One full, two halves.</td></tr>
+<tr class="r21-h"><td>2550</td><td>═</td><td>═</td><td>Box Drawings Double Horizontal</td><td class="desc">Two full copies of a Venetian arabesque featured on page 21 of <cite>A Suite of Fleurons</cite>.</td></tr>
+<tr class="r21-v"><td>2551</td><td>║</td><td>║</td><td>Box Drawings Double Vertical</td><td class="desc">One full, two halves.</td></tr>
 
 <tr><th colspan="4">Double line box components</th></tr>
-<tr class="r21-c"><td>2554</td><td>╔</td><td>╔</td><td>Box Drawings Double Down And Right</td><td>One full, one half, two lozenges.</td></tr>
+<tr class="r21-c"><td>2554</td><td>╔</td><td>╔</td><td>Box Drawings Double Down And Right</td><td class="desc">One full, one half, two lozenges.</td></tr>
 <tr class="r21-c"><td>2557</td><td>╗</td><td>╗</td><td>Box Drawings Double Down And Left</td></tr>
 <tr class="r21-c"><td>255A</td><td>╚</td><td>╚</td><td>Box Drawings Double Up And Right</td></tr>
 <tr class="r21-c"><td>255D</td><td>╝</td><td>╝</td><td>Box Drawings Double Up And Left</td></tr>
-<tr class="r21-vc"><td>2560</td><td>╠</td><td>╠</td><td>Box Drawings Double Vertical And Right</td><td>One full, two halves, three lozenges.</td></tr>
+<tr class="r21-vc"><td>2560</td><td>╠</td><td>╠</td><td>Box Drawings Double Vertical And Right</td><td class="desc">One full, two halves, three lozenges.</td></tr>
 <tr class="r21-vc"><td>2563</td><td>╣</td><td>╣</td><td>Box Drawings Double Vertical And Left</td></tr>
-<tr class="r21-hc"><td>2566</td><td>╦</td><td>╦</td><td>Box Drawings Double Down And Horizontal</td><td>Two full, one half, one lozenge.</td></tr>
+<tr class="r21-hc"><td>2566</td><td>╦</td><td>╦</td><td>Box Drawings Double Down And Horizontal</td><td class="desc">Two full, one half, one lozenge.</td></tr>
 <tr class="r21-hc"><td>2569</td><td>╩</td><td>╩</td><td>Box Drawings Double Up And Horizontal</td></tr>
-<tr class="r21-hv"><td>256C</td><td>╬</td><td>╬</td><td>Box Drawings Double Vertical And Horizontal</td><td>Two full, two halves, two lozenges.</td></tr>
+<tr class="r21-hv"><td>256C</td><td>╬</td><td>╬</td><td>Box Drawings Double Vertical And Horizontal</td><td class="desc">Two full, two halves, two lozenges.</td></tr>
 
 <tr><th colspan="4">Character cell diagonals</th></tr>
-<tr class="two-corner"><td>2571</td><td>╱</td><td>╱</td><td>Box Drawings Light Diagonal Upper Right To Lower Left</td><td>TBA</td></tr>
+<tr class="two-corner"><td>2571</td><td>╱</td><td>╱</td><td>Box Drawings Light Diagonal Upper Right To Lower Left</td><td class="desc">TBA</td></tr>
 <tr class="two-corner"><td>2572</td><td>╲</td><td>╲</td><td>Box Drawings Light Diagonal Upper Left To Lower Right</td></tr>
-<tr class="single"><td>2573</td><td>╳</td><td>╳</td><td>Box Drawings Light Diagonal Cross</td><td>TBA</td></tr>
+<tr class="single"><td>2573</td><td>╳</td><td>╳</td><td>Box Drawings Light Diagonal Cross</td><td class="desc">TBA</td></tr>
 
 <tr><th colspan="4">Light and heavy half lines</th></tr>
-<tr class="v42ef"><td>2574</td><td>╴</td><td>╴</td><td>Box Drawings Light Left</td><td>TBA</td></tr>
+<tr class="v42ef"><td>2574</td><td>╴</td><td>╴</td><td>Box Drawings Light Left</td><td class="desc">Entry 42 unit <var>e</var> or <var>f</var> in <cite>Granjon's flowers</cite>.</td></tr>
 <tr class="v42ef"><td>2575</td><td>╵</td><td>╵</td><td>Box Drawings Light Up</td></tr>
 <tr class="v42ef"><td>2576</td><td>╶</td><td>╶</td><td>Box Drawings Light Right</td></tr>
 <tr class="v42ef"><td>2577</td><td>╷</td><td>╷</td><td>Box Drawings Light Down</td></tr>
@@ -205,7 +250,7 @@
 <tr class="v42ef"><td>257B</td><td>╻</td><td>╻</td><td>Box Drawings Heavy Down</td></tr>
 
 <tr><th colspan="4">Mixed light and heavy lines</th></tr>
-<tr class="across"><td>257C</td><td>╼</td><td>╼</td><td>Box Drawings Light Left And Heavy Right</td><td>TBA</td></tr>
+<tr class="across"><td>257C</td><td>╼</td><td>╼</td><td>Box Drawings Light Left And Heavy Right</td><td class="desc">TBA</td></tr>
 <tr class="across"><td>257D</td><td>╽</td><td>╽</td><td>Box Drawings Light Up And Heavy Down</td></tr>
 <tr class="across"><td>257E</td><td>╾</td><td>╾</td><td>Box Drawings Heavy Left And Light Right</td></tr>
 <tr class="across"><td>257F</td><td>╿</td><td>╿</td><td>Box Drawings Heavy Up And Light Down</td></tr>
@@ -213,13 +258,13 @@
 <tr><th colspan="4"><h2>Symbols for Legacy Computing Supplement</h2></th></tr>
 
 <tr><th colspan="4">Separated mosaic terminal graphic characters</th></tr>
-<tr class="r31"><td>1CC21</td><td>𜰡</td><td>𜰡</td><td>Separated Block Quadrant-1</td><td>A Lyonnaise arabesque featured on page 31 of <cite>A Suite of Fleurons</cite>.</td></tr>
+<tr class="r31"><td>1CC21</td><td>𜰡</td><td>𜰡</td><td>Separated Block Quadrant-1</td><td class="desc">A Lyonnaise arabesque featured on page 31 of <cite>A Suite of Fleurons</cite>.</td></tr>
 <tr class="r31"><td>1CC22</td><td>𜰢</td><td>𜰢</td><td>Separated Block Quadrant-2</td></tr>
-<tr class="block-side"><td>1CC23</td><td>𜰣</td><td>𜰣</td><td>Separated Block Quadrant-12</td><td>TBA</td></tr>
+<tr class="block-side"><td>1CC23</td><td>𜰣</td><td>𜰣</td><td>Separated Block Quadrant-12</td><td class="desc">TBA</td></tr>
 <tr class="r31"><td>1CC24</td><td>𜰤</td><td>𜰤</td><td>Separated Block Quadrant-3</td></tr>
 <tr class="block-side"><td>1CC25</td><td>𜰥</td><td>𜰥</td><td>Separated Block Quadrant-13</td></tr>
-<tr class="block-diag"><td>1CC26</td><td>𜰦</td><td>𜰦</td><td>Separated Block Quadrant-23</td><td>TBA</td></tr>
-<tr class="block-3"><td>1CC27</td><td>𜰧</td><td>𜰧</td><td>Separated Block Quadrant-123</td><td>TBA</td></tr>
+<tr class="block-diag"><td>1CC26</td><td>𜰦</td><td>𜰦</td><td>Separated Block Quadrant-23</td><td class="desc">TBA</td></tr>
+<tr class="block-3"><td>1CC27</td><td>𜰧</td><td>𜰧</td><td>Separated Block Quadrant-123</td><td class="desc">TBA</td></tr>
 <tr class="r31"><td>1CC28</td><td>𜰨</td><td>𜰨</td><td>Separated Block Quadrant-4</td></tr>
 <tr class="block-diag"><td>1CC29</td><td>𜰩</td><td>𜰩</td><td>Separated Block Quadrant-14</td></tr>
 <tr class="block-side"><td>1CC2A</td><td>𜰪</td><td>𜰪</td><td>Separated Block Quadrant-24</td></tr>
@@ -227,10 +272,10 @@
 <tr class="block-side"><td>1CC2C</td><td>𜰬</td><td>𜰬</td><td>Separated Block Quadrant-34</td></tr>
 <tr class="block-3"><td>1CC2D</td><td>𜰭</td><td>𜰭</td><td>Separated Block Quadrant-134</td></tr>
 <tr class="block-3"><td>1CC2E</td><td>𜰮</td><td>𜰮</td><td>Separated Block Quadrant-234</td></tr>
-<tr class="single"><td>1CC2F</td><td>𜰯</td><td>𜰯</td><td>Separated Block Quadrant-1234</td><td>TBA</td></tr>
+<tr class="single"><td>1CC2F</td><td>𜰯</td><td>𜰯</td><td>Separated Block Quadrant-1234</td><td class="desc">TBA</td></tr>
 
 <tr><th colspan="4">Circle segments</th></tr>
-<tr class="v45"><td>1CC31</td><td>𜰱</td><td>𜰱</td><td>Upper Centre Left Twelfth Circle</td><td>Entry 45 in <cite>Granjon's flowers</cite> combined with the <a href="https://www.alphabettes.org/marina-loves-the-kaba-ornament/">Kaba ornament</a> designed by Bram de Does.</td></tr>
+<tr class="v45"><td>1CC31</td><td>𜰱</td><td>𜰱</td><td>Upper Centre Left Twelfth Circle</td><td class="desc">Entry 45 in <cite>Granjon's flowers</cite> combined with the <a href="https://www.alphabettes.org/marina-loves-the-kaba-ornament/">Kaba ornament</a> designed by Bram de Does.</td></tr>
 <tr class="v45"><td>1CC32</td><td>𜰲</td><td>𜰲</td><td>Upper Centre Right Twelfth Circle</td></tr>
 <tr class="v45"><td>1CC34</td><td>𜰴</td><td>𜰴</td><td>Upper Middle Left Twelfth Circle</td></tr>
 <tr class="v45"><td>1CC37</td><td>𜰷</td><td>𜰷</td><td>Upper Middle Right Twelfth Circle</td></tr>
@@ -238,8 +283,108 @@
 <tr class="v45"><td>1CC3B</td><td>𜰻</td><td>𜰻</td><td>Lower Middle Right Twelfth Circle</td></tr>
 <tr class="v45"><td>1CC3D</td><td>𜰽</td><td>𜰽</td><td>Lower Centre Left Twelfth Circle</td></tr>
 <tr class="v45"><td>1CC3E</td><td>𜰾</td><td>𜰾</td><td>Lower Centre Right Twelfth Circle</td></tr>
-</tbody>
-</table>
+
+<tr><th colspan='4'>Fill characters</th></tr>
+<tr class="stripe"><td>1CC40</td><td>𜱀</td><td>𜱀</td><td>Sparse Horizontal Fill</td><td class="desc">TBA</td></tr>
+<tr class="stripe"><td>1CC41</td><td>𜱁</td><td>𜱁</td><td>Sparse Vertical Fill</td></tr>
+<tr class="stripe-cross"><td>1CC42</td><td>𜱂</td><td>𜱂</td><td>Orthogonal Crosshatch Fill</td><td class="desc">TBA</td></tr>
+</tbody></table>
+
+<details>
+<summary>Adjacency</summary>
+<table class="adj"><tbody>
+<tr><td>──</td><td>─│</td><td>┃│</td><td>─┏</td></tr><!-- A1 A1 A2 B1 -->
+<tr><td>──</td><td>─│</td><td>┃│</td><td>─┏</td></tr>
+
+<tr><td>─┑</td><td>─┖</td><td>─┘</td><td>┃┏</td></tr><!-- B1 B1 B1 B2 -->
+<tr><td>─┑</td><td>─┖</td><td>─┘</td><td>┃┏</td></tr>
+
+<tr><td>┃┑</td><td>┏┏</td><td>┏┑</td><td>┏┖</td></tr><!-- B2 C1 C1 C1 -->
+<tr><td>┃┑</td><td>┏┏</td><td>┏┑</td><td>┏┖</td></tr>
+
+<tr><td>┏┘</td><td>┑┏</td><td>┑┖</td><td>┏┨</td></tr><!-- C1 C2 C2 D1 -->
+<tr><td>┏┘</td><td>┑┏</td><td>┑┖</td><td>┏┨</td></tr>
+
+<tr><td>┏┫</td><td>┏┬</td><td>┏┰</td><td>┏┷</td></tr><!-- D1 D1 D1 D1 -->
+<tr><td>┏┫</td><td>┏┬</td><td>┏┰</td><td>┏┷</td></tr>
+
+<tr><td>┏┻</td><td>┑┨</td><td>┑┫</td><td>┑┬</td></tr><!-- D1 D2 D2 D2 -->
+<tr><td>┏┻</td><td>┑┨</td><td>┑┫</td><td>┑┬</td></tr>
+
+<tr><td>┑┰</td><td>┑┷</td><td>┑┻</td><td>├┨</td></tr><!-- D2 D2 D2 E1 -->
+<tr><td>┑┰</td><td>┑┷</td><td>┑┻</td><td>├┨</td></tr>
+
+<tr><td>├┫</td><td>├┬</td><td>├┰</td><td>├┷</td></tr><!-- E1 E1 E1 E1 -->
+<tr><td>├┫</td><td>├┬</td><td>├┰</td><td>├┷</td></tr>
+
+<tr><td>├┻</td><td>┬┬</td><td>┬┰</td><td>┬┷</td></tr><!-- E1 E2 E2 E2 -->
+<tr><td>├┻</td><td>┬┬</td><td>┬┰</td><td>┬┷</td></tr>
+
+<tr><td>┬┻</td><td>┰┬</td><td>┰┷</td><td>├─</td></tr><!-- E2 E3 E3 F1 -->
+<tr><td>┬┻</td><td>┰┬</td><td>┰┷</td><td>├─</td></tr>
+
+<tr><td>├━</td><td>├│</td><td>┬─</td><td>┬━</td></tr><!-- F1 F1 F2 F2 -->
+<tr><td>├━</td><td>├│</td><td>┬─</td><td>┬━</td></tr>
+
+<tr><td>┬│</td><td>┰─</td><td>┰━</td><td>┰│</td></tr><!-- F2 F3 F3 F3 -->
+<tr><td>┬│</td><td>┰─</td><td>┰━</td><td>┰│</td></tr>
+
+<tr><td>─╴</td><td>─╵</td><td>─╶</td><td>─╷</td></tr><!-- G1 G1 G1 G1 -->
+<tr><td>─╴</td><td>─╵</td><td>─╶</td><td>─╷</td></tr>
+
+<tr><td>─╸</td><td>─╹</td><td>─╺</td><td>─╻</td></tr><!-- G1 G1 G1 G1 -->
+<tr><td>─╸</td><td>─╹</td><td>─╺</td><td>─╻</td></tr>
+
+<tr><td>┃╴</td><td>┃╵</td><td>┃╶</td><td>┃╹</td></tr><!-- G2 G2 G2 G2 -->
+<tr><td>┃╴</td><td>┃╵</td><td>┃╶</td><td>┃╹</td></tr>
+
+<tr><td>╴╴</td><td>╴╵</td><td>╴╶</td><td>╴╷</td></tr><!-- H1 H1 H1 H1 -->
+<tr><td>╴╴</td><td>╴╵</td><td>╴╶</td><td>╴╷</td></tr>
+
+<tr><td>╴╸</td><td>╴╹</td><td>╴╺</td><td>╴╻</td></tr><!-- H1 H1 H1 H1 -->
+<tr><td>╴╸</td><td>╴╹</td><td>╴╺</td><td>╴╻</td></tr>
+
+<tr><td>╵╴</td><td>╵╵</td><td>╵╷</td><td>╵╸</td></tr><!-- H2 H2 H2 H2 -->
+<tr><td>╵╴</td><td>╵╵</td><td>╵╷</td><td>╵╸</td></tr>
+
+<tr><td>╵╹</td><td>╵╻</td><td>╶╴</td><td>╶╵</td></tr><!-- H2 H2 H3 H3 -->
+<tr><td>╵╹</td><td>╵╻</td><td>╶╴</td><td>╶╵</td></tr>
+
+<tr><td>╶╷</td><td>╶╸</td><td>╹╵</td><td>╹╷</td></tr><!-- H3 H3 H4 H4 -->
+<tr><td>╶╷</td><td>╶╸</td><td>╹╵</td><td>╹╷</td></tr>
+
+<tr><td>╴┏</td><td>╴┑</td><td>╴┖</td><td>╴┘</td></tr><!-- I1 I1 I1 I1 -->
+<tr><td>╴┏</td><td>╴┑</td><td>╴┖</td><td>╴┘</td></tr>
+
+<tr><td>╵┏</td><td>╵┑</td><td>╵┖</td><td>╵┘</td></tr><!-- I2 I2 I2 I2 -->
+<tr><td>╵┏</td><td>╵┑</td><td>╵┖</td><td>╵┘</td></tr>
+
+<tr><td>╶┏</td><td>╶┑</td><td>╶┖</td><td>╶┘</td></tr><!-- I3 I3 I3 I3 -->
+<tr><td>╶┏</td><td>╶┑</td><td>╶┖</td><td>╶┘</td></tr>
+
+<tr><td>╹┏</td><td>╹┑</td><td>╹┖</td><td>╹┘</td></tr><!-- I4 I4 I4 I4 -->
+<tr><td>╹┏</td><td>╹┑</td><td>╹┖</td><td>╹┘</td></tr>
+
+<tr><td>╴┨</td><td>╴┫</td><td>╴┬</td><td>╴┰</td></tr><!-- J1 J1 J1 J1 -->
+<tr><td>╴┨</td><td>╴┫</td><td>╴┬</td><td>╴┰</td></tr>
+
+<tr><td>╴┷</td><td>╴┻</td><td>╵┨</td><td>╵┫</td></tr><!-- J1 J1 J2 J2 -->
+<tr><td>╴┷</td><td>╴┻</td><td>╵┨</td><td>╵┫</td></tr>
+
+<tr><td>╵┬</td><td>╵┰</td><td>╵┷</td><td>╵┻</td></tr><!-- J2 J2 J2 J2 -->
+<tr><td>╵┬</td><td>╵┰</td><td>╵┷</td><td>╵┻</td></tr>
+
+<tr><td>╶┨</td><td>╶┫</td><td>╶┬</td><td>╶┰</td></tr><!-- J3 J3 J3 J3 -->
+<tr><td>╶┨</td><td>╶┫</td><td>╶┬</td><td>╶┰</td></tr>
+
+<tr><td>╶┷</td><td>╶┻</td><td>╹┨</td><td>╹┫</td></tr><!-- J3 J3 J4 J4 -->
+<tr><td>╶┷</td><td>╶┻</td><td>╹┨</td><td>╹┫</td></tr>
+
+<tr><td>╹┬</td><td>╹┰</td><td>╹┷</td><td>╹┻</td></tr><!-- J4 J4 J4 J4 -->
+<tr><td>╹┬</td><td>╹┰</td><td>╹┷</td><td>╹┻</td></tr>
+
+</tbody></table>
+</details>
 </body>
 
 </html>

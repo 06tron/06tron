@@ -42,7 +42,7 @@ if (articleId > 0 && articleId <= jsonFeed.items.length) {
 	let selector = urlParams.get("s");
 	if (selector === null) {
 		verbose = false;
-		selector = ".featured,#collage_619";
+		selector = ".featured,#collage_619,#contact_68f";
 	} else {
 		document.body.removeChild(document.getElementById("intro"));
 	}
