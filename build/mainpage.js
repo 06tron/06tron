@@ -37,14 +37,16 @@ if (articleId > 0 && articleId <= jsonFeed.items.length) {
 	const item = jsonFeed.items.at(-articleId);
 	main = `<h1>${item.title}</h1>${item.content_html}`;
 	document.body.removeChild(document.getElementById("intro"));
+	document.body.removeChild(document.getElementById("contact_68f"));
 } else {
 	let verbose = true;
 	let selector = urlParams.get("s");
 	if (selector === null) {
 		verbose = false;
-		selector = ".featured,#collage_619,#contact_68f";
+		selector = ".featured,#collage_619,#window_68f";
 	} else {
 		document.body.removeChild(document.getElementById("intro"));
+		document.body.removeChild(document.getElementById("contact_68f"));
 	}
 	main = getItemHTML(selector, verbose, true);
 }
