@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="960" viewBox="-60 -60 260 320" style="color-scheme: light dark">
+<defs>
+	<path id="1" d="M0,0H6V6H0V0L2,2V4H4V2H2Z"/>
+	<path id="U" d="M0,6V0H6L4,2H2V4Z"/>
+	<path id="J" d="M0,0V3H2V2ZM6,0H3V2H4ZM6,6V3H4V4ZM0,6H3V4H2Z"/>
+	<path id="K" d="M0,0H3V2H2V3H0ZM4,4V3H6V6H3V4Z"/>
+	<path id="Z" d="M0,0H6V3H4V2H2V3H0Z"/>
+	<path id="B" d="M0,0H6L4,2H2ZM0,6H6L4,4H2Z"/>
+	<path id="arrow" d="M0,0L6-2,5.5-.5H60.5l-1,1H5.5L6,2Z"/>
+</defs>
+<g id="sphere">
+	<g id="backing" fill="none">
+		<g stroke-opacity="0.4">
+			<path stroke="White" stroke-width="30" d="M0,45H45V0"/>
+			<path stroke="Black" stroke-width="30" d="M0,15H15V0"/>
+		</g>
+		<g stroke="Black">
+			<path stroke-width="0.4" d="M10,30V60M20,30V60M40,0V60M50,0V60M30,10H60M30,20H60M0,40H60M0,50H60"/>
+			<path d="M30,0V60M0,30H60"/>
+		</g>
+	</g>
+	<g fill="Black">
+		<use href="#U" x="42" y="2"/>
+		<use href="#U" x="52" y="12" transform="rotate(180 55 15)"/>
+		<use href="#B" x="32" y="22" transform="rotate(90 35 25)"/>
+		<use href="#K" x="42" y="22"/>
+		<use href="#1" x="12" y="32"/>
+		<use href="#U" x="22" y="32"/>
+		<use href="#B" x="32" y="32"/>
+		<use href="#K" x="2" y="42" transform="rotate(90 5 45)"/>
+		<use href="#U" x="22" y="52" transform="rotate(180 25 55)"/>
+		<use href="#U" x="32" y="52"/>
+	</g>
+</g>
+<g opacity="0.5">
+	<use href="#sphere" transform="translate(60 -60)scale(-1 1)"/>
+	<use href="#sphere" transform="translate(60 60)scale(-1 1)"/>
+	<use href="#sphere" transform="translate(60 60)scale(1 -1)"/>
+	<use href="#sphere" transform="translate(-60 60)scale(1 -1)"/>
+</g>
+<use href="#arrow" fill="#FA1"/>
+<use href="#arrow" fill="#FA1" transform="translate(60 60)rotate(180)"/>
+<use href="#arrow" fill="#1AF" transform="translate(60 60)rotate(90)scale(-1 1)"/>
+<use href="#arrow" fill="#1AF" transform="rotate(90)scale(1 -1)"/>
+<g transform="translate(80 140)">
+	<g id="proj-plane">
+		<use href="#backing"/>
+		<g fill="Black">
+			<use href="#Z" x="32" y="22" transform="rotate(180 35 25)"/>
+			<use href="#B" x="42" y="22"/>
+			<use href="#Z" x="52" y="22" transform="rotate(270 55 25)"/>
+			<use href="#J" x="2" y="32"/>
+			<use href="#Z" x="42" y="32" transform="rotate(180 45 35)"/>
+			<use href="#B" x="52" y="32" transform="rotate(90 55 35)"/>
+			<use href="#J" x="2" y="42" transform="translate(10)scale(-1 1)"/>
+			<use href="#B" x="12" y="42"/>
+			<use href="#1" x="22" y="42"/>
+			<use href="#1" x="42" y="52"/>
+		</g>
+	</g>
+	<g opacity="0.5">
+		<use href="#proj-plane" transform="translate(60 -60)rotate(90)"/>
+		<use href="#proj-plane" transform="translate(60 60)rotate(90)"/>
+		<use href="#proj-plane" transform="translate(60 60)rotate(270)"/>
+		<use href="#proj-plane" transform="translate(-60 60)rotate(270)"/>
+	</g>
+	<use href="#arrow" fill="#FA1" transform="translate(60)scale(-1 1)"/>
+	<use href="#arrow" fill="#FA1" transform="translate(60)rotate(90)"/>
+	<use href="#arrow" fill="#1AF" transform="translate(0 60)scale(1 -1)"/>
+	<use href="#arrow" fill="#1AF" transform="translate(0 60)rotate(270)"/>
+</g>
+</svg>

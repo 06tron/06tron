@@ -6,16 +6,44 @@
 	<meta charset="utf-8">
 	<meta name="author" content="https://orcid.org/0009-0001-0977-2029">
 	<meta name="color-scheme" content="dark light">
-	<meta name="description" content="A text area for short notes. Designed to be downloaded so that &quot;file:///note.html?no-title&quot; can be bookmarked. You can also bookmark a data URI containing your own version of the html. Ex: [data:text/html,%3Chead%3E%3Ctitle%3EUnsaved%20Note%3C/title%3E%3C/head%3E%3Cbody%20contenteditable=%22plaintext-only%22%20style=%22font-family:monospace;line-height:1.4;padding:4rem;%22%3E%3C/body%3E].">
+	<meta name="description" content="A text area for short notes. Designed to be downloaded so that &quot;file:///note.html?no-title&quot; can be bookmarked. You can also bookmark a data URI containing your own version of the html. Ex: [ data:text/html,%3Chead%3E%3Ctitle%3EUnsaved%20Note%3C/title%3E%3C/head%3E%3Cbody%20contenteditable=%22plaintext-only%22%20style=%22font-family:monospace;line-height:1.4;padding:4rem;%22%3E%3C/body%3E ].">
 	<meta name="viewport" content="width=device-width">
+	<style>
+		body {
+			font-family: monospace;
+			margin: 0;
+			position: relative;
+		}
+		#note {
+			line-height: 1.4;
+			margin: 0;
+			min-height: calc(100vh - 8rem);
+			overflow-wrap: break-word;
+			overflow-x: auto;
+			padding: 4rem;
+		}
+		@media only screen and (max-width: 500px) {
+			#note {
+				font-size: 16pt;
+			}
+		}
+		#notice {
+			margin: 0;
+			position: absolute;
+			right: 1rem;
+			top: 1rem;
+			transition: opacity 0.2s ease-out;
+		}
+	</style>
 </head>
 
-<body style="font-family:monospace;margin:0;position:relative">
-	<p id="note" title="Press Alt or Option to toggle text wrapping, and Ctrl+C or Command+C for a data URI containing the text." contenteditable="plaintext-only" style="line-height:1.4;margin:0;min-height:calc(100vh - 8rem);overflow-wrap:break-word;overflow-x:auto;padding:4rem;white-space:pre-wrap"><br/></p>
-	<p id="notice" style="margin:0;opacity:0;position:absolute;top:1rem;transition:opacity 0.2s ease-out;right:1rem;z-index:-1">Copied data URI to clipboard</p>
+<body>
+	<p id="note" title="Press Alt or Option to toggle text wrapping, and Ctrl+C or Command+C for a data URI containing the text." contenteditable="plaintext-only" style="white-space:pre-wrap"><br/></p>
+	<p id="notice" style="opacity:0;z-index:-1">Copied data URI to clipboard</p>
 	<script>
 		const note = document.getElementById("note");
 		const notice = document.getElementById("notice");
+		let noClipboard = false;
 		if (new URLSearchParams(window.location.search).get("no-title") !== null) {
 			note.removeAttribute("title");
 		}
@@ -34,8 +62,17 @@
 			if (window.getSelection().toString().length > 0) {
 				return;
 			}
-			const content = encodeURI(note.textContent).replaceAll("#", "%23");
-			navigator.clipboard.writeText("data:text/plain;charset=UTF-8," + content);
+			const dataURI = "data:text/plain;charset=UTF-8," + encodeURI(note.textContent).replaceAll("#", "%23");
+			if (!navigator.clipboard || noClipboard) {
+				notice.innerHTML = `<a href="${dataURI}">Copy this link to a data URI</a>`;
+				if (!noClipboard) {
+					notice.style.opacity = "1";
+					notice.style.zIndex = "1";
+					noClipboard = true;
+				}
+				return;
+			}
+			navigator.clipboard.writeText(dataURI);
 			notice.style.opacity = "1";
 			setTimeout(function () {
 				notice.style.opacity = "0";
