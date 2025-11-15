@@ -6,6 +6,7 @@ cat feed.json | jq '.' --compact-output > home/feed.json # 10
 cat feed.json | jq --from-file json-feed-to-atom.jq --raw-output > home/atom.xml # 11
 cat feed.json | jq --from-file json-feed-to-html.jq --raw-output | sed 's;="https://home.6t.lt/;="../../;g' > home/shortcuts/blog/index.html # 12
 cp -R ../icons ../periods ../fonts ../style.css _* index.html home # 20
+mv home/icons/favicon.ico home # 21
 echo 'const jsonFeed=' | cat - home/feed.json mainpage.js > home/mainpage.js # 25
 for line in home/periods/*/*.html
 do
