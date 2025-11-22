@@ -2,5 +2,5 @@
 <svg id="mirror_polygon" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" version="1.1">
 	<title>Mirror Polygon</title>
 	<desc>Click to start drawing, further explanation <a href="https://home.6t.lt/?s=%23mirror_polygon_66c">here</a>.</desc>
-	<script type="application/ecmascript" href="script.js"></script>
+	<script type="application/ecmascript" href="mirror-polygon-script.js"></script>
 </svg>
