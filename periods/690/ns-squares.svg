@@ -1,14 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" width="780" height="960" viewBox="-60 -60 260 320" style="color-scheme: light dark">
+<svg xmlns="http://www.w3.org/2000/svg" width="780" height="960" viewBox="-60 -60 260 320" style="color-scheme: light dark" aria-describedby="desc">
+<title>2025 Number Space Puzzles</title>
+<style>
+	text {
+		font: 4px sans-serif;
+	}
+	#bl, #or {
+		dominant-baseline: middle;
+		text-anchor: middle;
+	}
+</style>
 <defs>
-	<path id="1" d="M0,0H6V6H0V0L2,2V4H4V2H2Z"/>
+	<path id="one" d="M0,0H6V6H0V0L2,2V4H4V2H2Z"/>
 	<path id="U" d="M0,6V0H6L4,2H2V4Z"/>
 	<path id="J" d="M0,0V3H2V2ZM6,0H3V2H4ZM6,6V3H4V4ZM0,6H3V4H2Z"/>
 	<path id="K" d="M0,0H3V2H2V3H0ZM4,4V3H6V6H3V4Z"/>
 	<path id="Z" d="M0,0H6V3H4V2H2V3H0Z"/>
 	<path id="B" d="M0,0H6L4,2H2ZM0,6H6L4,4H2Z"/>
 	<path id="arrow" d="M0,0L6-2,5.5-.5H60.5l-1,1H5.5L6,2Z"/>
+	<text id="bl" fill="#1AF" lengthAdjust="spacingAndGlyphs" textLength="16">blue side</text>
+	<text id="or" fill="#FA1" lengthAdjust="spacingAndGlyphs" textLength="20">orange side</text>
+	<path id="desc-lines" d="M76-51h118M76-46h118M76-41h118M76-36h118M76-31h118M76-26h118M76-21h118M76-16h118"/>
 </defs>
+<path fill="none" stroke="White" stroke-opacity="0.4" stroke-width="50" d="M70-35h130"/>
+<text><textPath id="desc" href="#desc-lines" fill="Black">These Sudoku puzzles are based on fundamental polygons for the real projective plane and the sphere. Both have 27 cells, and are set on a square with its sides connected together. The rows and columns pass through the sides of the square, wrapping around in a way similar to Pac-Man. The four surrounding copies of each puzzle are there just to make solving easier. Each puzzle has its own set of nine symbols, and you can't treat the symbols like colors as in regular Sudoku.</textPath></text>
 <g id="sphere">
 	<g id="backing" fill="none">
 		<g stroke-opacity="0.4">
@@ -25,7 +40,7 @@
 		<use href="#U" x="52" y="12" transform="rotate(180 55 15)"/>
 		<use href="#B" x="32" y="22" transform="rotate(90 35 25)"/>
 		<use href="#K" x="42" y="22"/>
-		<use href="#1" x="12" y="32"/>
+		<use href="#one" x="12" y="32"/>
 		<use href="#U" x="22" y="32"/>
 		<use href="#B" x="32" y="32"/>
 		<use href="#K" x="2" y="42" transform="rotate(90 5 45)"/>
@@ -43,6 +58,10 @@
 <use href="#arrow" fill="#FA1" transform="translate(60 60)rotate(180)"/>
 <use href="#arrow" fill="#1AF" transform="translate(60 60)rotate(90)scale(-1 1)"/>
 <use href="#arrow" fill="#1AF" transform="rotate(90)scale(1 -1)"/>
+<use href="#bl" transform="translate(3 21)rotate(90)"/>
+<use href="#bl" transform="translate(63 39)rotate(90)scale(-1 1)"/>
+<use href="#or" transform="translate(19 3)"/>
+<use href="#or" transform="translate(41 63)scale(-1 1)"/>
 <g transform="translate(80 140)">
 	<g id="proj-plane">
 		<use href="#backing"/>
@@ -55,8 +74,8 @@
 			<use href="#B" x="52" y="32" transform="rotate(90 55 35)"/>
 			<use href="#J" x="2" y="42" transform="translate(10)scale(-1 1)"/>
 			<use href="#B" x="12" y="42"/>
-			<use href="#1" x="22" y="42"/>
-			<use href="#1" x="42" y="52"/>
+			<use href="#one" x="22" y="42"/>
+			<use href="#one" x="42" y="52"/>
 		</g>
 	</g>
 	<g opacity="0.5">
@@ -69,5 +88,9 @@
 	<use href="#arrow" fill="#FA1" transform="translate(60)rotate(90)"/>
 	<use href="#arrow" fill="#1AF" transform="translate(0 60)scale(1 -1)"/>
 	<use href="#arrow" fill="#1AF" transform="translate(0 60)rotate(270)"/>
+	<use href="#bl" transform="translate(3 21)rotate(90)"/>
+	<use href="#or" transform="translate(63 41)rotate(270)"/>
+	<use href="#or" transform="translate(19 3)"/>
+	<use href="#bl" transform="translate(39 63)rotate(180)"/>
 </g>
 </svg>
