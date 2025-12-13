@@ -16,10 +16,9 @@
 		"68f": {
 			"id": "urn:uuid:9F42BD4A-51FF-4FF6-86E6-5ACF8DDC3DFE",
 			"url": "https://6t.lt/blog/#4",
-			"title": "68f - Ornamental Box-drawing",
+			"title": "Ornamental Box-drawing",
 			"summary": "Introduces an SVG I wrote and the Granjon Boxes font.",
 			"date_published": "2025-10-19T22:11:11-04:00",
-			"date_modified": "2025-12-01T14:35:24-05:00",
 			"tags": [
 				"art",
 				"projects",
@@ -29,10 +28,9 @@
 		"677": {
 			"id": "urn:uuid:5C8A5076-C850-41ED-A02F-B06ABFC87D66",
 			"url": "https://6t.lt/blog/#3",
-			"title": "677 - URI Encoding",
+			"title": "URI Encoding",
 			"summary": "How to encode Uniform Resource Identifiers, with specifics on data URIs and query strings.",
 			"date_published": "2024-12-29T22:35:12-05:00",
-			"date_modified": "2025-07-10T11:11:18-04:00",
 			"tags": [
 				"changelog",
 				"software",
@@ -42,10 +40,9 @@
 		"66f": {
 			"id": "urn:uuid:A499496A-A687-42D1-8E39-91850DD661AA",
 			"url": "https://6t.lt/blog/#2",
-			"title": "66f - Square Mesh Navigation",
-			"summary": "An introduction to the blog.",
+			"title": "Square Mesh Navigation",
+			"summary": "An introduction to Number Space and the blog.",
 			"date_published": "2024-09-27T15:01:38-04:00",
-			"date_modified": "2025-07-10T09:47:23-04:00",
 			"tags": [
 				"art",
 				"projects"
@@ -54,10 +51,9 @@
 		"66c": {
 			"id": "urn:uuid:46CAC173-449A-455A-8E13-BDAA58EA546F",
 			"url": "https://6t.lt/blog/#1",
-			"title": "66c - Death and the Compass",
+			"title": "Death and the Compass",
 			"summary": "Webpage for drawing with mirror reflections.",
 			"date_published": "2024-08-27T22:07:34-06:00",
-			"date_modified": "2025-07-10T09:28:23-04:00",
 			"tags": [
 				"encodings",
 				"projects",
@@ -68,7 +64,6 @@
 	},
 	"_atom_elements": {
 		"id": "urn:uuid:22620929-5413-4211-BE95-59BD3594FD14",
-		"updated": "2025-10-20T13:54:18-04:00",
 		"self_link": "https://home.6t.lt/atom.xml"
 	}
 }

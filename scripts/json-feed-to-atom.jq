@@ -32,11 +32,17 @@
 		.date_published,
 		"</published><updated>",
 		.date_modified,
-		"</updated><content type=\"html\">",
-		(.content_html | @html),
-		"</content><link rel=\"alternate\" href=\"",
+		"</updated><content type=\"xhtml\"><div xmlns=\"http://www.w3.org/1999/xhtml\">",
+		.content_html,
+		"</div></content><link rel=\"alternate\" href=\"",
 		.url,
-		"\"/></entry>"
+		"\"/>",
+		(.tags[] | [
+			"<category term=\"",
+			.,
+			"\"/>"
+		]),
+		"</entry>"
 	]),
 	"</feed>"
 ] | flatten | join("")

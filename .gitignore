@@ -1,6 +1,9 @@
-export.zip
 .DS_Store
-home/
+export/
+export.zip
+ignore/
+articles/feed.json
+articles/item-*.json
 ts/node_modules/
 ts/package.json
 ts/package-lock.json
