@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0,0,66,60">
+	<title></title>
+	<desc></desc>
+	<defs>
+		<path id="s" fill="Black" d="M1,.4,.568,.724A.36,.36,0,1,0,1,1.3,.36,.36,0,1,0,1.432,.724ZM1,1.3,.8,1.6H1.2Z"/>
+		<path id="d" fill="Red" d="M.4,1A1.077033,1.077033,0,0,0,1,.4,1.077033,1.077033,0,0,0,1.6,1,1.077033,1.077033,0,0,0,1,1.6,1.077033,1.077033,0,0,0,.4,1"/>
+		<path id="c" fill="Black" d="M.9,1.5h.2l-.05,-.3a.3,.3,0,1,0,.2,-.4,.3,.3,0,1,0,-.5,0,.3,.3,0,1,0,.2,.4Z"/>
+		<path id="h" fill="Red" d="M1,1.69,.52,1.05A.3,.3,0,0,1,1,.69,.3,.3,0,0,1,1.48,1.05Z"/>
+		<path id="u" fill="black" d="M1.4,.5h.1v.1l-.9,.9h-.1v-.1Z"/>
+		<path id="w" fill="black" d="M1.3,.4h.1v.1l-.9,.9h-.1v-.1ZM1.5,.6h.1v.1l-.9,.9h-.1v-.1Z"/>
+		<pattern id="grid" viewBox="0,0,18,30" width="0.09091" height="0.16667">
+			<path fill="none" stroke="black" stroke-width="0.1" d="M0,1H18V29H0"/>
+		</pattern>
+	</defs>
+	<path fill="url(#grid)" d="M0,0H66V60H0Z"/>
+	<script id="layout" type="application/ecmascript" href="playing-card-layout.js"></script>
+</svg>
