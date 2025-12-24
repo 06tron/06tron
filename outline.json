@@ -12,7 +12,12 @@
 		}
 	],
 	"language": "en-US",
-	"named_items": {
+	"items": [],
+	"_atom_elements": {
+		"id": "urn:uuid:22620929-5413-4211-BE95-59BD3594FD14",
+		"self_link": "https://home.6t.lt/atom.xml"
+	},
+	"_named_items": {
 		"68f": {
 			"id": "urn:uuid:9F42BD4A-51FF-4FF6-86E6-5ACF8DDC3DFE",
 			"url": "https://6t.lt/blog/#4",
@@ -61,9 +66,5 @@
 				"web"
 			]
 		}
-	},
-	"_atom_elements": {
-		"id": "urn:uuid:22620929-5413-4211-BE95-59BD3594FD14",
-		"self_link": "https://home.6t.lt/atom.xml"
 	}
 }

@@ -21,7 +21,7 @@ all: articles/feed.json
 #	};
 # } for the blog, to be later transformed into HTML and Atom.
 articles/feed.json: $(patsubst articles/%.xml,articles/item-%.json,$(wildcard articles/*.xml))
-	jq '.[0]*{items:.[1:]|reverse,_atom_elements:{updated:$$time}}|del(.named_items)' --arg time "$$(git log -1 --pretty=format:%aI articles)" -sc outline.json $(sort $^) > $@
+	jq '.[0]*{items:.[1:]|reverse,_atom_elements:{updated:$$time}}|del(._named_items)' --arg time "$$(git log -1 --pretty=format:%aI articles)" -sc outline.json $(sort $^) > $@
 
 # Creates a FeedItem {
 #	id: string; // unique identifier
@@ -34,4 +34,4 @@ articles/feed.json: $(patsubst articles/%.xml,articles/item-%.json,$(wildcard ar
 #	tags: Array<string>; // usually just one word for each tag
 # } for a specific article. Edits "title" of and adds "date_modified" and "content_html" to the existing data in outline.json
 articles/item-%.json: articles/%.xml outline.json
-	jq '.named_items."$*"|.+{title:"$* - "+.title,date_modified:$$time,content_html:$$html}' --arg time "$$(git log -1 --pretty=format:%aI $<)" --arg html "$$(cat $<)" -c outline.json > $@
+	jq '._named_items."$*"|.+{title:"$* - "+.title,date_modified:$$time,content_html:$$html}' --arg time "$$(git log -1 --pretty=format:%aI $<)" --arg html "$$(cat $<)" -c outline.json > $@
