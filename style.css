@@ -36,7 +36,7 @@ aside {
 	width: max-content;
 }
 
-aside pre:not(.fl) {
+aside pre {
 	max-width: calc(100vw - 9.4rem - 4px);
 }
 
@@ -45,6 +45,29 @@ body {
 	margin: 0 2rem 1rem;
 	max-width: 60rem;
 	overflow-wrap: break-word;
+}
+
+button.fl {
+	appearance: none;
+	background-color: transparent;
+	border-style: none;
+	box-shadow: none;
+	color: CanvasText;
+	cursor: help;
+	display: block;
+	font-family: "Granjon Boxes", monospace;
+	font-size: min(3.75rem, (100vw - 4rem) / 16);
+	line-height: 1;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	text-decoration: none;
+	user-select: text;
+}
+
+button.fl:focus {
+	cursor: text;
+	font-family: "Kreative Square", monospace;
 }
 
 dl {
@@ -124,19 +147,7 @@ p {
 	margin: 1rem 0;
 }
 
-pre.fl {
-	font-family: "Granjon Boxes", monospace;
-	font-size: min(3.75rem, (100vw - 4rem) / 16);
-	line-height: 1;
-	margin: 0;
-	text-align: center;
-}
-
-pre.fl:active {
-	font-family: "Kreative Square", monospace;
-}
-
-pre:not(.fl) {
+pre {
 	background-color: color-mix(in srgb-linear, #808080, Canvas 90%);
 	border: 2px solid;
 	font-size: larger;
@@ -166,7 +177,7 @@ section.featured p:last-child {
 	margin-bottom: 0;
 }
 
-section.featured pre:not(.fl) {
+section.featured pre {
 	max-width: min(56.6rem - 34px, 100vw - 7.4rem - 34px);
 }
 
