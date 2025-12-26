@@ -65,7 +65,7 @@ button.fl {
 	user-select: text;
 }
 
-button.fl:focus {
+button.fl:is(:focus, :active) {
 	cursor: text;
 	font-family: "Kreative Square", monospace;
 }
