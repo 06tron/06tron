@@ -196,12 +196,18 @@ function scalePolygon(vts, height) {
  */
 function getBasePolygon() {
 	const pg = document.createElementNS(svg.namespaceURI, "polygon");
+	pg.setAttribute("id", "base");
 	pg.setAttribute("fill", params.fillColor);
 	pg.setAttribute("stroke", params.borderColor);
 	const shape = recenterPolygon(params.vertices) ?? regularPolygon(+params.vertices);
 	const vts = scalePolygon(shape, params.heightOfPolygon);
 	pg.setAttribute("points", polygonToString(vts));
-	return [pg, vts];
+	const defs = document.createElementNS(svg.namespaceURI, "defs");
+	defs.appendChild(pg);
+	svg.appendChild(defs);
+	const use = document.createElementNS(svg.namespaceURI, "use");
+	use.setAttribute("href", "#base");
+	return [use, vts];
 }
 
 /**
@@ -270,10 +276,10 @@ function svgDataURI(xml) {
 }
 
 setParams(window.location.search);
-selected = svg;
-[polygonElement, polygonVertices] = getBasePolygon();
 svg.replaceChildren();
 svg.setAttribute("style", params.inlineStyle);
+selected = svg;
+[polygonElement, polygonVertices] = getBasePolygon();
 svg.addEventListener("mousedown", function (event) {
 	if (event.shiftKey) {
 		setSelected(event.target);
