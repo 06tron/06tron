@@ -162,7 +162,14 @@ const params = {
 	unselectedWidth: ".1",
 	vertices: "5"
 };
-const svg = document.getElementById("mirror_polygon");
+const scriptElement = document.getElementById("mps");
+const svg = scriptElement.parentElement;
+scriptElement.outerHTML = `<metadata><about xmlns="https://6t.lt/about"><![CDATA[
+Initially created at ${window.location.href}
+Further explanation at https://home.6t.lt/?s=%23mirror_polygon_66c
+]]></about></metadata>`;
+const useGroup = document.createElementNS(svg.namespaceURI, "g");
+svg.insertAdjacentElement("afterbegin", useGroup);
 let selected;
 let polygonElement;
 let polygonVertices;
@@ -196,7 +203,7 @@ function scalePolygon(vts, height) {
  */
 function getBasePolygon() {
 	const pg = document.createElementNS(svg.namespaceURI, "polygon");
-	pg.setAttribute("id", "base");
+	pg.setAttribute("id", "b");
 	pg.setAttribute("fill", params.fillColor);
 	pg.setAttribute("stroke", params.borderColor);
 	const shape = recenterPolygon(params.vertices) ?? regularPolygon(+params.vertices);
@@ -204,9 +211,9 @@ function getBasePolygon() {
 	pg.setAttribute("points", polygonToString(vts));
 	const defs = document.createElementNS(svg.namespaceURI, "defs");
 	defs.appendChild(pg);
-	svg.appendChild(defs);
+	svg.insertAdjacentElement("afterbegin", defs);
 	const use = document.createElementNS(svg.namespaceURI, "use");
-	use.setAttribute("href", "#base");
+	use.setAttribute("href", "#b");
 	return [use, vts];
 }
 
@@ -226,21 +233,26 @@ function setSelected(target) {
 	selected = target;
 }
 
+const matrixIndices = "abcdef".split("");
+
+/**
+ * @param {SVGGraphicsElement} element 
+ * @param {DOMMatrix} matrix 
+ */
+function setMatrixTransform(element, matrix) {
+	const entries = matrixIndices.map(function (i) {
+		return +matrix[i].toFixed(6) + 0;
+	});
+	element.setAttribute("transform", `matrix(${entries.join()})`);
+}
+
 /**
  * @param {DOMMatrix} matrix
  */
 function addPolygon(matrix) {
-	const pg = polygonElement.cloneNode(false);
-	// /* Converts the DOMMatrix to an SVGMatrix to avoid errors
-	// observed in Chrome and MS Edge, but this should not be
-	// necessary with SVG 2.
-	matrix = "abcdef".split("").reduce(function (svgM, e) {
-		svgM[e] = matrix[e];
-		return svgM;
-	}, svg.createSVGMatrix()); // */
-	const svgT = svg.createSVGTransformFromMatrix(matrix);
-	pg.transform.baseVal.appendItem(svgT);
-	svg.appendChild(pg);
+	const pg = polygonElement.cloneNode();
+	setMatrixTransform(pg, matrix);
+	useGroup.appendChild(pg);
 	setSelected(pg);
 }
 
@@ -252,10 +264,10 @@ function addPolygon(matrix) {
 function deletePolygon() {
 	let next;
 	if (svg === selected) {
-		next = svg.lastElementChild;
+		next = useGroup.lastElementChild;
 	} else {
 		next = selected.previousElementSibling;
-		svg.removeChild(selected);
+		useGroup.removeChild(selected);
 	}
 	setSelected(next ?? svg);
 }
@@ -276,7 +288,6 @@ function svgDataURI(xml) {
 }
 
 setParams(window.location.search);
-svg.replaceChildren();
 svg.setAttribute("style", params.inlineStyle);
 selected = svg;
 [polygonElement, polygonVertices] = getBasePolygon();
@@ -307,6 +318,6 @@ svg.addEventListener("keydown", function (event) {
 			}
 			break;
 		case "F3":
-			console.log(svg.children.length);
+			console.log(useGroup.children.length);
 	}
 });
