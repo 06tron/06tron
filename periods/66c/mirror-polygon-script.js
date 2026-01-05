@@ -284,7 +284,7 @@ function deletePolygon() {
  * @param {string} xml
  */
 function svgDataURI(xml) {
-	return "data:image/svg+xml;charset=UTF-8," + encodeURI(xml).replaceAll("#", "%23");
+	return "data:image/svg+xml;charset=UTF-8,%3C?xml%20version=%221.0%22%20encoding=%22utf-8%22?%3E" + encodeURI(xml).replaceAll("#", "%23");
 }
 
 setParams(window.location.search);
@@ -314,7 +314,9 @@ svg.addEventListener("keydown", function (event) {
 		case "c":
 		case "C":
 			if (event.ctrlKey || event.metaKey) {
+				svg.removeAttribute("cursor");
 				navigator.clipboard.writeText(svgDataURI(svg.outerHTML));
+				svg.setAttribute("cursor", "crosshair");
 			}
 			break;
 		case "F3":
