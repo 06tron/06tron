@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="-1,-1,29.52,27" style="fill-rule:evenodd;color-scheme:light dark">
+	<title>Countico Digits</title>
+	<desc>A showcase of the Countico font's outlines of the digits 0 through 9</desc>
+	<metadata><about xmlns="https://6t.lt/about">Based on the font Quantico by Matthew Desmond (https://www.madtype.com). More information at https://home.6t.lt/fonts</about></metadata>
+	<defs>
+		<path id="zero" d="M5.5,0h8l4.5,2v21l-4.5,2h-8l-4.5-2v-21zm-.5,3h9v19h-9z"/>
+		<path id="one" d="M8.625,0h2.875v22h5.625v3h-15.25v-3h5.625v-18l-5.625,2.5v-3.5z"/>
+		<path id="two" d="M5.5,0h8l4.5,2v11l-4.5,2h-8.5v7h13v3h-17v-11l4.5-2h8.5v-9h-9v3h-4v-4z"/>
+		<path id="three" d="M5.5,0h8l4.5,2v9l-3.375,1.5l3.375,1.5v9l-4.5,2h-8l-4.5-2v-4h4v3h9v-8h-6v-3h6v-8h-9v3h-4v-4z"/>
+		<path id="four" d="M12,0h4v16h3v3h-3v6h-4v-6h-12v-3.64zm0,5.12v10.88h-8.5z"/>
+		<use id="five" href="#two" transform="translate(0,25)scale(1,-1)"/>
+		<path id="six" d="M5.5,0h8l4.5,2v4h-4v-3h-9v8l2.25-1h6.25l4.5,2v11l-4.5,2h-8l-4.5-2v-21zm-.5,13h9v9h-9z"/>
+		<path id="seven" d="M0,0h19v1.9l-10.5,23.1h-4l10-22h-10.5v3h-4z"/>
+		<path id="eight" d="M5.5,0h8l4.5,2v9l-3.375,1.5l3.375,1.5v9l-4.5,2h-8l-4.5-2v-9l3.375-1.5-3.375-1.5v-9zm-.5,3h9v8h-9zm0,11h9v8h-9z"/>
+		<use id="nine" href="#six" transform="translate(19,25)rotate(180)"/>
+	</defs>
+	<g fill="none" stroke="Red" stroke-width="0.1">
+		<use href="#zero"/>
+		<use href="#one"/>
+		<use href="#two"/>
+		<use href="#three"/>
+		<use href="#four"/>
+		<use href="#five"/>
+		<use href="#six"/>
+		<use href="#seven"/>
+		<use href="#eight"/>
+		<use href="#nine"/>
+	</g>
+	<g fill="CanvasText" transform="translate(20)scale(0.188)">
+		<use href="#zero"/>
+		<use href="#one" y="27"/>
+		<use href="#two" y="54"/>
+		<use href="#three" y="81"/>
+		<use href="#four" y="108"/>
+		<use href="#five" x="21"/>
+		<use href="#six" x="21" y="27"/>
+		<use href="#seven" x="21" y="54"/>
+		<use href="#eight" x="21" y="81"/>
+		<use href="#nine" x="21" y="108"/>
+	</g>
+</svg>
