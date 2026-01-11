@@ -47,6 +47,9 @@
 		if (new URLSearchParams(window.location.search).get("no-title") !== null) {
 			note.removeAttribute("title");
 		}
+		if (!note.isContentEditable) {
+			note.contentEditable = "true";
+		}
 		note.focus();
 		document.addEventListener("keydown", function (event) {
 			if (event.altKey) {
