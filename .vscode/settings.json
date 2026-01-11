@@ -2,14 +2,20 @@
 	"editor.fontFamily": "'Cascadia Mono', monospace",
 	"editor.fontSize": 13,
 	"editor.fontWeight": "200",
+	"editor.insertSpaces": false,
 	"editor.rulers": [
 		64,
 		80
 	],
 	"editor.wordWrap": "bounded",
 	"editor.wordWrapColumn": 100,
+	"extensions.ignoreRecommendations": true,
+	"terminal.integrated.fontSize": 13,
 	"terminal.integrated.fontWeight": "200",
 	"terminal.integrated.suggest.enabled": false,
+	"workbench.colorCustomizations": {
+		"editorRuler.foreground": "#7773"
+	},
 	"workbench.editorAssociations": {
 		"*.svg": "default"
 	}
