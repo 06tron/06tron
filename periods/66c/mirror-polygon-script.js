@@ -157,12 +157,12 @@ const params = {
 	decimalPlaces: "12",
 	fillColor: "red",
 	heightOfPolygon: "10",
-	inlineStyle: "background-color: Canvas; color-scheme: light dark",
+	inlineStyle: "background-color:Canvas;color-scheme:light dark",
 	selectedWidth: ".5",
 	unselectedWidth: ".1",
 	vertices: "5"
 };
-const scriptElement = document.getElementById("mps");
+const scriptElement = document.getElementById("script");
 const svg = scriptElement.parentElement;
 scriptElement.outerHTML = `<metadata><about xmlns="https://6t.lt/about"><![CDATA[
 Initially created at ${window.location.href}
@@ -228,7 +228,7 @@ function setSelected(target) {
 		target.setAttribute("stroke-width", params.selectedWidth);
 	}
 	if (svg !== selected) {
-		selected.setAttribute("stroke-width", params.unselectedWidth);
+		selected.removeAttribute("stroke-width");
 	}
 	selected = target;
 }
@@ -288,6 +288,7 @@ function svgDataURI(xml) {
 }
 
 setParams(window.location.search);
+useGroup.setAttribute("stroke-width", params.unselectedWidth);
 svg.setAttribute("style", params.inlineStyle);
 selected = svg;
 [polygonElement, polygonVertices] = getBasePolygon();

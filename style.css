@@ -1,13 +1,6 @@
 @font-face {
 	font-family: "EB Garamond";
-	font-style: normal;
 	src: url("fonts/eb-garamond-normal.woff") format("woff");
-}
-
-@font-face {
-	font-family: "EB Garamond";
-	font-style: italic;
-	src: url("fonts/eb-garamond-italic.woff") format("woff");
 }
 
 @font-face {
@@ -18,6 +11,12 @@
 @font-face {
 	font-family: "Kreative Square";
 	src: url("fonts/kreative-square-boxes.woff2") format("woff2");
+}
+
+:root {
+	--fl-heading: "EB Garamond", "American Typewriter", "Century Gothic", monospace;
+	--sans-serif: "Avenir", "Segoe UI", sans-serif;
+	--title-text: "Tsukushi B Round Gothic", "Menlo", "Courier New", monospace;
 }
 
 a.naked::after {
@@ -41,7 +40,7 @@ aside pre {
 }
 
 body {
-	font-family: "Avenir", "Segoe UI", sans-serif;
+	font-family: var(--sans-serif);
 	margin: 0 2rem 1rem;
 	max-width: 60rem;
 	overflow-wrap: break-word;
@@ -52,20 +51,25 @@ button.fl {
 	background-color: transparent;
 	border-style: none;
 	box-shadow: none;
+	display: block;
+	line-height: 1;
+	margin: 0;
+	padding: 0;
+	text-align: center;
+	user-select: text;
+	width: 100%;
+}
+
+button.fl samp {
 	color: CanvasText;
 	cursor: help;
 	display: block;
 	font-family: "Granjon Boxes", monospace;
 	font-size: min(3.75rem, (100vw - 4rem) / 16);
-	line-height: 1;
-	margin: 0;
-	padding: 0;
-	text-align: center;
 	text-decoration: none;
-	user-select: text;
 }
 
-button.fl:is(:focus, :active) {
+button.fl:is(:focus, :active) samp {
 	cursor: text;
 	font-family: "Kreative Square", monospace;
 }
@@ -101,7 +105,7 @@ footer i {
 }
 
 h1 {
-	font-family: "Courier", monospace;
+	font-family: var(--title-text);
 	font-weight: normal;
 }
 
@@ -182,7 +186,7 @@ section.featured pre {
 }
 
 span.fl {
-	font-family: "EB Garamond", "American Typewriter", "Century Gothic", monospace;
+	font-family: var(--fl-heading);
 	font-size: 1.7em;
 	font-weight: normal;
 }
