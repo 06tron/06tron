@@ -155,6 +155,7 @@ function translateTo(p) {
 const params = {
 	animationFoldAngle: "0",
 	borderColor: "CanvasText",
+	closeAnimation: "4s ease-in-out alternate infinite close",
 	decimalPlaces: "12",
 	fillColor: "red",
 	heightOfPolygon: "10",
@@ -172,7 +173,7 @@ Further explanation at https://home.6t.lt/?s=%23mirror_polygon_66c
 const useGroup = document.createElementNS(svg.namespaceURI, "g");
 svg.insertAdjacentElement("afterbegin", useGroup);
 let selected;
-let polygonElement;
+let pgUseElement;
 let polygonVertices;
 
 /**
@@ -248,37 +249,51 @@ function getMatrixString(matrix) {
 }
 
 /**
- * @param {DOMMatrix} matrix
- * @param {[[number, number], [number, number]]} reflectionLine
+ * @param {DOMMatrix} matrix 
+ * @returns {boolean}
  */
-function getRotationString(matrix, reflectionLine) {
-	const [[ax, ay], [bx, by]] = reflectionLine;
-	const { x: cx, y: cy } = matrix.transformPoint({ x: ax, y: ay });
-	const { x: dx, y: dy } = matrix.transformPoint({ x: bx, y: by });
+function positiveDeterminant(matrix) {
+	const {a, b, c, d} = matrix;
+	return a * d - c * b > 0;
+}
+
+/**
+ * @param {DOMMatrix} baseMatrix
+ * @param {[[number, number], [number, number]]} reflectSide
+ * @param {DOMMatrix} [nextMatrix]
+ * @returns {string}
+ */
+function getRotationString(baseMatrix, reflectSide, nextMatrix = null) {
+	let [[ax, ay], [bx, by]] = reflectSide;
+	if (!positiveDeterminant(baseMatrix)) {
+		[[bx, by], [ax, ay]] = reflectSide;
+	}
+	const { x: cx, y: cy } = baseMatrix.transformPoint({ x: ax, y: ay });
+	const { x: dx, y: dy } = baseMatrix.transformPoint({ x: bx, y: by });
 	const currRad = Math.atan2(dy - cy, dx - cx);
 	const currDeg = currRad * 180 / Math.PI;
-	const toVert = new DOMMatrix()
-		.rotateSelf(90 - currDeg)
-		.translateSelf(-cx, -cy);
+	const toVert = new DOMMatrix().rotateSelf(90 - currDeg).translateSelf(-cx, -cy);
 	const rotate3D = "rotateY(var(--a))" + getMatrixString(toVert);
-	return "transform:" + getMatrixString(toVert.invertSelf()) + rotate3D;
+	let fromVert;
+	if (nextMatrix) {
+		fromVert = nextMatrix.multiplySelf(toVert.invertSelf());
+	} else {
+		fromVert = toVert.invertSelf();
+	}
+	return getMatrixString(fromVert) + rotate3D;
 }
 
 /**
  * @param {DOMMatrix} matrix
- * @param {[[number, number], [number, number]]} [reflectionLine]
+ * @param {string} [aniCSS]
  */
-function addPolygon(matrix, reflectionLine = null) {
-	const pg = polygonElement.cloneNode();
+function addPolygon(matrix, aniCSS = null) {
+	const pg = pgUseElement.cloneNode();
 	pg.setAttribute("transform", getMatrixString(matrix));
-	if (selected === svg || params.animationFoldAngle == 0) {
-		useGroup.appendChild(pg);
-	} else {
-		const newGroup = document.createElementNS(svg.namespaceURI, "g");
-		newGroup.setAttribute("style", getRotationString(matrix, reflectionLine));
-		newGroup.appendChild(pg);
-		selected.parentElement.appendChild(newGroup);
+	if (aniCSS) {
+		pg.dataset.ani = aniCSS;
 	}
+	useGroup.appendChild(pg);
 	setSelected(pg);
 }
 
@@ -291,25 +306,8 @@ function deletePolygon() {
 	let next;
 	if (svg === selected) {
 		next = useGroup.lastElementChild;
-		while (next && next.localName == "g") {
-			next = next.lastElementChild;
-		}
 	} else {
 		next = selected.previousElementSibling;
-		let parent = selected.parentElement;
-		while (!next) {
-			if (parent === useGroup) {
-				break;
-			}
-			if (parent.children.length == 1) {
-				selected = parent;
-			}
-			next = parent.previousElementSibling;
-			parent = parent.parentElement;
-		}
-		while (next && next.localName == "g") {
-			next = next.lastElementChild;
-		}
 		selected.remove();
 	}
 	setSelected(next ?? svg);
@@ -327,14 +325,14 @@ function deletePolygon() {
  * @param {string} xml
  */
 function svgDataURI(xml) {
-	return "data:image/svg+xml;charset=UTF-8,%3C?xml%20version=%221.0%22%20encoding=%22utf-8%22?%3E" + encodeURI(xml).replaceAll("#", "%23");
+	return "data:image/svg+xml;charset=utf-8,%3C?xml%20version=%221.0%22%20encoding=%22utf-8%22?%3E" + encodeURI(xml).replaceAll("#", "%23");
 }
 
 setParams(window.location.search);
 useGroup.setAttribute("stroke-width", params.unselectedWidth);
 svg.setAttribute("style", params.inlineStyle);
 selected = svg;
-[polygonElement, polygonVertices] = getBasePolygon();
+[pgUseElement, polygonVertices] = getBasePolygon();
 svg.addEventListener("mousedown", function (event) {
 	if (event.shiftKey) {
 		setSelected(event.target);
@@ -345,10 +343,22 @@ svg.addEventListener("mousedown", function (event) {
 		addPolygon(translateTo(click));
 		return;
 	}
-	const reflectionLine = sideOfPolygonOnRay(polygonVertices, click);
-	const lastMatrix = selected.transform.baseVal.getItem(0).matrix;
-	const newMatrix = reflectionMatrix(reflectionLine).preMultiplySelf(lastMatrix);
-	addPolygon(newMatrix, reflectionLine);
+	const reflectSide = sideOfPolygonOnRay(polygonVertices, click);
+	const parentMatrix = selected.transform.baseVal.getItem(0).matrix;
+	const childMatrix = reflectionMatrix(reflectSide).preMultiplySelf(parentMatrix);
+	if (params.animationFoldAngle == 0) {
+		addPolygon(childMatrix);
+		return;
+	}
+	let aniCSS = selected.dataset.ani;
+	if (!aniCSS) {
+		addPolygon(childMatrix, getRotationString(childMatrix, reflectSide));
+		return;	
+	}
+	const [prefixAniCSS, nextMatrixString] = aniCSS.split(/(?=matrix\([-\d.,]*\)$)/);
+	const nextMatrix = new DOMMatrix(nextMatrixString);
+	const suffixAniCSS = getRotationString(childMatrix, reflectSide, nextMatrix);
+	addPolygon(childMatrix, prefixAniCSS + suffixAniCSS);
 });
 svg.addEventListener("keydown", function (event) {
 	switch (event.key) {
@@ -362,6 +372,13 @@ svg.addEventListener("keydown", function (event) {
 				const svgOut = svg.cloneNode(true);
 				svgOut.removeAttribute("cursor");
 				if (params.animationFoldAngle != 0) {
+					for (const pg of svgOut.querySelectorAll("[transform]")) {
+						const baseTransform = pg.getAttribute("transform");
+						pg.removeAttribute("transform");
+						const aniTransform = pg.dataset.ani ?? "";
+						delete pg.dataset.ani;
+						pg.setAttribute("style", "transform:" + aniTransform + baseTransform);
+					}
 					svgOut.insertAdjacentHTML("afterbegin", `<style>
 @property --a {
 	syntax: "&lt;angle>";
@@ -369,11 +386,11 @@ svg.addEventListener("keydown", function (event) {
 	initial-value: 0deg;
 }
 @keyframes close {
-	0%, 100% { --a: 0deg; }
-	50% { --a: ${params.animationFoldAngle}deg; }
+	from { --a: 0deg; }
+	to { --a: ${params.animationFoldAngle}deg; }
 }
 svg {
-	animation: close 7s ease-in-out infinite;
+	animation: ${params.closeAnimation};
 }
 </style>`
 					);
