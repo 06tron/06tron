@@ -161,6 +161,7 @@ const params = {
 	heightOfPolygon: "10",
 	inlineStyle: "background-color:Canvas;color-scheme:light dark",
 	selectedWidth: ".5",
+	transformSceneCSS: "",
 	unselectedWidth: ".1",
 	vertices: "5"
 };
@@ -328,6 +329,33 @@ function svgDataURI(xml) {
 	return "data:image/svg+xml;charset=utf-8,%3C?xml%20version=%221.0%22%20encoding=%22utf-8%22?%3E" + encodeURI(xml).replaceAll("#", "%23");
 }
 
+/**
+ * @param {Element} svgOut 
+ */
+function applyAnimation(svgOut) {
+	for (const pg of svgOut.querySelectorAll("[transform]")) {
+		const baseTransform = pg.getAttribute("transform");
+		pg.removeAttribute("transform");
+		const topTransform = params.transformSceneCSS + (pg.dataset.ani ?? "");
+		delete pg.dataset.ani;
+		pg.setAttribute("style", "transform:" + topTransform + baseTransform);
+	}
+	svgOut.insertAdjacentHTML("afterbegin", `<style>
+@property --a {
+	syntax: "&lt;angle>";
+	inherits: true;
+	initial-value: 0deg;
+}
+@keyframes close {
+	from { --a: 0deg; }
+	to { --a: ${params.animationFoldAngle}deg; }
+}
+svg {
+	animation: ${params.closeAnimation};
+}
+</style>`);
+}
+
 setParams(window.location.search);
 useGroup.setAttribute("stroke-width", params.unselectedWidth);
 svg.setAttribute("style", params.inlineStyle);
@@ -353,7 +381,7 @@ svg.addEventListener("mousedown", function (event) {
 	let aniCSS = selected.dataset.ani;
 	if (!aniCSS) {
 		addPolygon(childMatrix, getRotationString(childMatrix, reflectSide));
-		return;	
+		return;
 	}
 	const [prefixAniCSS, nextMatrixString] = aniCSS.split(/(?=matrix\([-\d.,]*\)$)/);
 	const nextMatrix = new DOMMatrix(nextMatrixString);
@@ -372,28 +400,7 @@ svg.addEventListener("keydown", function (event) {
 				const svgOut = svg.cloneNode(true);
 				svgOut.removeAttribute("cursor");
 				if (params.animationFoldAngle != 0) {
-					for (const pg of svgOut.querySelectorAll("[transform]")) {
-						const baseTransform = pg.getAttribute("transform");
-						pg.removeAttribute("transform");
-						const aniTransform = pg.dataset.ani ?? "";
-						delete pg.dataset.ani;
-						pg.setAttribute("style", "transform:" + aniTransform + baseTransform);
-					}
-					svgOut.insertAdjacentHTML("afterbegin", `<style>
-@property --a {
-	syntax: "&lt;angle>";
-	inherits: true;
-	initial-value: 0deg;
-}
-@keyframes close {
-	from { --a: 0deg; }
-	to { --a: ${params.animationFoldAngle}deg; }
-}
-svg {
-	animation: ${params.closeAnimation};
-}
-</style>`
-					);
+					applyAnimation(svgOut);
 				}
 				navigator.clipboard.writeText(svgDataURI(svgOut.outerHTML));
 			}

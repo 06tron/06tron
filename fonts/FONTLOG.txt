@@ -1,0 +1,43 @@
+Z2 Granjon Boxes
+granjon-boxes.woff2
+https://github.com/06tron/granjon-boxes
+
+A decorative font for some box-drawing characters. Digital printer's ornaments.
+Monospace, square characters.
+
+Character List: https://6t.lt/granjon-boxes
+Description: https://6t.lt/blog/#4
+
+----------------------------------------------------------------
+
+Countico Regular
+countico-normal.woff2
+https://home.6t.lt/696/countico-digits.svg
+
+An edited version of Quantico by Matthew Desmond (https://www.madtype.com).
+Digits 0-9 were redrawn in a more symmetrical way, and with wider vertical strokes.
+Non-ASCII characters were removed.
+
+Original: https://fonts.google.com/specimen/Quantico
+
+----------------------------------------------------------------
+
+Kreative Square 2025 Modified
+k-square-boxes.woff2
+
+Monospace, square characters. Modified to remove almost everything, leaving mostly
+box-drawing characters. Added a new glyph and 3 of its rotations to the Private
+Use Area.
+
+Original: https://www.kreativekorp.com/software/fonts/ksquare/
+New Glyph: https://github.com/06tron/granjon-boxes/blob/main/k-square-arcs-character.svg
+
+----------------------------------------------------------------
+
+EB Garamond
+eb-garamond-italic.woff
+eb-garamond-normal.woff
+
+A small subset of the font, WOFF files obtained through Google Fonts.
+
+Original: https://fonts.google.com/specimen/EB+Garamond

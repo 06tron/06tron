@@ -2,7 +2,7 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="-1,-1,29.52,27" style="fill-rule:evenodd;color-scheme:light dark">
 	<title>Countico Digits</title>
 	<desc>A showcase of the Countico font's outlines of the digits 0 through 9</desc>
-	<metadata><about xmlns="https://6t.lt/about">Based on the font Quantico by Matthew Desmond (https://www.madtype.com). More information at https://home.6t.lt/fonts</about></metadata>
+	<metadata><about xmlns="https://6t.lt/about">Paths set by Matthew Richardson (https://orcid.org/0009-0001-0977-2029) are based on glyphs from the font Quantico by Matthew Desmond (https://www.madtype.com). More information at https://home.6t.lt/fonts</about></metadata>
 	<defs>
 		<path id="zero" d="M5.5,0h8l4.5,2v21l-4.5,2h-8l-4.5-2v-21zm-.5,3h9v19h-9z"/>
 		<path id="one" d="M8.625,0h2.875v22h5.625v3h-15.25v-3h5.625v-18l-5.625,2.5v-3.5z"/>
@@ -14,6 +14,8 @@
 		<path id="seven" d="M0,0h19v1.9l-10.5,23.1h-4l10-22h-10.5v3h-4z"/>
 		<path id="eight" d="M5.5,0h8l4.5,2v9l-3.375,1.5l3.375,1.5v9l-4.5,2h-8l-4.5-2v-9l3.375-1.5-3.375-1.5v-9zm-.5,3h9v8h-9zm0,11h9v8h-9z"/>
 		<use id="nine" href="#six" transform="translate(19,25)rotate(180)"/>
+		<path id="en_dash" d="M0,13h19v3h-19z"/>
+		<path id="circle" d="M4.5,3h10l4.5,2v15l-4.5,2h-10l-4.5-2v-15zm-.5,3h11v13h-11z"/>
 	</defs>
 	<g fill="none" stroke="Red" stroke-width="0.1">
 		<use href="#zero"/>
