@@ -153,6 +153,7 @@ function translateTo(p) {
 
 // Global Variables
 const params = {
+	animationFoldAngle: "0",
 	borderColor: "CanvasText",
 	decimalPlaces: "12",
 	fillColor: "red",
@@ -236,23 +237,48 @@ function setSelected(target) {
 const matrixIndices = "abcdef".split("");
 
 /**
- * @param {SVGGraphicsElement} element 
  * @param {DOMMatrix} matrix 
+ * @returns {string}
  */
-function setMatrixTransform(element, matrix) {
+function getMatrixString(matrix) {
 	const entries = matrixIndices.map(function (i) {
 		return +matrix[i].toFixed(6) + 0;
 	});
-	element.setAttribute("transform", `matrix(${entries.join()})`);
+	return `matrix(${entries.join()})`;
 }
 
 /**
  * @param {DOMMatrix} matrix
+ * @param {[[number, number], [number, number]]} reflectionLine
  */
-function addPolygon(matrix) {
+function getRotationString(matrix, reflectionLine) {
+	const [[ax, ay], [bx, by]] = reflectionLine;
+	const { x: cx, y: cy } = matrix.transformPoint({ x: ax, y: ay });
+	const { x: dx, y: dy } = matrix.transformPoint({ x: bx, y: by });
+	const currRad = Math.atan2(dy - cy, dx - cx);
+	const currDeg = currRad * 180 / Math.PI;
+	const toVert = new DOMMatrix()
+		.rotateSelf(90 - currDeg)
+		.translateSelf(-cx, -cy);
+	const rotate3D = "rotateY(var(--a))" + getMatrixString(toVert);
+	return "transform:" + getMatrixString(toVert.invertSelf()) + rotate3D;
+}
+
+/**
+ * @param {DOMMatrix} matrix
+ * @param {[[number, number], [number, number]]} [reflectionLine]
+ */
+function addPolygon(matrix, reflectionLine = null) {
 	const pg = polygonElement.cloneNode();
-	setMatrixTransform(pg, matrix);
-	useGroup.appendChild(pg);
+	pg.setAttribute("transform", getMatrixString(matrix));
+	if (selected === svg || params.animationFoldAngle == 0) {
+		useGroup.appendChild(pg);
+	} else {
+		const newGroup = document.createElementNS(svg.namespaceURI, "g");
+		newGroup.setAttribute("style", getRotationString(matrix, reflectionLine));
+		newGroup.appendChild(pg);
+		selected.parentElement.appendChild(newGroup);
+	}
 	setSelected(pg);
 }
 
@@ -265,9 +291,26 @@ function deletePolygon() {
 	let next;
 	if (svg === selected) {
 		next = useGroup.lastElementChild;
+		while (next && next.localName == "g") {
+			next = next.lastElementChild;
+		}
 	} else {
 		next = selected.previousElementSibling;
-		useGroup.removeChild(selected);
+		let parent = selected.parentElement;
+		while (!next) {
+			if (parent === useGroup) {
+				break;
+			}
+			if (parent.children.length == 1) {
+				selected = parent;
+			}
+			next = parent.previousElementSibling;
+			parent = parent.parentElement;
+		}
+		while (next && next.localName == "g") {
+			next = next.lastElementChild;
+		}
+		selected.remove();
 	}
 	setSelected(next ?? svg);
 }
@@ -304,7 +347,8 @@ svg.addEventListener("mousedown", function (event) {
 	}
 	const reflectionLine = sideOfPolygonOnRay(polygonVertices, click);
 	const lastMatrix = selected.transform.baseVal.getItem(0).matrix;
-	addPolygon(reflectionMatrix(reflectionLine).preMultiplySelf(lastMatrix));
+	const newMatrix = reflectionMatrix(reflectionLine).preMultiplySelf(lastMatrix);
+	addPolygon(newMatrix, reflectionLine);
 });
 svg.addEventListener("keydown", function (event) {
 	switch (event.key) {
@@ -315,9 +359,26 @@ svg.addEventListener("keydown", function (event) {
 		case "c":
 		case "C":
 			if (event.ctrlKey || event.metaKey) {
-				svg.removeAttribute("cursor");
-				navigator.clipboard.writeText(svgDataURI(svg.outerHTML));
-				svg.setAttribute("cursor", "crosshair");
+				const svgOut = svg.cloneNode(true);
+				svgOut.removeAttribute("cursor");
+				if (params.animationFoldAngle != 0) {
+					svgOut.insertAdjacentHTML("afterbegin", `<style>
+@property --a {
+	syntax: "&lt;angle>";
+	inherits: true;
+	initial-value: 0deg;
+}
+@keyframes close {
+	0%, 100% { --a: 0deg; }
+	50% { --a: ${params.animationFoldAngle}deg; }
+}
+svg {
+	animation: close 7s ease-in-out infinite;
+}
+</style>`
+					);
+				}
+				navigator.clipboard.writeText(svgDataURI(svgOut.outerHTML));
 			}
 			break;
 		case "F3":
