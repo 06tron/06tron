@@ -151,6 +151,18 @@ function translateTo(p) {
 	return new DOMMatrix().translateSelf(p.x, p.y);
 }
 
+/**
+ * @param {number | string} n 
+ * @param {number | string} decimalPlaces 
+ * @returns {number}
+ */
+function round(n, decimalPlaces) {
+	let [base, power = 0] = n.toString().split("e");
+	const d = Number(decimalPlaces);
+	[base, power = 0] = Math.round(base + `e${+power + d}`).toString().split("e");
+	return Number(base + `e${+power - d}`);
+}
+
 // Global Variables
 const params = {
 	animationFoldAngle: "0",
@@ -160,17 +172,19 @@ const params = {
 	fillColor: "red",
 	heightOfPolygon: "10",
 	inlineStyle: "background-color:Canvas;color-scheme:light dark",
+	marginWidth: "keep",
 	selectedWidth: ".5",
 	transformSceneCSS: "",
 	unselectedWidth: ".1",
-	vertices: "5"
+	vertices: "5",
+	xlinkHrefs: "false"
 };
 const scriptElement = document.getElementById("script");
 const svg = scriptElement.parentElement;
 scriptElement.outerHTML = `<metadata><about xmlns="https://6t.lt/about"><![CDATA[
-Initially created at ${window.location.href}
+Initially created at ${window.location.href.replaceAll(">", "%3E")}
 Further explanation at https://home.6t.lt/?s=%23mirror_polygon_66c
-]]></about></metadata>`;
+]]></about></metadata>`; // replacing '>' to avoid inserting ']]>'
 const useGroup = document.createElementNS(svg.namespaceURI, "g");
 svg.insertAdjacentElement("afterbegin", useGroup);
 let selected;
@@ -185,6 +199,7 @@ function setParams(queryString) {
 	for (const [key, value] of Object.entries(params)) {
 		params[key] = usp.get(key.charAt(0)) ?? value;
 	}
+	params.xlinkHrefs = ["true", "1"].includes(params.xlinkHrefs);
 }
 
 /**
@@ -198,7 +213,7 @@ function scalePolygon(vts, height) {
 		return [Math.max(hi, y), Math.min(lo, y)];
 	}, [-Infinity, Infinity]);
 	const scale = height / (high - low);
-	return vts.map(v => v.map(x => +(x * scale).toFixed(+params.decimalPlaces)));
+	return vts.map(v => v.map(x => round(x * scale, params.decimalPlaces)));
 }
 
 /**
@@ -217,6 +232,9 @@ function getBasePolygon() {
 	svg.insertAdjacentElement("afterbegin", defs);
 	const use = document.createElementNS(svg.namespaceURI, "use");
 	use.setAttribute("href", "#b");
+	if (params.xlinkHrefs) {
+		use.setAttribute("xlink:href", "#b");
+	}
 	return [use, vts];
 }
 
@@ -244,7 +262,7 @@ const matrixIndices = "abcdef".split("");
  */
 function getMatrixString(matrix) {
 	const entries = matrixIndices.map(function (i) {
-		return +matrix[i].toFixed(6) + 0;
+		return round(matrix[i], 6);
 	});
 	return `matrix(${entries.join()})`;
 }
@@ -332,7 +350,7 @@ function svgDataURI(xml) {
 /**
  * @param {Element} svgOut 
  */
-function applyAnimation(svgOut) {
+function applyAnimation(svgOut, useGroupOut) {
 	for (const pg of svgOut.querySelectorAll("[transform]")) {
 		const baseTransform = pg.getAttribute("transform");
 		pg.removeAttribute("transform");
@@ -340,24 +358,25 @@ function applyAnimation(svgOut) {
 		delete pg.dataset.ani;
 		pg.setAttribute("style", "transform:" + topTransform + baseTransform);
 	}
-	svgOut.insertAdjacentHTML("afterbegin", `<style>
-@property --a {
-	syntax: "&lt;angle>";
-	inherits: true;
+	const style = document.createElementNS(svg.namespaceURI, "style");
+	style.textContent = `@property --a {
+	syntax:"<angle>";
+	inherits:true;
 	initial-value: 0deg;
 }
 @keyframes close {
 	from { --a: 0deg; }
-	to { --a: ${params.animationFoldAngle}deg; }
-}
-svg {
-	animation: ${params.closeAnimation};
-}
-</style>`);
+	to { --a: ${+params.animationFoldAngle}deg; }
+}`;
+	svgOut.insertAdjacentElement("afterbegin", style);
+	useGroupOut.setAttribute("style", "animation:" + params.closeAnimation);
 }
 
 setParams(window.location.search);
 useGroup.setAttribute("stroke-width", params.unselectedWidth);
+if (params.xlinkHrefs) {
+	useGroup.setAttribute("xmlns:xlink", "http://www.w3.org/1999/xlink");
+}
 svg.setAttribute("style", params.inlineStyle);
 selected = svg;
 [pgUseElement, polygonVertices] = getBasePolygon();
@@ -398,9 +417,26 @@ svg.addEventListener("keydown", function (event) {
 		case "C":
 			if (event.ctrlKey || event.metaKey) {
 				const svgOut = svg.cloneNode(true);
+				const useGroupOut = svgOut.querySelector("g");
 				svgOut.removeAttribute("cursor");
 				if (params.animationFoldAngle != 0) {
-					applyAnimation(svgOut);
+					applyAnimation(svgOut, useGroupOut);
+				} else if (params.transformSceneCSS.length > 0) {
+					useGroupOut.setAttribute("style", "transform:" + params.transformSceneCSS);
+				}
+				if (params.marginWidth != "keep") {
+					const gTemp = document.createElementNS(svg.namespaceURI, "g");
+					gTemp.appendChild(useGroupOut.cloneNode(true));
+					svg.appendChild(gTemp);
+					const b = gTemp.getBBox();
+					svg.removeChild(gTemp);
+					const m = +params.marginWidth;
+					svgOut.setAttribute("viewBox", [
+						b.x - m,
+						b.y - m,
+						b.width + 2 * m,
+						b.height + 2 * m
+					].map(x => round(x, params.decimalPlaces)).join());
 				}
 				navigator.clipboard.writeText(svgDataURI(svgOut.outerHTML));
 			}
