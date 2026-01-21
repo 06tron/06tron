@@ -168,13 +168,14 @@ const params = {
 	animationFoldAngle: "0",
 	borderColor: "CanvasText",
 	closeAnimation: "4s ease-in-out alternate infinite close",
-	decimalPlaces: "12",
+	decimalPlaces: "6",
 	fillColor: "red",
 	heightOfPolygon: "10",
 	inlineStyle: "background-color:Canvas;color-scheme:light dark",
 	marginWidth: "keep",
+	placeInitial: "no",
 	selectedWidth: ".5",
-	transformSceneCSS: "",
+	transformScene: "", // if no animation: SVG attribute form. if animation: CSS property form. if animation and custom margin: compatible with both SVG and CSS forms
 	unselectedWidth: ".1",
 	vertices: "5",
 	xlinkHrefs: "false"
@@ -262,7 +263,7 @@ const matrixIndices = "abcdef".split("");
  */
 function getMatrixString(matrix) {
 	const entries = matrixIndices.map(function (i) {
-		return round(matrix[i], 6);
+		return round(matrix[i], params.decimalPlaces);
 	});
 	return `matrix(${entries.join()})`;
 }
@@ -354,14 +355,15 @@ function applyAnimation(svgOut, useGroupOut) {
 	for (const pg of svgOut.querySelectorAll("[transform]")) {
 		const baseTransform = pg.getAttribute("transform");
 		pg.removeAttribute("transform");
-		const topTransform = params.transformSceneCSS + (pg.dataset.ani ?? "");
+		const topTransform = params.transformScene + (pg.dataset.ani ?? "");
 		delete pg.dataset.ani;
 		pg.setAttribute("style", "transform:" + topTransform + baseTransform);
 	}
 	const style = document.createElementNS(svg.namespaceURI, "style");
-	style.textContent = `@property --a {
-	syntax:"<angle>";
-	inherits:true;
+	style.textContent = `
+@property --a {
+	syntax: "<angle>";
+	inherits: true;
 	initial-value: 0deg;
 }
 @keyframes close {
@@ -369,6 +371,7 @@ function applyAnimation(svgOut, useGroupOut) {
 	to { --a: ${+params.animationFoldAngle}deg; }
 }`;
 	svgOut.insertAdjacentElement("afterbegin", style);
+	useGroupOut.removeAttribute("transform");
 	useGroupOut.setAttribute("style", "animation:" + params.closeAnimation);
 }
 
@@ -419,10 +422,8 @@ svg.addEventListener("keydown", function (event) {
 				const svgOut = svg.cloneNode(true);
 				const useGroupOut = svgOut.querySelector("g");
 				svgOut.removeAttribute("cursor");
-				if (params.animationFoldAngle != 0) {
-					applyAnimation(svgOut, useGroupOut);
-				} else if (params.transformSceneCSS.length > 0) {
-					useGroupOut.setAttribute("style", "transform:" + params.transformSceneCSS);
+				if (params.transformScene.length > 0) {
+					useGroupOut.setAttribute("transform", params.transformScene);
 				}
 				if (params.marginWidth != "keep") {
 					const gTemp = document.createElementNS(svg.namespaceURI, "g");
@@ -438,6 +439,9 @@ svg.addEventListener("keydown", function (event) {
 						b.height + 2 * m
 					].map(x => round(x, params.decimalPlaces)).join());
 				}
+				if (params.animationFoldAngle != 0) {
+					applyAnimation(svgOut, useGroupOut);
+				}
 				navigator.clipboard.writeText(svgDataURI(svgOut.outerHTML));
 			}
 			break;
@@ -445,3 +449,8 @@ svg.addEventListener("keydown", function (event) {
 			console.log(useGroup.children.length);
 	}
 });
+if (params.placeInitial != "no") {
+	const p = {};
+	[p.x, p.y] = params.placeInitial.split(",").map(Number);
+	addPolygon(translateTo(p));
+}

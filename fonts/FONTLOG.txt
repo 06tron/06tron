@@ -14,9 +14,8 @@ Countico Regular
 countico-normal.woff2
 https://home.6t.lt/696/countico-digits.svg
 
-An edited version of Quantico by Matthew Desmond (https://www.madtype.com).
-Digits 0-9 were redrawn in a more symmetrical way, and with wider vertical strokes.
-Non-ASCII characters were removed.
+An edited version of Matthew Desmond's Quantico. Digits 0-9 were redrawn in a more
+symmetrical way, and with wider vertical strokes. Non-ASCII characters were removed.
 
 Original: https://fonts.google.com/specimen/Quantico
 
