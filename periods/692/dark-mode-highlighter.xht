@@ -2,11 +2,15 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
 
 <head>
+	<meta charset="utf-8"/>
 	<title>Dark Mode Highlighter</title>
-	<meta name="author" content="https://orcid.org/xxxx"/>
+	<meta name="author" content="https://orcid.org/0009-0001-0977-2029"/>
 	<meta name="color-scheme" content="dark light"/>
 	<meta name="description" content="Use the slider to adjust a given color's transparency, while attempting to preserve its appearance on a white background. This should allow the same highlight color look good on both light and dark backgrounds."/>
 	<meta name="viewport" content="width=device-width"/>
+	<template>
+		<about xmlns="https://6t.lt/about">Interactive demonstration at https://www.desmos.com/calculator/rhwetca3iz</about>
+	</template>
 	<style>
 		body {
 			font-family: "Avenir", "Segoe UI", sans-serif;
@@ -71,8 +75,8 @@
 			<tr><th>On Canvas</th><td><span>carried his suitcase</span></td><td><span>carried his suitcase</span></td></tr>
 		</tbody>
 	</table>
-	<label><b>Start Color</b><input id="start-color" type="text" value="MistyRose" oninput="updateColor()"></input></label>
-	<label><b>Target Alpha</b> [ <span id="alpha-int"></span>/255 ≈ <span id="alpha-dec"></span> ]<input id="target-alpha" type="range" min="1" max="255" step="1" value="255" oninput="updateColor()"></input></label>
+	<label><b>Start Color</b><input id="start-color" type="text" value="MistyRose" oninput="updateColor()"/></label>
+	<label><b>Target Alpha</b> [ <span id="alpha-int"></span>/255 ≈ <span id="alpha-dec"></span> ]<input id="target-alpha" type="range" min="1" max="255" step="1" value="255" oninput="updateColor()"/></label>
 	<script>//<![CDATA[
 
 String.prototype.pullNumberArray = function () {
