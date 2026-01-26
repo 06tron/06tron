@@ -17,6 +17,7 @@
 	--fl-heading: "EB Garamond", "American Typewriter", "Century Gothic", monospace;
 	--sans-serif: "Avenir", "Segoe UI", sans-serif;
 	--title-text: "Tsukushi B Round Gothic", "Menlo", "Courier New", monospace;
+	/* Main fonts: sans serif, sans serif italic (and transparent), sans serif bold, monospace  */
 }
 
 a.naked::after {
@@ -189,6 +190,12 @@ span.fl {
 	font-family: var(--fl-heading);
 	font-size: 1.7em;
 	font-weight: normal;
+}
+
+u {
+	font-style: italic;
+	opacity: 0.7;
+	text-decoration: none;
 }
 
 ul {

@@ -172,7 +172,7 @@ const params = {
 	fillColor: "red",
 	heightOfPolygon: "10",
 	inlineStyle: "background-color:Canvas;color-scheme:light dark",
-	marginWidth: "keep",
+	marginSize: "keep",
 	placeInitial: "no",
 	selectedWidth: ".5",
 	transformScene: "", // if no animation: SVG attribute form. if animation: CSS property form. if animation and custom margin: compatible with both SVG and CSS forms
@@ -425,13 +425,13 @@ svg.addEventListener("keydown", function (event) {
 				if (params.transformScene.length > 0) {
 					useGroupOut.setAttribute("transform", params.transformScene);
 				}
-				if (params.marginWidth != "keep") {
+				if (params.marginSize != "keep") {
 					const gTemp = document.createElementNS(svg.namespaceURI, "g");
 					gTemp.appendChild(useGroupOut.cloneNode(true));
 					svg.appendChild(gTemp);
 					const b = gTemp.getBBox();
 					svg.removeChild(gTemp);
-					const m = +params.marginWidth;
+					const m = +params.marginSize;
 					svgOut.setAttribute("viewBox", [
 						b.x - m,
 						b.y - m,
@@ -442,7 +442,11 @@ svg.addEventListener("keydown", function (event) {
 				if (params.animationFoldAngle != 0) {
 					applyAnimation(svgOut, useGroupOut);
 				}
-				navigator.clipboard.writeText(svgDataURI(svgOut.outerHTML));
+				const dataURI = svgDataURI(svgOut.outerHTML);
+				navigator.clipboard?.writeText(dataURI).catch(function (err) {
+					alert(dataURI);
+					console.log(err);
+				}) ?? alert(dataURI);
 			}
 			break;
 		case "F3":
