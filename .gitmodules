@@ -1,3 +1,6 @@
 [submodule "triangle-space"]
 	path = ts/triangle-space
 	url = https://github.com/06tron/triangle-space
+[submodule "ts/web-scripts"]
+	path = ts/web-scripts
+	url = https://github.com/06tron/web-scripts.git

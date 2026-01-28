@@ -16,8 +16,7 @@
 :root {
 	--fl-heading: "EB Garamond", "American Typewriter", "Century Gothic", monospace;
 	--sans-serif: "Avenir", "Segoe UI", sans-serif;
-	--title-text: "Tsukushi B Round Gothic", "Menlo", "Courier New", monospace;
-	/* Main fonts: sans serif, sans serif italic (and transparent), sans serif bold, monospace  */
+	--title-text: "Tsukushi B Round Gothic", "Gulim", "Menlo", "Courier New", monospace;
 }
 
 a.naked::after {
