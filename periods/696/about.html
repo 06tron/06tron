@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+
+<head>
+	<meta charset="utf-8"/>
+	<title>xmlns About</title>
+	<meta name="author" content="https://orcid.org/0009-0001-0977-2029"/>
+	<meta name="color-scheme" content="dark light"/>
+	<meta name="description" content="Reference for the 'https://6t.lt/about' XML namespace."/>
+	<meta name="viewport" content="width=device-width"/>
+	<base href="https://home.6t.lt/"/>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cascadia+Mono:ital,wght@1,300&amp;text=%E2%98%99%20florahetsx%E2%9D%A7JSONmn=%22p:/6.bu%3C%3Eij"/>
+	<style>
+		a::before { content: attr(href) }
+		body { font-family: "Avenir", "Segoe UI", sans-serif; max-width: 80rem; }
+		p { max-width: 40rem; }
+		h1 { font: italic 300 1.6rem 'Cascadia Mono', monospace; }
+		th { font: italic 300 1.2rem 'Cascadia Mono', monospace; }
+		#t, #j { font: italic 300 1rem 'Cascadia Mono', monospace; white-space: pre-wrap; }
+		table { table-layout: fixed; width: 100%; overflow-wrap: break-word; }
+		td { padding: 0 0.5rem; }
+		th:nth-child(2n+1), td:nth-child(2n+1) { background-color: #5af3; }
+		th:nth-child(2n+2), td:nth-child(2n+2) { background-color: #f053; }
+		footer { font-style: italic; opacity: 0.7; text-align: center; }
+	</style>
+	<template>
+		<about xmlns="https://6t.lt/about">
+			So far the namespace has four elements, and this website states their general purpose and provides an example.
+			<txt>☙ flo
+ral hearts text ❧</txt>
+			<uri>https://6t.lt?h=%E2%98%99+floral+hearts+%E2%9D%A7</uri>
+			<json>"☙ floral heart\u0073 JSON \u2767"</json>
+		</about>
+	</template>
+</head>
+
+<body>
+	<h1>xmlns="https://6t.lt/about"</h1>
+	<table>
+		<thead>
+			<tr><th>&lt;about></th><th>&lt;txt></th><th>&lt;uri></th><th>&lt;json></th></tr>
+		</thead>
+		<tbody>
+			<tr><td>Can contain a combination of text and child elements.</td><td>Plain text such as CSV file content.</td><td>A single URI.</td><td>Data in JSON format.</td></tr>
+			<tr><td id="a"></td><td id="t"></td><td><a id="u"></a></td><td id="j"></td></tr>
+			<tr><td>e.querySelector('txt')</td><td>e.textContent.split('\n')</td><td>setAttribute('src', e.textContent)</td><td>JSON.parse(e.textContent)</td></tr>
+		</tbody>
+	</table>
+	<p>
+		View this page's source to see the &lt;about> element in use. You can put elements from this namespace into the SVG &lt;metadata> element, and it seems you can do the same with the HTML &lt;template> element.
+	</p>
+	<p>
+		Also in use at:<br/>
+		<a href="677/entity-test-atom.xml"></a><br/>
+		<a href="692/dark-mode-highlighter.xht"></a><br/>
+		<a href="696/great-dodecahedron-net.svg"></a><br/>
+		<a href="696/ML%20Window.svg"></a>
+	</p>
+	<footer><a href="sitemap"></a></footer>
+	<script>
+		const ab = document.querySelector('template').content.children[0];
+		document.getElementById('a').textContent = ab.childNodes[0].textContent;
+		document.getElementById('t').textContent = ab.querySelector('txt').textContent;
+		document.getElementById('u').setAttribute('href', ab.querySelector('uri').textContent);
+		document.getElementById('j').textContent = JSON.parse(ab.querySelector('json').textContent);
+	</script>
+</body>
+
+</html>
