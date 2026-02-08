@@ -1,6 +1,9 @@
 [
 	"<?xml version=\"1.0\" encoding=\"utf-8\"?>",
-	"<feed xmlns=\"http://www.w3.org/2005/Atom\"><title>",
+	"<feed xmlns=\"http://www.w3.org/2005/Atom\">",
+	"<link xmlns=\"http://www.w3.org/1999/xhtml\" rel=\"stylesheet\" href=\"698/style-atom.css\"/>",
+	"<about xmlns=\"https://6t.lt/about\">Use the URL of this XML file to read posts from my ",
+	"website in any feed reader that supports the Atom Syndication Format.</about><title>",
 	.title,
 	"</title><subtitle>",
 	.description,

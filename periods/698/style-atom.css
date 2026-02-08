@@ -1,0 +1,49 @@
+:root {
+	color-scheme: dark light;
+	--fl-heading: "American Typewriter", "Century Gothic", monospace;
+	--sans-serif: "Avenir", "Segoe UI", sans-serif;
+}
+
+about, entry, published, title {
+	display: block;
+}
+
+author, category, icon, id, link, updated {
+	display: none;
+}
+
+a.naked::after {
+	content: " → " attr(href);
+}
+
+about {
+	background-color: #f053;
+	margin-bottom: 1rem;
+	padding: 0.5rem;
+}
+
+entry {
+	background-color: #5af3;
+	margin: 1rem 0;
+	padding: 1rem;
+}
+
+figure, pre {
+	overflow-x: auto;
+}
+
+feed {
+	font-family: var(--sans-serif);
+	max-width: 60rem;
+	margin: 1rem;
+	overflow-wrap: break-word;
+}
+
+iframe {
+	height: 500px;
+	width: 100%;
+}
+
+span.fl, title {
+	font: normal 1.7em var(--fl-heading);
+}

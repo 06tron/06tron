@@ -40,7 +40,8 @@
 	"editor.links": false,
 	"editor.rulers": [
 		64,
-		80
+		80,
+		100
 	],
 	"editor.tokenColorCustomizations": {
 		"textMateRules": [
@@ -78,5 +79,8 @@
 	},
 	"workbench.editorAssociations": {
 		"*.svg": "default"
+	},
+	"[typescript]": {
+		"editor.tabSize": 2
 	}
 }

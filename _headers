@@ -1,5 +1,5 @@
 /atom.xml
-	Content-Type: application/atom+xml;charset=utf-8
+	Content-Type: application/xml;charset=utf-8
 
 /feed.json
 	Content-Type: application/feed+json;charset=utf-8

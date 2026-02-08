@@ -20,7 +20,7 @@
 }
 
 a.naked::after {
-	content: " → " attr(href)
+	content: " → " attr(href);
 }
 
 article {
