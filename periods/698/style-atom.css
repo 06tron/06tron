@@ -19,7 +19,12 @@ a.naked::after {
 about {
 	background-color: #f053;
 	margin-bottom: 1rem;
+	max-width: 30rem;
 	padding: 0.5rem;
+}
+
+about uri {
+	font-style: italic;
 }
 
 entry {

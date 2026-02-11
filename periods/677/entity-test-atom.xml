@@ -3,6 +3,7 @@
 	<!ENTITY page_path "https://home.6t.lt/677/">
 ]>
 <feed xmlns="http://www.w3.org/2005/Atom">
+<link xmlns="http://www.w3.org/1999/xhtml" rel="stylesheet" href="../698/style-atom.css"/>
 
 <title>Entity Test</title>
 <author>

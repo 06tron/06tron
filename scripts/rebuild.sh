@@ -9,9 +9,9 @@ rsync -r --exclude='.*' fonts icons periods index.html style.css export # 21
 mv export/icons/favicon.ico export # 22
 echo 'const jsonFeed=' | cat - export/feed.json mainpage.js > export/mainpage.js # 23
 cp mirror.html export/shortcuts/index.html # 24
-for line in export/periods/*/*.html
+for line in export/periods/*/*.htm
 do
-	name=$(basename "$line" .html)
+	name=$(basename "$line" .htm)
 	mkdir export/shortcuts/"$name" # 30
 	mv "$line" export/shortcuts/"$name"/index.html # 31
 done
@@ -28,67 +28,14 @@ mkdir export/sitemap # 80
 cp ~/rsync/Documents/Resumes/latest.pdf export/shortcuts/resume # 90
 cp 404.html _headers _redirects export # 91
 
-# add-item.sh
-# build
-#  ├── export.zip                    90
-#  ├── feed.json
-#  ├── home                          01
-#  │    ├── atom.xml                 11
-#  │    ├── docs                     
-#  │    │    └── ...                  
-#  │    ├── feed.json                10
-#  │    ├── _headers                 20
-#  │    ├── icons                    20
-#  │    │   ├── 16.png               20
-#  │    │   ├── 48.svg               20
-#  │    │   └── index.html           48
-#  │    ├── index.html               20
-#  │    ├── mainpage.js              25
-#  │    ├── _redirects               20
-#  │    ├── robots.txt               
-#  │    ├── shortcuts                01
-#  │    │    ├── blog                01
-#  │    │    │    └── index.html     12
-#  │    │    ├── index.html          60
-#  │    │    ├── {submodule-x}       
-#  │    │    │    └── ...            
-#  │    │    └── {nickname-y-i}      30
-#  │    │         └── index.html     40
-#  │    ├── sitemap                  80
-#  │    │    ├── index.html          82
-#  │    │    └── ?.xml
-#  │    ├── style.css                20
-#  │    └── {period-z}               50
-#  │         ├── index.html          45
-#  │         └── {any-file-z-i}      20
-#  ├── json-feed-to-atom.jq
-#  ├── json-feed-to-html.jq
-#  ├── mirror.html
-#  ├── rebuild.sh
-#  └── sitemap.html
-# draft.xht
-# .git
-# .gitignore
-# .gitmodules
-# icons
-#  ├── 16.png
-#  └── 48.svg
 # periods
 #  └── {period-a}
-#       ├── {any-file-a-i}
-#       └── {nickname-a-i}.html
-# README.rst
-# style.css
-# ts
-#  ├── .eslintrc.json
-#  ├── node_modules
-#  │    └── ...
-#  ├── package.json
-#  ├── package-lock.json
-#  ├── tsconfig.json
-#  ├── .vscode
-#  │    └── settings.json
-#  └── {submodule-b}
-#       ├── build
-#       │    └── ...
-#       └── ... 
+#       ├── {nickname-a-i}.htm
+#       └── {any-file-a-j}
+# export
+#  ├── shortcuts
+#  │    └── {nickname-y-i}
+#  │         └── index.html
+#  └── {period-z}
+#       ├── index.html
+#       └── {any-file-z-i}
