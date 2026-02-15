@@ -1,4 +1,10 @@
 {
+	"[html]": {
+		"editor.tabSize": 2
+	},
+	"[typescript]": {
+		"editor.tabSize": 2
+	},
 	"cSpell.enabledNotifications": {
 		"Lines too Long": false
 	},
@@ -71,6 +77,12 @@
 	"editor.wordWrapColumn": 100,
 	"explorer.compactFolders": false,
 	"extensions.ignoreRecommendations": true,
+	"files.associations": {
+		"*.xml": "html"
+	},
+	"html.format.extraLiners": "blockquote, h3, h4, p, pre, ul, aside, /aside, section, /section",
+	"html.format.preserveNewLines": false,
+	"html.format.wrapLineLength": 0,
 	"terminal.integrated.fontSize": 13,
 	"terminal.integrated.fontWeight": "200",
 	"terminal.integrated.suggest.enabled": false,
@@ -79,8 +91,5 @@
 	},
 	"workbench.editorAssociations": {
 		"*.svg": "default"
-	},
-	"[typescript]": {
-		"editor.tabSize": 2
 	}
 }
