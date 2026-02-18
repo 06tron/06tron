@@ -6,3 +6,6 @@
 
 /shortcuts/resume
 	Content-Type: application/pdf
+
+/698/style-atom.css
+	Content-Type: text/css;charset=utf-8
