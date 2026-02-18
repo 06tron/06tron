@@ -4,7 +4,7 @@
 
 	<h3><span class="fl">Number Space</span></h3>
 
-	<figure><img height="162" loading="lazy" src="https://home.6t.lt/668/ns-hallway.svg" alt="small sudoku puzzle"/></figure>
+	<figure><img height="162" loading="lazy" src="https://home.6t.lt/668/ns-hallway.svg" alt="Sudoku puzzle with orange and blue portals."/></figure>
 
 	<p>A Sudoku variant that doesn't change anything but the shape of the puzzle. This <a href="https://6vt.nl/">interactive website</a> is a work in progress. So far there are four puzzles that a visitor can play, as long as they have a keyboard and mouse.</p>
 
@@ -18,7 +18,7 @@
 
 <div id="collage_619" class="art">
 
-	<figure><img height="711" loading="lazy" src="https://home.6t.lt/619/A%20Crow's%20Head.png" alt="two piece collage"/>
+	<figure><img height="711" loading="lazy" src="https://home.6t.lt/619/A%20Crow's%20Head.png" alt="Collage visible through two rectangular cutouts."/>
 		<figcaption>
 
 			<p>I put this collage together in November 2021, using material related to books published by the University of Massachusetts Press.</p>
@@ -32,7 +32,7 @@
 
 	<h3><span class="fl">About Me</span></h3>
 
-	<figure><img height="162" loading="lazy" src="https://home.6t.lt/613/mt-tom-headshot.jpg" alt="portrait photo"/></figure>
+	<figure><img height="162" loading="lazy" src="https://home.6t.lt/613/mt-tom-headshot.jpg" alt="Portrait photo taken in Holyoke MA."/></figure>
 
 	<p>I graduated from UMass Amherst with a master's degree in computer science. My favorite subjects are computer graphics, abstract algebra, and <a href="https://en.wikipedia.org/wiki/Artificial_Intelligence:_A_Modern_Approach">artificial intelligence</a>.</p>
 
