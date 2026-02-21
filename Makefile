@@ -35,8 +35,8 @@ articles/feed.json: $(patsubst articles/%.xml,articles/item-%.json,$(wildcard ar
 #	date_modified: string;
 #	tags: Array<string>; // usually just one word for each tag
 # } for a specific article. Edits "title" of and adds "date_modified" and "content_html" to the existing data in outline.json
-articles/item-%.json: articles/min-%.xml outline.json
+articles/item-%.json: articles/item-%.html outline.json
 	jq '._named_items."$*"|.+{title:("$* - "+.title),date_modified:$$time,content_html:$$html}' --arg time "$$(git log -1 --pretty=format:%aI articles/$*.xml)" --arg html "$$(cat $<)" -c outline.json > $@
 
-articles/min-%.xml: articles/%.xml
+articles/item-%.html: articles/%.xml
 	perl -0076 -pe 's/[\t\n]//g; s/&#x9;/\t/g; s/&#xA;/\n/g' $< > $@
