@@ -69,8 +69,9 @@
 		const input = query.get("b")
 			?? charSwap(query.get("h"), query.get("m") ?? `&"><'%X\tZ\n$~()*@`)
 			?? document.querySelector('meta[name="description"]').content + ` You might also be looking for this website's <a href="https://home.6t.lt">homepage</a>.`;
-		document.body.innerHTML = DOMPurify.sanitize(input, { ADD_DATA_URI_TAGS: ["a"] });
-		
+		addEventListener("DOMContentLoaded", function() {
+			document.body.innerHTML = DOMPurify.sanitize(input, { ADD_DATA_URI_TAGS: ["a"] });
+		});
 	</script>
 </body>
 

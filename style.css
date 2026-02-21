@@ -191,6 +191,10 @@ span.fl {
 	font-weight: normal;
 }
 
+sup {
+	line-height: 0;
+}
+
 u {
 	font-style: italic;
 	opacity: 0.7;
