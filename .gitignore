@@ -4,7 +4,7 @@ export.zip
 ignore/
 articles/feed.json
 articles/item-*.json
-articles/*.min.xml
+articles/min-*.xml
 ts/node_modules/
 ts/package.json
 ts/package-lock.json
