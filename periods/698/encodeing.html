@@ -54,29 +54,32 @@
 
 	<pre><code>JSON.stringify(new URLSearchParams(location.search).get('b'))</code></pre>
 
-	<p>The expected output is <code class="pass">"&lt;pre> !=?[&#x8D;¾\n#+%%41&amp;&lt;/pre>\b\b"</code>. I chose this example because <var><code>data</code></var> contains a variety of character types: disallowed in URLs, unreserved in URLs, reserved in URLs, C0 and C1 control codes, relevant delimiters, and non-ASCII characters.</p>
+	<p>The expected output is <code class="pass">"&lt;pre> !=?[&#x8D;¾\n#+%%41&amp;&lt;/pre>\b\b"</code>. I defined <var><code>data</code></var> in this way since it contains a variety of character types: disallowed in URLs, unreserved in URLs, reserved in URLs, C0 and C1 control codes, relevant delimiters, and non-ASCII characters.</p>
 
 	<dl>
-		<dt><a href="?b=%3Cpre%3E%20!%3D%3F%5B%C2%8D%C2%BE%0A%23%2B%25%2541%26%3C%2Fpre%3E%08%08"></a></dt>
+		<dt><a href="?b=%3Cpre%3E%20!%3D%3F%5B%C2%8D%C2%BE%0A%23%2B%25%2541%26%3C%2Fpre%3E%08%08">1. </a></dt>
 		<dd><code class="pass">"&lt;pre> !=?[&#x8D;¾\n#+%%41&amp;&lt;/pre>\b\b"</code></dd>
 		<dd>Encoded using <cite><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent">encodeURIComponent</a></cite>.</dd>
-		<dt><a href="?b=%3Cpre%3E+!=?%5B%C2%8D%C2%BE%0A%23%2B%25%2541%26%3C/pre%3E%08%08"></a></dt>
+		<dt><a href="?b=%3Cpre%3E+!=?%5B%C2%8D%C2%BE%0A%23%2B%25%2541%26%3C/pre%3E%08%08">2. </a></dt>
 		<dd><code class="pass">"&lt;pre> !=?[&#x8D;¾\n#+%%41&amp;&lt;/pre>\b\b"</code></dd>
 		<dd>Characters not allowed in the query part of a URI according to <a href="https://www.rfc-editor.org/info/std66">RFC 3986</a> have been encoded. Also encoded is U+26 (&amp;) which separates <q>key=value</q> pairs, and U+2B (+) which represents U+20. The U+20 present in <var><code>data</code></var> is replaced with U+2B (+) instead of <q><code>%20</code></q>.</dd>
-		<dt><a href="?b=%3Cpre%3E+!=?%5B%C2%8D¾%0A%23%2B%25%2541%26%3C/pre%3E%08%08"></a></dt>
+		<dt><a href="?b=%3Cpre%3E+!=?%5B%C2%8D¾%0A%23%2B%25%2541%26%3C/pre%3E%08%08">3. </a></dt>
 		<dd><code class="pass">"&lt;pre> !=?[&#x8D;¾\n#+%%41&amp;&lt;/pre>\b\b"</code></dd>
 		<dd>Same as previous, but instead follows the rules set by the <a href="https://url.spec.whatwg.org/#url-writing">WHATWG URL Standard</a> for writing a <cite>valid URL string</cite>. This allows U+BE (¾) to remain unencoded.</dd>
-		<dt><a href="?b=&lt;pre> !=?[&#x8D;¾%0A%23%2B%%2541%26&lt;/pre>&#8;%08"></a></dt>
+		<dt><a href="?b=&lt;pre> !=?[&#x8D;¾%0A%23%2B%%2541%26&lt;/pre>&#8;%08">4. </a></dt>
 		<dd><code class="pass">"&lt;pre> !=?[&#x8D;¾\n#+%%41&amp;&lt;/pre>\b\b"</code></dd>
 		<dd>Encodes as few characters as possible while still preserving <var><code>data</code></var>. The newline U+A (\n) and the final U+8 (\b) are encoded to prevent the <cite><a href="https://url.spec.whatwg.org/#concept-basic-url-parser">basic URL parser</a></cite> from removing them. The number sign U+23 (#) is encoded, since it signals the end of the query part of a URL. Their special usage requires U+26 (&amp;) and U+2B (+) to be encoded, and the second U+25 (%) is encoded as the two characters following it are valid hex digits. Encoding in this way allows characters which are invalid in URLs, XML 1.0, and HTML.</dd>
 		<dt><a href="?b=&lt;pre> !=?[&#x8D;¾
-%23+%%41%26&lt;/pre>&#8;&#8;"></a></dt>
+%23+%%41%26&lt;/pre>&#8;&#8;">5. </a></dt>
 		<dd><code class="fail">"&lt;pre> !=?[&#x8D;¾# %A&amp;&lt;/pre>"</code></dd>
 		<dd>The query value is not cut short since U+23 (#) and U+26 (&amp;) are encoded, but U+A (\n) is removed, U+2B (+) is converted to U+20, the second U+25 (%) is considered part of a percent-encoded U+41 (A), and the two trailing U+8 (\b) are removed.</dd>
 		<dt><a href="?b=&lt;pre> !=?[&#x8D;¾
-#+%%41&amp;&lt;/pre>&#8;&#8;"></a></dt>
+#+%%41&amp;&lt;/pre>&#8;&#8;">6. </a></dt>
 		<dd><code class="fail">"&lt;pre> !=?[&#x8D;¾"</code></dd>
 		<dd>Nothing encoded, U+23 (#) cuts the query string short.</dd>
+		<dt><a href="?b=%3Cpre%3E+!=?[%C2%8D%C2%BE%0A%23%2B%%2541%26%3C/pre%3E%08%08">6. </a></dt>
+		<dd><code class="pass">"&lt;pre> !=?[&#x8D;¾\n#+%%41&amp;&lt;/pre>\b\b"</code></dd>
+		<dd>If you take the encoded URL string from example 4 above, replace the U+20 with U+2B (+), and pass it into the JavaScript <cite>URL() constructor</cite>, then this is the stringified version of that constructed object. While not a <cite>valid URL string</cite>, it is unchanged after being parsed and serialized.</dd>
 	</dl>
 
 </body>
