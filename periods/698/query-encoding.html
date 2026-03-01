@@ -7,7 +7,7 @@
 	<meta name="color-scheme" content="dark light"/>
 	<meta name="description" content="A small showcase of different percent-encoding strategies."/>
 	<meta name="viewport" content="width=device-width"/>
-	<base href="https://6t.lt"/>
+	<base href="https://6t.lt/"/>
 	<style>
 		dt a::after {
 			content: attr(href);
@@ -34,6 +34,12 @@
 
 		dt {
 			margin-top: 1rem;
+		}
+
+		footer {
+			font-style: italic;
+			opacity: 0.7;
+			text-align: center;
 		}
 
 		pre {
@@ -81,6 +87,8 @@
 		<dd><code class="pass">"&lt;pre> !=?[&#x8D;¾\n#+%%41&amp;&lt;/pre>\b\b"</code></dd>
 		<dd>If you take the encoded URL string from example 4 above, replace the U+20 with U+2B (+), and pass it into the JavaScript <cite>URL() constructor</cite>, then this is the stringified version of that constructed object. While not a <cite>valid URL string</cite>, it is unchanged after being parsed and serialized.</dd>
 	</dl>
+
+	<footer><a href="https://home.6t.lt/sitemap">sitemap</a> | Updated 2026-02-21</footer>
 
 </body>
 </html>

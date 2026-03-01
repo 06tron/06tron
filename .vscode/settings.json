@@ -30,6 +30,7 @@
 		"mucube",
 		"Murád",
 		"Neilson",
+		"nonchange",
 		"nonplanar",
 		"Offner",
 		"polytope",
@@ -89,7 +90,7 @@
 		"*.svg": "html",
 		"*.xml": "html"
 	},
-	"html.format.extraLiners": "blockquote,button,dl,figure,h1,h3,h4,p,pre,ul,aside,/aside,div,/div,section,/section,/body,/figcaption",
+	"html.format.extraLiners": "blockquote,button,dl,figure,footer,h1,h3,h4,p,pre,ul,aside,/aside,div,/div,section,/section,/body,/figcaption",
 	"html.format.preserveNewLines": false,
 	"html.format.unformatted": "base,br,foreignObject,img,link,meta,path",
 	"html.format.wrapLineLength": 0,
