@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0,0,40,20" style="background-color:Canvas;color-scheme:light dark"><style>
+@property --a {
+	syntax: "&lt;angle&gt;";
+	inherits: true;
+	initial-value: 0deg;
+}
+@keyframes close {
+	from { --a: 0deg; }
+	to { --a: 120deg; }
+}</style><defs><polygon id="b" fill="#f007" stroke="CanvasText" points="-5,-5 -5,5 5,5 5,-5"/></defs><g stroke-width=".1" style="animation:4s ease-in-out alternate infinite close"><use href="#b" style="transform:
+	matrix(1,0,0,1,10,10)
+"/><use href="#b" style="transform:
+	matrix(1,0,0,1,15,5)
+	rotateY(var(--a))
+	matrix(1,0,0,1,-15,-5)
+	matrix(-1,0,0,1,20,10)
+"/><use href="#b" style="transform:
+	matrix(1,0,0,1,15,5)
+	rotateY(var(--a))
+	matrix(1,0,0,1,10,0)
+	rotateY(var(--a))
+	matrix(1,0,0,1,-25,-5)
+	matrix(1,0,0,1,30,10)
+"/></g><metadata><about xmlns="https://6t.lt/about"><![CDATA[
+Initially created with ?a=120&f=%23f007&d=3&v=[[0,0],[0,1],[1,1],[1,0]]&p=10,10&m=5
+Further explanation at https://home.6t.lt/?s=%23mirror_polygon_66c
+]]></about></metadata></svg>
