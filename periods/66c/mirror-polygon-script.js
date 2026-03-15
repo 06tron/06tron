@@ -170,6 +170,7 @@ const params = {
 	closeAnimation: "4s ease-in-out alternate infinite close",
 	decimalPlaces: "6",
 	fillColor: "red",
+	glTF: "false",
 	heightOfPolygon: "10",
 	inlineStyle: "background-color:Canvas;color-scheme:light dark",
 	marginSize: "keep",
@@ -200,6 +201,7 @@ function setParams(queryString) {
 	for (const [key, value] of Object.entries(params)) {
 		params[key] = usp.get(key.charAt(0)) ?? value;
 	}
+	params.glTF = ["true", "1"].includes(params.glTF);
 	params.xlinkHrefs = ["true", "1"].includes(params.xlinkHrefs);
 }
 
@@ -259,11 +261,12 @@ const matrixIndices = "abcdef".split("");
 
 /**
  * @param {DOMMatrix} matrix 
+ * @param {boolean} rounded
  * @returns {string}
  */
-function getMatrixString(matrix) {
+function getMatrixString(matrix, rounded) {
 	const entries = matrixIndices.map(function (i) {
-		return round(matrix[i], params.decimalPlaces);
+		return rounded ? round(matrix[i], params.decimalPlaces) : matrix[i];
 	});
 	return `matrix(${entries.join()})`;
 }
@@ -371,6 +374,11 @@ function applyAnimation(svgOut, useGroupOut) {
 	to { --a: ${+params.animationFoldAngle}deg; }
 }`;
 	svgOut.insertAdjacentElement("afterbegin", style);
+	if (params.glTF) {
+		const script = document.createElementNS(svg.namespaceURI, "script");
+		script.setAttribute("href", "https://home.6t.lt/69b/mirror-polygon-glTF.js");
+		svgOut.insertAdjacentElement("beforeend", script);
+	}
 	useGroupOut.removeAttribute("transform");
 	useGroupOut.setAttribute("style", "animation:" + params.closeAnimation);
 }

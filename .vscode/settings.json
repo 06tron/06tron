@@ -87,6 +87,7 @@
 	"explorer.compactFolders": false,
 	"extensions.ignoreRecommendations": true,
 	"files.associations": {
+		"*.gltf": "json",
 		"*.svg": "html",
 		"*.xml": "html"
 	},
