@@ -1,9 +1,5 @@
 [
-	"<?xml version=\"1.0\" encoding=\"utf-8\"?>",
-	"<feed xmlns=\"http://www.w3.org/2005/Atom\">",
-	"<link xmlns=\"http://www.w3.org/1999/xhtml\" rel=\"stylesheet\" href=\"698/style-atom.css\"/>",
-	"<about xmlns=\"https://6t.lt/about\">Use the URL of this XML file to read posts from my ",
-	"website in any feed reader that supports the Atom Syndication Format.</about><title>",
+	"<?xml version='1.0' encoding='utf-8'?><?xml-stylesheet href='698/style-atom.css'?><feed xmlns='http://www.w3.org/2005/Atom'><about xmlns='https://6t.lt/about'>Use the URL of this XML file to read posts from my website in any feed reader that supports the Atom Syndication Format.</about><title>",
 	.title,
 	"</title><subtitle>",
 	.description,
@@ -19,11 +15,11 @@
 		.url,
 		"</uri></author>"
 	]),
-	"<link rel=\"self\" href=\"",
+	"<link rel='self' href='",
 	._atom_elements.self_link,
-	"\"/><link rel=\"alternate\" href=\"",
+	"'/><link rel='alternate' href='",
 	.home_page_url,
-	"\"/><icon>",
+	"'/><icon>",
 	.icon,
 	"</icon>",
 	(.items[] | [
@@ -35,15 +31,15 @@
 		.date_published,
 		"</published><updated>",
 		.date_modified,
-		"</updated><content type=\"xhtml\"><div xmlns=\"http://www.w3.org/1999/xhtml\">",
+		"</updated><content type='xhtml'><div xmlns='http://www.w3.org/1999/xhtml'>",
 		.content_html,
-		"</div></content><link rel=\"alternate\" href=\"",
+		"</div></content><link rel='alternate' href='",
 		.url,
-		"\"/>",
+		"'/>",
 		(.tags[] | [
-			"<category term=\"",
+			"<category term='",
 			.,
-			"\"/>"
+			"'/>"
 		]),
 		"</entry>"
 	]),
