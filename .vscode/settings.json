@@ -77,7 +77,8 @@
 					"invalid.illegal.unrecognized-tag.html"
 				],
 				"settings": {
-					"foreground": "#4FC1FF"
+					"fontStyle": "",
+					"foreground": "#D2A8FF"
 				}
 			}
 		]
