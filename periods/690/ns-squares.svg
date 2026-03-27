@@ -1,15 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="780" height="960" viewBox="-60,-60,260,320" style="color-scheme:dark light" aria-describedby="desc">
-<title>2025 Number Space Puzzles</title>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="-60,-60,260,320" style="color-scheme:dark light" aria-describedby="desc">
+<title>Number Space: Two Squares</title>
 <style>
 	#bl, #or { dominant-baseline: middle; text-anchor: middle; }
 	text, p { font: 4px sans-serif; }
 	p { color: Black; line-height: 1.3; margin: 0 5px; }
 	p.url { letter-spacing: 0.3px; }
-	p:not(.url) { margin-top: 3px; }
-	#desc { position: absolute; left: 130px; width: 120px; }
-	#foot { position: absolute; top: 281px; }
-	/* #shading { display: none; } */
+	p.gap { margin-top: 3px; }
+	@media print {
+		#shading { display: none; }
+	}
+	@page { margin-top: -0.2in; } /* for Safari */
 </style>
 <defs>
 	<path id="one" d="M0,0H6V6H0V0L2,2V4H4V2H2Z"/>
@@ -23,19 +24,19 @@
 	<text id="or" fill="#FA1" lengthAdjust="spacingAndGlyphs" textLength="20">orange side</text>
 </defs>
 <path fill="none" stroke="White" stroke-opacity="0.4" stroke-width="50" d="M70-35h130M-60,245h110"/>
-<foreignObject x="-60" y="-60" width="260" height="320">
-<div xmlns="http://www.w3.org/1999/xhtml">
-	<p id="desc">
-		These Sudoku puzzles are based on fundamental polygons for the real projective plane and the sphere. Both have 27 cells, and are set on a square with its sides connected together. The rows and columns pass through the sides of the square, wrapping around in a way similar to Pac-Man. The four surrounding copies of each puzzle are there just to make solving easier. Each puzzle has its own set of nine symbols, and you can't treat the symbols like colors as in regular Sudoku.
-	</p>
-	<footer id="foot">
-		<p>Number Space: Two Squares</p>
-		<p class="url">https://home.6t.lt/690/ns-squares.svg</p>
-		<p>Copyright © 2025, Matthew Richardson</p>
-		<p>Licensed under CC Attribution-NoDerivatives</p>
-		<p class="url">https://creativecommons.org/licenses/by-nd/4.0/</p>
-	</footer>
-</div>
+<foreignObject x="70" y="-57" width="130" height="50">
+<p xmlns="http://www.w3.org/1999/xhtml" id="desc">
+	These Sudoku puzzles are based on fundamental polygons for the real projective plane and the sphere. Both have 27 cells, and are set on a square with its sides connected together. The rows and columns pass through the sides of the square, wrapping around in a way similar to Pac-Man. The four surrounding copies of each puzzle are there just to make solving easier. Each puzzle has its own set of nine symbols, and you can't treat the symbols like colors as in regular Sudoku.
+</p>
+</foreignObject>
+<foreignObject x="-60" y="224" width="110" height="40">
+<footer xmlns="http://www.w3.org/1999/xhtml" id="foot">
+	<p>Number Space: Two Squares</p>
+	<p class="url">https://home.6t.lt/690/ns-squares.svg</p>
+	<p class="gap">Copyright © 2025, Matthew Richardson</p>
+	<p class="gap">Licensed under CC Attribution-NoDerivatives</p>
+	<p class="url">https://creativecommons.org/licenses/by-nd/4.0/</p>
+</footer>
 </foreignObject>
 <g id="sphere">
 	<g id="backing" fill="none">
