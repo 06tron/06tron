@@ -12,6 +12,9 @@
 	}
 	@page { margin-top: -0.2in; } /* for Safari */
 </style>
+<about xmlns="https://6t.lt/about">
+	First drawn in October or November 2025, then converted to SVG. The CSS is set up for Ctrl+P print output, but it doesn't always work. Firefox made a blurry PDF, Edge was good, Safari was also good.
+</about>
 <defs>
 	<path id="one" d="M0,0H6V6H0V0L2,2V4H4V2H2Z"/>
 	<path id="U" d="M0,6V0H6L4,2H2V4Z"/>
@@ -40,10 +43,8 @@
 </foreignObject>
 <g id="sphere">
 	<g id="backing" fill="none">
-		<g stroke-opacity="0.4">
-			<path stroke="White" stroke-width="30" d="M0,45H45V0"/>
-			<path stroke="Black" stroke-width="30" d="M0,15H15V0" id="shading"/>
-		</g>
+		<path stroke="White" stroke-opacity="0.4" stroke-width="30" d="M0,45H45V0"/>
+		<path id="shading" stroke="Black" stroke-opacity="0.7" stroke-width="30" d="M0,15H15V0"/>
 		<g stroke="Black">
 			<path stroke-width="0.4" d="M10,30V60M20,30V60M40,0V60M50,0V60M30,10H60M30,20H60M0,40H60M0,50H60"/>
 			<path d="M30,0V60M0,30H60"/>
