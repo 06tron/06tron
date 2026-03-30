@@ -12,9 +12,11 @@
 	}
 	@page { margin-top: -0.2in; } /* for Safari */
 </style>
+<metadata>
 <about xmlns="https://6t.lt/about">
-	First drawn in October or November 2025, then converted to SVG. The CSS is set up for Ctrl+P print output, but it doesn't always work. Firefox made a blurry PDF, Edge was good, Safari was also good.
+	First drawn in October or November 2025, then converted to SVG. The CSS is set up for print output, but it doesn't always work. Firefox made a blurry PDF, Edge was good, Safari was also good.
 </about>
+</metadata>
 <defs>
 	<path id="one" d="M0,0H6V6H0V0L2,2V4H4V2H2Z"/>
 	<path id="U" d="M0,6V0H6L4,2H2V4Z"/>

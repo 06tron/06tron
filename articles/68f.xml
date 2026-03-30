@@ -29,9 +29,9 @@
 
 	<button class="fl"><samp>╺┑┏╸╺┑┏╸╺┑┏╸╺┑┏╸<br/>┨┝┫├┨┝┫├┨┝┫├┨┝┫├<br/>┖╴╶┘┖╴╶┘┖╴╶┘┖╴╶┘</samp></button>
 
-	<p>The arrangement of Unicode box-drawing characters above is my recreation of a design featured on page 105 of <cite><a href="https://www.tug.org/TUGboat/tb41-3/tb129reviews-vervliet.pdf">Granjon's flowers</a></cite> by Hendrik D. L. Vervliet. The characters were traced in Inkscape, creating an SVG file, which was converted to WOFF2 using FontForge. The 2025 version of <cite>Granjon Boxes</cite> contains the characters <q><code>┑┘┖┏╺╸╷╻╴╶╹╵┝┫┬┰┨├┻┷</code></q> and the space character U+20. The <a href="https://home.6t.lt/fonts">fonts directory</a> on this website will include the latest version licensed under the SIL Open Font License.</p>
+	<p>The arrangement of Unicode box-drawing characters above is my recreation of a design featured on page 105 of <cite><a href="https://www.tug.org/TUGboat/tb41-3/tb129reviews-vervliet.pdf">Granjon's flowers</a></cite> by Hendrik D. L. Vervliet. The characters were traced in Inkscape, creating an SVG file, which was converted to WOFF2 using FontForge. The 2025 version of <cite>Granjon Boxes</cite> contains the characters <q><code>┑┘┖┏╺╸╷╻╴╶╹╵┝┫┬┰┨├┻┷</code></q> and the space character U+20. The <a href="https://home.6t.lt/fonts">fonts directory</a> on my website will include the latest version licensed under the SIL Open Font License.</p>
 
-	<p>If you're reading this on my website, you should be able to click on the arrangements and reveal the typical box-drawing character designs by displaying them in the <cite><a href="https://www.kreativekorp.com/software/fonts/ksquare/">Kreative Square</a></cite> font.</p>
+	<p>If you are reading this on my website, clicking on the arrangements might reveal the typical box-drawing character designs by displaying them in the <cite><a href="https://www.kreativekorp.com/software/fonts/ksquare/">Kreative Square</a></cite> font.</p>
 
 	<button class="fl"><samp>┬┨├┰┬┨├┰┬┨├┰┬┨├┰<br/>┝┻┷┫┝┻┷┫┝┻┷┫┝┻┷┫</samp></button>
 
