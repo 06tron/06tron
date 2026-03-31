@@ -4,15 +4,15 @@
 
 	<h3><span class="fl">Percent-Encoding Guide</span></h3>
 
-	<p>According to <a href="https://www.rfc-editor.org/info/std66">STD 66 RFC 3986</a><sup>1</sup>, the characters of the string <q><code>!#$&amp;'()*+,/:;=?@[]</code></q> could have a special meaning in a URI and are reserved. The <a href="https://infra.spec.whatwg.org/#ascii-alphanumeric">ASCII alphanumeric</a> characters and those contained in <q><code>-._~</code></q> are unreserved. Any character outside of these two sets must be percent-encoded before inclusion in a URI. This is what the JavaScript <cite>encodeURI()</cite> function does, except that it also encodes the square brackets <q><code>[]</code></q>, which were not yet included in the set of reserved or unreserved characters when the superseded <a href="https://www.rfc-editor.org/info/rfc2396">RFC 2396</a> was written.</p>
+	<p>According to <a href="https://www.rfc-editor.org/info/std66">STD 66 RFC 3986</a><span id='note_677.1'></span>, the characters of the string <q><code>!#$&amp;'()*+,/:;=?@[]</code></q> could have a special meaning in a URI and are reserved. The <a href="https://infra.spec.whatwg.org/#ascii-alphanumeric">ASCII alphanumeric</a> characters and those contained in <q><code>-._~</code></q> are unreserved. Any character outside of these two sets must be percent-encoded before inclusion in a URI. This is what the JavaScript <cite>encodeURI()</cite> function does, except that it also encodes the square brackets <q><code>[]</code></q>, which were not yet included in the set of reserved or unreserved characters when the superseded <a href="https://www.rfc-editor.org/info/rfc2396">RFC 2396</a> was written.</p>
 
-	<p>The unreserved characters can always be left unencoded, but we may need to encode a subset of the reserved characters.<sup>2</sup> This subset depends on the URI scheme being used and where in the URI the characters are. The function <cite>encodeURIComponent()</cite> encodes everything except for the characters of <q><code>!'()*</code></q>, which might not need to be encoded as they weren't yet reserved in RFC 2396, and the unreserved characters. This means thirteen of the reserved characters are encoded, but we can encode a smaller subset in the two following cases.</p>
+	<p>The unreserved characters can always be left unencoded, but we may need to encode a subset of the reserved characters.<span id='note_677.2'></span> This subset depends on the URI scheme being used and where in the URI the characters are. The function <cite>encodeURIComponent()</cite> encodes everything except for the characters of <q><code>!'()*</code></q>, which might not need to be encoded as they weren't yet reserved in RFC 2396, and the unreserved characters. This means thirteen of the reserved characters are encoded, but we can encode a smaller subset in the two following cases.</p>
 
 	<aside>
 
-		<p>1. The WHATWG URL Standard is also relevant <a href="https://github.com/whatwg/url/issues/703">to some extent</a>. A <cite>valid URL string</cite>, as defined by that specification, is not necessarily compatible with software that expects a URI.</p>
+		<p><a href='#note_677.1'>^</a> The WHATWG URL Standard is also relevant <a href="https://github.com/whatwg/url/issues/703">to some extent</a>. A <cite>valid URL string</cite>, as defined by that specification, is not necessarily compatible with software that expects a URI.</p>
 
-		<p>2. Percent-encoding may also be used to conform with external restrictions. A closing parenthesis misinterpreted as the end of a URI could be replaced with <q><code>%29</code></q>, but this is not ideal. Encoding reserved characters can easily change the meaning of a URI, so it's better to use environment specific escape sequences like <q><code>&amp;amp;</code></q> or <q><code>\'</code></q>.</p>
+		<p><a href='#note_677.2'>^</a> Percent-encoding may also be used to conform with external restrictions. A closing parenthesis misinterpreted as the end of a URI could be replaced with <q><code>%29</code></q>, but this is not ideal. Encoding reserved characters can easily change the meaning of a URI, so it's better to use environment specific escape sequences like <q><code>&amp;amp;</code></q> or <q><code>\'</code></q>.</p>
 
 	</aside>
 
@@ -24,7 +24,7 @@
 
 	<p>This more formal description of the character sets shows that every character in the output of <cite>encodeURI()</cite> will either be the number sign U+23 or a <var>urlchar</var> character. This means we can call <cite>encodeURI()</cite>, then replace all occurrences of <q><code>#</code></q> with <q><code>%23</code></q>, and the output will be valid within a data URI.</p>
 
-	<p>The code below shows how an SVG data URI might be constructed using JavaScript.<sup>3</sup></p>
+	<p>The code below shows how an SVG data URI might be constructed using JavaScript.<span id='note_677.3'></span></p>
 
 	<pre><code>const rectSVG = String.raw`&lt;svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128">&#xA;&#x9;&lt;rect fill="#69E" x="20" y="20" width="15.2" height="87"/>&#xA;&#x9;&lt;text fill="Gray" x="19" y="19">\o/&lt;/text>&#xA;&lt;/svg>`;&#xA;const rectDataURI = 'data:image/svg+xml,' + encodeURI(rectSVG).replaceAll('#', '%23');</code></pre>
 
@@ -36,7 +36,7 @@
 
 	<aside>
 
-		<p>3. <cite>String.raw()</cite> is helpful if the data contains backslashes, but if it contains backticks or the substring <q><code>${</code></q> then you can no longer simply paste the data into a template literal.</p>
+		<p><a href='#note_677.3'>^</a> <cite>String.raw()</cite> is helpful if the data contains backslashes, but if it contains backticks or the substring <q><code>${</code></q> then you can no longer simply paste the data into a template literal.</p>
 
 		<pre>String.raw`_\`_\${_${"`"}_` === "_\\`_\\${_`_"</pre>
 
