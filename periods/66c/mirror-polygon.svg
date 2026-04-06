@@ -1,3 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0,0,100,100" style="background-color:Canvas;color-scheme:light dark" cursor="crosshair">
-<title>Mirror Polygon Arrangement</title><desc>Zero or more copies of an SVG polygon element.</desc><script id="script" href="mirror-polygon-script.js"/></svg>
+<?xml
+version='1.0'
+encoding='utf-8'?><svg
+xmlns='http://www.w3.org/2000/svg'
+viewBox='0,0,100,100'
+style='background-color:Canvas;color-scheme:light dark'
+cursor='crosshair'><title>Mirror Polygon Arrangement</title><script
+href='mirror-polygon-script.js'
+id='script'/><desc>Zero or more copies of an SVG polygon element.</desc></svg>
