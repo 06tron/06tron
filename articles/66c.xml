@@ -6,7 +6,7 @@
 
 <p>The first sentence of the story, as translated by Donald A. Yates, is: <q>Of the many problems which exercised the reckless discernment of Lönnrot, none was so strange—so rigorously strange, shall we say—as the periodic series of bloody events which culminated at the villa of Triste-le-Roy, amid the ceaseless aroma of the eucalypti.</q></p>
 
-<p>I read this in the book <cite><a href="https://archive.org/details/labyrinths0000unse_y9b3">Labyrinths</a></cite>, and we noted that translator Anthony Kerrigan worded it as the exercise of <q>daring perspicacity</q> in the text other club members read. The line came up again as the first narration of <cite>Spiderweb</cite>: <q>Of the many unusual cases which challenged the powers of the celebrated investigator Erik Lönnrot, none was as bizarre as the periodic series of events which came to a conclusion at the desolate mansion of Triste-le-Roy amid the heady aroma of eucalyptus.</q></p>
+<p>I read this in the collection of short stories <cite><a href="https://archive.org/details/labyrinths0000unse_y9b3">Labyrinths</a></cite>, and we noted that translator Anthony Kerrigan worded it as the exercise of <q>daring perspicacity</q> in the text other club members read. The line came up again as the first narration of <cite>Spiderweb</cite>: <q>Of the many unusual cases which challenged the powers of the celebrated investigator Erik Lönnrot, none was as bizarre as the periodic series of events which came to a conclusion at the desolate mansion of Triste-le-Roy amid the heady aroma of eucalyptus.</q></p>
 
 <p>I liked the story, its half hour adaptation, and the cover of the copy of <cite>Labyrinths</cite> I checked out at Neilson Library:</p>
 
@@ -45,7 +45,7 @@
 
 	<p>Set the values using the first letter of the parameter name. The default values for the polygon border color and the background color are <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/system-color">system colors</a>. The width variables adjust the size of the polygon's border. The vertices parameter can either be a number 3 or greater, or a 2D array of points defining any polygon. Convex polygons work best, and if you only specify the number of vertices then a regular polygon will be used.</p>
 
-	<p>For example, use these settings for a silver colored pentagon with one right angle: <a href="https://home.6t.lt/66c/mirror-polygon.svg?f=silver&amp;h=12&amp;v=%5B%5B0,0%5D,%5B0,1%5D,%5B0.740108,1.306562%5D,%5B1.306562,0.740108%5D,%5B1,0%5D%5D">f=silver&amp;h=12&amp;v=[[0,0],[0,1],[0.74,1.31],[1.31,0.74],[1,0]]</a>. I abbreviated the anchor text to include less digits, and some characters should be percent-encoded.<sup>1</sup> This is an octagon that fits well inside a regular pentagon: <a href="https://home.6t.lt/66c/mirror-polygon.svg?b=floralwhite&amp;f=%23000&amp;h=14&amp;v=%5B%5B1,0%5D,%5B0.57919,0.57919%5D,%5B0,1%5D,%5B-0.57919,0.57919%5D,%5B-1,0%5D,%5B-0.57919,-0.57919%5D,%5B0,-1%5D,%5B0.57919,-0.57919%5D%5D">f=%23000&amp;h=14&amp;v=[[1,0],[0.58,0.58],[0,1],[-0.58,0.58],[-1,0],[-0.58,-0.58],[0,-1],[0.58,-0.58]]</a>. The fill color %23000 means #000 or the color black. One more example: <a href="https://home.6t.lt/66c/mirror-polygon.svg?i=background-image:url(%22https://apollojournals.org/alsj/a17/AS17-134-20387.jpg%22)">i=background-image:url("https://apollojournals.org/...")</a>.</p>
+	<p>For example, use these settings for a silver colored pentagon with one right angle: <a href="https://home.6t.lt/66c/mirror-polygon.svg?f=silver&amp;h=12&amp;v=%5B%5B0,0%5D,%5B0,1%5D,%5B0.740108,1.306562%5D,%5B1.306562,0.740108%5D,%5B1,0%5D%5D">f=silver&amp;h=12&amp;v=[[0,0],[0,1],[0.74,1.31],[1.31,0.74],[1,0]]</a>. I abbreviated the anchor text to include less digits, and some characters should be percent-encoded.<span id='note_66c.1'></span> This is an octagon that fits well inside a regular pentagon: <a href="https://home.6t.lt/66c/mirror-polygon.svg?b=floralwhite&amp;f=%23000&amp;h=14&amp;v=%5B%5B1,0%5D,%5B0.57919,0.57919%5D,%5B0,1%5D,%5B-0.57919,0.57919%5D,%5B-1,0%5D,%5B-0.57919,-0.57919%5D,%5B0,-1%5D,%5B0.57919,-0.57919%5D%5D">f=%23000&amp;h=14&amp;v=[[1,0],[0.58,0.58],[0,1],[-0.58,0.58],[-1,0],[-0.58,-0.58],[0,-1],[0.58,-0.58]]</a>. The fill color %23000 means #000 or the color black. One more example: <a href="https://home.6t.lt/66c/mirror-polygon.svg?i=background-image:url(%22https://apollojournals.org/alsj/a17/AS17-134-20387.jpg%22)">i=background-image:url("https://apollojournals.org/...")</a>.</p>
 
 	<p>An additional six parameters were added in 2026:</p>
 
@@ -70,7 +70,7 @@
 
 	<aside>
 
-		<p>1. Just the square brackets. I've since written a <a href="https://home.6t.lt/?s=%23percent_encode_677">percent-encoding guide</a> as reference for generating URIs in the future.</p>
+		<p><a href='#note_66c.1'>^</a> Just the square brackets. I've since written a <a href="https://home.6t.lt/?s=%23percent_encode_677">percent-encoding guide</a> as reference for generating URIs in the future.</p>
 
 	</aside>
 

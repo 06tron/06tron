@@ -43,7 +43,7 @@
 	<p class="url">https://creativecommons.org/licenses/by-nd/4.0/</p>
 </footer>
 </foreignObject>
-<g id="sphere">
+<g id="proj-plane">
 	<g id="backing" fill="none">
 		<path stroke="White" stroke-opacity="0.4" stroke-width="30" d="M0,45H45V0"/>
 		<path id="shading" stroke="Black" stroke-opacity="0.7" stroke-width="30" d="M0,15H15V0"/>
@@ -66,10 +66,10 @@
 	</g>
 </g>
 <g opacity="0.5">
-	<use href="#sphere" xlink:href="#sphere" transform="translate(60,-60)scale(-1,1)"/>
-	<use href="#sphere" xlink:href="#sphere" transform="translate(60,60)scale(-1,1)"/>
-	<use href="#sphere" xlink:href="#sphere" transform="translate(60,60)scale(1,-1)"/>
-	<use href="#sphere" xlink:href="#sphere" transform="translate(-60,60)scale(1,-1)"/>
+	<use href="#proj-plane" xlink:href="#proj-plane" transform="translate(60,-60)scale(-1,1)"/>
+	<use href="#proj-plane" xlink:href="#proj-plane" transform="translate(60,60)scale(-1,1)"/>
+	<use href="#proj-plane" xlink:href="#proj-plane" transform="translate(60,60)scale(1,-1)"/>
+	<use href="#proj-plane" xlink:href="#proj-plane" transform="translate(-60,60)scale(1,-1)"/>
 </g>
 <use href="#arrow" xlink:href="#arrow" fill="#FA1"/>
 <use href="#arrow" xlink:href="#arrow" fill="#FA1" transform="translate(60,60)rotate(180)"/>
@@ -80,7 +80,7 @@
 <use href="#or" xlink:href="#or" transform="translate(19,3)"/>
 <use href="#or" xlink:href="#or" transform="translate(41,63)scale(-1,1)"/>
 <g transform="translate(80,140)">
-	<g id="proj-plane">
+	<g id="sphere">
 		<use href="#backing" xlink:href="#backing"/>
 		<g fill="Black">
 			<use href="#Z" xlink:href="#Z" x="32" y="22" transform="rotate(180,35,25)"/>
@@ -96,10 +96,10 @@
 		</g>
 	</g>
 	<g opacity="0.5">
-		<use href="#proj-plane" xlink:href="#proj-plane" transform="translate(60,-60)rotate(90)"/>
-		<use href="#proj-plane" xlink:href="#proj-plane" transform="translate(60,60)rotate(90)"/>
-		<use href="#proj-plane" xlink:href="#proj-plane" transform="translate(60,60)rotate(270)"/>
-		<use href="#proj-plane" xlink:href="#proj-plane" transform="translate(-60,60)rotate(270)"/>
+		<use href="#sphere" xlink:href="#sphere" transform="translate(60,-60)rotate(90)"/>
+		<use href="#sphere" xlink:href="#sphere" transform="translate(60,60)rotate(90)"/>
+		<use href="#sphere" xlink:href="#sphere" transform="translate(60,60)rotate(270)"/>
+		<use href="#sphere" xlink:href="#sphere" transform="translate(-60,60)rotate(270)"/>
 	</g>
 	<use href="#arrow" xlink:href="#arrow" fill="#FA1" transform="translate(60)scale(-1,1)"/>
 	<use href="#arrow" xlink:href="#arrow" fill="#FA1" transform="translate(60)rotate(90)"/>
