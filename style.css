@@ -1,3 +1,5 @@
+/* initialize */
+
 @font-face {
 	font-family: "EB Garamond";
 	src: url("fonts/eb-garamond-normal.woff") format("woff");
@@ -14,10 +16,58 @@
 }
 
 :root {
+	--body-width: 60rem;
 	--fl-heading: "EB Garamond", "American Typewriter", "Century Gothic", monospace;
 	--sans-serif: "Avenir", "Segoe UI", sans-serif;
 	--title-text: "Tsukushi B Round Gothic", "Gulim", "Menlo", "Courier New", monospace;
 	counter-reset: note-indicator note-target;
+}
+
+
+/* aside-note */
+
+p [id^="note_"]::after {
+	content: "[" counter(note-indicator) "]";
+	counter-increment: note-indicator;
+	font-size: smaller;
+	line-height: 0;
+	vertical-align: super;
+}
+
+aside :has(> a[href^="#note_"])::before {
+	content: counter(note-target) ". ";
+	counter-increment: note-target;
+}
+
+
+/* featured section */
+
+section.featured {
+	background-color: #F193;
+	box-shadow: 0 0 0 15px #F191;
+	margin: 30px 15px;
+	padding: 1rem;
+}
+
+section.featured h3 {
+	margin-top: 0;
+	text-align: center;
+}
+
+section.featured p:last-child {
+	margin-bottom: 0;
+}
+
+/* section.featured pre {
+	max-width: 100%;
+	max-width: calc(min(var(--body-width), 100vw) - 7.4rem - 34px);
+	max-width: min(56.6rem - 34px, 100vw - 7.4rem - 34px);
+} */
+
+
+p {
+	line-height: 1.3;
+	margin: 1rem 0;
 }
 
 a.naked::after {
@@ -38,11 +88,6 @@ aside {
 
 aside pre {
 	max-width: calc(100vw - 9.4rem - 4px);
-}
-
-aside :has(> a[href^="#note_"])::before {
-	content: counter(note-target) ". ";
-	counter-increment: note-target;
 }
 
 body {
@@ -152,19 +197,6 @@ label textarea {
 	width: 100%;
 }
 
-p {
-	line-height: 1.3;
-	margin: 1rem 0;
-}
-
-p [id^="note_"]::after {
-	content: "[" counter(note-indicator) "]";
-	counter-increment: note-indicator;
-	font-size: smaller;
-	line-height: 0;
-	vertical-align: super;
-}
-
 pre {
 	background-color: color-mix(in srgb-linear, #808080, Canvas 90%);
 	border: 2px solid;
@@ -179,34 +211,10 @@ q code {
 	word-break: break-all;
 }
 
-section.featured {
-	background-color: color-mix(in srgb, DeepPink, transparent 75%);
-	box-shadow: 0 0 0 15px color-mix(in srgb, DeepPink, transparent 92%);
-	margin: 30px 15px;
-	padding: 1rem;
-}
-
-section.featured h3 {
-	margin-top: 0;
-	text-align: center;
-}
-
-section.featured p:last-child {
-	margin-bottom: 0;
-}
-
-section.featured pre {
-	max-width: min(56.6rem - 34px, 100vw - 7.4rem - 34px);
-}
-
 span.fl {
 	font-family: var(--fl-heading);
 	font-size: 1.7em;
 	font-weight: normal;
-}
-
-sup {
-	line-height: 0;
 }
 
 u {
