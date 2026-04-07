@@ -11,19 +11,19 @@
 	._atom_elements.self_link,
 	"'/><link rel='icon' href='",
 	.icon,
-	"'/><link rel='stylesheet' href='../../style.css'/></head><body><header><h1>",
+	"'/><link rel='stylesheet' href='../../style.css'/></head><body class='h-feed'><header><h1 class='p-name'>",
 	.title,
 	"</h1><p>",
 	.description,
 	"</p></header>",
 	(.items | length as $len | to_entries[] | [
-		"<article id='",
+		"<article class='h-entry'\nid='",
 		$len - .key,
-		"'><hgroup><h2>",
+		"'><hgroup><h2 class='p-name'>",
 		.value.title,
-		"</h2><p>",
+		"</h2><p><time class='dt-published'>",
 		.value.date_published,
-		"</p></hgroup>",
+		"</time></p></hgroup>",
 		.value.content_html,
 		"</article>"
 	]),
@@ -31,7 +31,7 @@
 	._atom_elements.self_link,
 	"'>Atom</a> | <a href='",
 	.feed_url,
-	"'>JSON</a> | Updated ",
+	"'>JSON</a> | Updated <time>",
 	._atom_elements.updated,
-	"</i></footer></body></html>"
+	"</time></i></footer></body></html>"
 ] | flatten | join("")

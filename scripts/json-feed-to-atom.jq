@@ -23,7 +23,9 @@
 	.icon,
 	"</icon>",
 	(.items[] | [
-		"<entry><title>",
+		"<entry><link rel='alternate'\nhref='",
+		.url,
+		"'/><title>",
 		.title,
 		"</title><id>",
 		.id,
@@ -33,9 +35,7 @@
 		.date_modified,
 		"</updated><content type='xhtml'><div xmlns='http://www.w3.org/1999/xhtml'>",
 		.content_html,
-		"</div></content><link rel='alternate' href='",
-		.url,
-		"'/>",
+		"</div></content>",
 		(.tags[] | [
 			"<category term='",
 			.,
