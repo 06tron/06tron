@@ -5,7 +5,7 @@ function getItemHTML(selector, verbose, relativeLinks) {
 		return acc + content_html;
 	}, "");
 	if (relativeLinks) {
-		fullHTML = fullHTML.replaceAll('="https://home.6t.lt/', '="./');
+		fullHTML = fullHTML.replace(/=("|')https:\/\/home.6t.lt\//g, '=$1./');
 	}
 	const doc = new DOMParser().parseFromString(fullHTML, "text/html");
 	const selected = doc.querySelectorAll(selector);
@@ -32,23 +32,22 @@ function getItemHTML(selector, verbose, relativeLinks) {
 const urlParams = new URLSearchParams(window.location.search);
 const articleId = Math.floor(urlParams.get("article"));
 let main;
+let selector = urlParams.get('s');
 
 if (articleId > 0 && articleId <= jsonFeed.items.length) {
 	const item = jsonFeed.items.at(-articleId);
 	main = `<h1>${item.title}</h1>${item.content_html}`;
-	document.body.removeChild(document.getElementById("intro"));
-	document.body.removeChild(document.getElementById("contact"));
+	selector = null;
+} else if (selector === null) {
+	main = getItemHTML('.featured,#collage_619,#window_68f', false, true);
 } else {
-	let verbose = true;
-	let selector = urlParams.get("s");
-	if (selector === null) {
-		verbose = false;
-		selector = ".featured,#collage_619,#window_68f";
-	} else {
-		document.body.removeChild(document.getElementById("intro"));
-		document.body.removeChild(document.getElementById("contact"));
-	}
-	main = getItemHTML(selector, verbose, true);
+	main = getItemHTML(selector, true, true);
 }
 
-document.getElementById("content").innerHTML = main;
+if (selector !== null) {
+	document
+		.querySelectorAll('[id^="home.6t.lt_"]')
+		.forEach(document.body.removeChild, document.body);
+}
+
+document.querySelector('main').innerHTML = main;
