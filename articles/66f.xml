@@ -6,13 +6,19 @@
 
 	<figure><img height="162" loading="lazy" src="https://home.6t.lt/668/ns-hallway.svg" alt="Sudoku puzzle with orange and blue portals."/></figure>
 
-	<p>A Sudoku variant that doesn't change anything but the shape of the puzzle. This <a href="https://6vt.nl/">interactive website</a> is a work in progress. So far there are four puzzles that a visitor can play, as long as they have a keyboard and mouse.</p>
+	<p>A Sudoku variant that doesn't change anything but the shape of the puzzle. This <a href="https://6vt.nl/">interactive website</a> is a work in progress.<span id="note_66f.1"></span> So far there are four puzzles that a visitor can play, as long as they have a keyboard and mouse.</p>
 
 	<p>These oddly shaped puzzles can be modeled with a graph structure. Suppose there is a vertex for each cell in the puzzle. For example a regular Sudoku puzzle would have 81 vertices. The player traverses this graph by moving their mouse between adjacent cells.</p>
 
 	<p>During puzzle navigation there are two components to the player's position: Where are they in the puzzle? And how is this location placed on the screen? Where they are is at the current vertex, which represents one of the puzzle's cells. This cell's placement on the screen is the player's <q>level</q>. The level describes the cell's horizontal position, vertical position, and orientation. There are eight possible orientations in this game, which correspond to the symmetries of a square.</p>
 
-	<p>The player's position changes frequently, so these two components must change accordingly. Each edge in the graph is labeled by a matrix which describes the relationship between its two endpoints. The level is represented with a similar matrix. Every time the player moves to a new cell, they follow a single edge in the graph. The current vertex changes to this edge's endpoint, and the level is multiplied by the matrix which labels this edge. </p>
+	<p>The player's position changes frequently, so these two components must change accordingly. Each edge in the graph is labeled by a matrix which describes the relationship between its two endpoints. The level is represented with a similar matrix. Every time the player moves to a new cell, they follow a single edge in the graph. The current vertex changes to this edge's endpoint, and the level is multiplied by the matrix which labels this edge.</p>
+
+	<aside>
+
+		<p><a href="#note_66f.1">^</a> I am slowly working on Version II of Number Space. New developments are first posted to <a href="https://numberspace.itch.io/v1/devlog">my page on itch.io</a>, a game distribution website.</p>
+
+	</aside>
 
 </section>
 

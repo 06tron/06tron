@@ -109,12 +109,12 @@ section.featured {
 	margin: 30px 15px;
 	padding: 1rem;
 }
-section.featured > :last-child {
-	margin-bottom: 0px;
-}
 section.featured > h3:first-child {
 	margin-top: 0px;
 	text-align: center;
+}
+section.featured p:last-child {
+	margin-bottom: 0px;
 }
 
 /* horizontal scrolling */
