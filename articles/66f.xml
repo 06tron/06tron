@@ -22,9 +22,10 @@
 
 </section>
 
-<div id="collage_619" class="art">
+<section id="collage_619" class="art">
 
-	<figure><img height="711" loading="lazy" src="https://home.6t.lt/619/A%20Crow's%20Head.png" alt="Collage visible through two rectangular cutouts."/>
+	<figure>
+		<img height="711" loading="lazy" src="https://home.6t.lt/619/A%20Crow's%20Head.png" alt="Collage visible through two rectangular cutouts."/>
 		<figcaption>
 
 			<p>I put this collage together in November 2021, using material related to books published by the University of Massachusetts Press.</p>
@@ -32,7 +33,7 @@
 		</figcaption>
 	</figure>
 
-</div>
+</section>
 
 <section class="featured">
 
