@@ -51,6 +51,7 @@ body > footer > i {
 dl {
 	display: grid;
 	max-width: max-content;
+	row-gap: 0.3rem;
 }
 dl > dd {
 	grid-column-start: 2;
@@ -184,7 +185,6 @@ button.fl {
 	border-style: none;
 	box-shadow: none;
 	display: block;
-	line-height: 1;
 	margin: 0px;
 	padding: 0px;
 	text-align: center;
@@ -197,6 +197,7 @@ button.fl > samp {
 	display: block;
 	font-family: "Granjon Boxes", monospace;
 	font-size: calc(var(--current-text-width) / 16 - 1px); /* subtract 1px to prevent wrapping */
+	line-height: 1;
 	text-decoration: none;
 }
 button.fl:is(:focus, :active) > samp {

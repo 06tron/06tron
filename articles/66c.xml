@@ -24,7 +24,7 @@
 
 	<p>The following parameters listed with their default values can be edited using a query string:</p>
 
-	<dl>
+	<dl class="variables">
 		<dt>borderColor</dt>
 		<dd>CanvasText</dd>
 		<dt>decimalPlaces</dt>
@@ -49,7 +49,7 @@
 
 	<p>An additional six parameters were added in 2026:</p>
 
-	<dl>
+	<dl class="variables">
 		<dt>animationFoldAngle</dt>
 		<dd>0</dd>
 		<dt>closeAnimation</dt>
@@ -64,7 +64,7 @@
 		<dd>false</dd>
 	</dl>
 
-	<p>If a nonzero number of degrees is provided for the fold angle, then the SVG output to the clipboard will be animated with CSS transforms. If the margin size is not <q><code>keep</code></q>, then it is a number, and the view box of the output SVG will frame the polygon arrangement. You can automate the initial polygon placement by passing a 2D point as two numbers separated by a comma. A transform can be applied to the output SVG, but the syntax of the transform string depends on the other parameters. If there is no animation, use a SVG transform attribute form like <q><code>rotate(90)</code></q>. If there is an animation, use a CSS transform property form like <q><code>rotate(90deg)</code></q>. If there is animation and a custom margin, use a form compatible with both like <q><code>matrix(0,1,-1,0,0,0)</code></q>. Finally, insert <var>xlink:href</var> attributes into the output &lt;use> elements by passing <q><code>true</code></q> or <q><code>1</code></q>.</p>
+	<p>If a nonzero number of degrees is provided for the fold angle, then the SVG output to the clipboard will be animated with CSS transforms. If the margin size is not <q><code>keep</code></q>, then it is a number, and the view box of the output SVG will frame the polygon arrangement. You can automate the initial polygon placement by passing a 2D point as two numbers separated by a comma. A transform can be applied to the output SVG, but the syntax of the transform string depends on the other parameters. If there is no animation, use a SVG transform attribute form like <q><code>rotate(90)</code></q>. If there is an animation, use a CSS transform property form like <q><code>rotate(90deg)</code></q>. If there is animation and a custom margin, use a form compatible with both like <q><code>matrix(0,1,-1,0,0,0)</code></q>. Finally, insert <var><code>xlink:href</code></var> attributes into the output &lt;use> elements by passing <q><code>true</code></q> or <q><code>1</code></q>.</p>
 
 	<p>Adding the fold animation feature allowed me to create this <a href="https://home.6t.lt/696/great-dodecahedron-net.svg">polyhedral net SVG</a> based on the <a href="https://www.wikidata.org/wiki/Q1549165">great dodecahedron</a>. The settings used were <a href="https://home.6t.lt/66c/mirror-polygon.svg?a=116.565&amp;c=5s+ease-out+alternate+infinite+close&amp;f=%23fb58&amp;m=3">a=116.565&amp;c=5s+ease-out+alternate+infinite+close&amp;f=%23fb58&amp;m=3</a>. And here is an example showing the rest of the new parameters in use: <a href="https://home.6t.lt/66c/mirror-polygon.svg?m=0&amp;p=.5e2,50&amp;t=scale(1.732,1)&amp;v=4">m=0&amp;p=.5e2,50&amp;t=scale(1.732,1)&amp;v=4</a>.</p>
 
