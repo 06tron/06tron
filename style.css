@@ -40,14 +40,6 @@ body {
 article {
 	margin-top: 4rem;
 }
-body > footer {
-	text-align: center;
-}
-body > footer > i {
-	font-size: 0.8em;
-	font-style: italic;
-	opacity: 0.7;
-}
 dl {
 	display: grid;
 	max-width: max-content;
@@ -55,6 +47,16 @@ dl {
 }
 dl > dd {
 	grid-column-start: 2;
+}
+footer {
+	text-align: center;
+}
+footer > small {
+	font-style: italic;
+	opacity: 0.7;
+}
+footer > small > samp.u-uid {
+	font-style: italic;
 }
 h1 {
 	font-family: var(--title-text);
@@ -64,7 +66,7 @@ hgroup > h2 {
 	display: inline-block;
 	margin: 1rem 0px 0px;
 }
-hgroup > p {
+hgroup > time {
 	display: inline-block;
 	font-size: 0.8em;
 	font-style: italic;

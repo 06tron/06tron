@@ -1,7 +1,7 @@
 [
 	"<!DOCTYPE html><html xmlns='http://www.w3.org/1999/xhtml' lang='en'><head><meta charset='utf-8'/><title>",
 	.title,
-	"</title><meta name='author' content='",
+	"</title><base href='https://home.6t.lt/'/><meta name='author' content='",
 	.authors[0].url,
 	"'/><meta name='color-scheme' content='dark light'/><meta name='description' content='",
 	.description,
@@ -23,17 +23,17 @@
 		$len - .key,
 		"'><hgroup><h2>",
 		.value.title,
-		"</h2><p><time>",
+		"</h2><time>",
 		.value.date_published,
-		"</time></p></hgroup>",
+		"</time></hgroup>",
 		.value.content_html,
 		"</article>"
 	]),
-	"<footer><i><a href='",
+	"<footer><small><a href='",
 	._atom_elements.self_link,
 	"'>Atom</a> | <a href='",
 	.feed_url,
 	"'>JSON</a> | Updated <time>",
 	._atom_elements.updated,
-	"</time></i></footer></body></html>"
+	"</time></small></footer></body></html>"
 ] | flatten | join("")

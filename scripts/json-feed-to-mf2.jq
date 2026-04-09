@@ -1,18 +1,16 @@
 ._mf2_elements.prefix_for_tag_urls as $tag_prefix | [
 	"<!DOCTYPE html><html xmlns='http://www.w3.org/1999/xhtml' class='h-feed hfeed' lang='en'><head><meta charset='utf-8'/><title>",
 	.title,
-	" (h-feed)</title><meta name='author' content='",
+	" (h-feed)</title><base href='https://home.6t.lt/'/><meta name='author' content='",
 	.authors[0].url,
 	"'/><meta name='color-scheme' content='dark light'/><meta name='format-detection' content='telephone=no'/><meta name='viewport' content='width=device-width'/><link rel='alternate' type='application/feed+json' href='",
 	.feed_url,
 	"'/><link rel='alternate' type='application/atom+xml' href='",
 	._atom_elements.self_link,
-	"'/><link rel='alternate' type='text/html' href='",
-	.home_page_url,
 	"'/><link rel='icon' href='",
 	.icon,
-	"'/></head><body><a class='u-url' rel='bookmark' href='",
-	._mf2_elements.self_link,
+	"'/><link rel='stylesheet' href='https://home.6t.lt/style.css'/></head><body><a class='u-url' rel='bookmark' href='",
+	.home_page_url,
 	"'><h1 class='p-name site-title'>",
 	.title,
 	"</h1></a><p class='p-summary'>",
@@ -32,28 +30,28 @@
 		"</a></address>"
 	]),
 	(.items[] | [
-		"<article class='h-entry hentry'><a class='u-url' rel='bookmark' href='",
+		"<article class='h-entry hentry'><hgroup><h2 class='entry-title p-name'><a class='u-url' rel='bookmark'\nhref='",
 		.url,
-		"'><h2 class='entry-title p-name'>",
+		"'>",
 		.title,
-		"</h2></a><samp class='u-uid'>",
-		.id,
-		"</samp><time class='dt-published published'>",
+		"</a></h2><time class='dt-published published'>",
 		.date_published,
-		"</time><time class='dt-updated updated'>",
-		.date_modified,
-		"</time><div class='e-content entry-content'>",
+		"</time></hgroup><div class='e-content entry-content'>",
 		.content_html,
-		"</div>",
-		(.tags[] | [
+		"</div><footer><small><samp class='u-uid'>",
+		.id,
+		"</samp> | Updated <time class='dt-updated updated'>",
+		.date_modified,
+		"</time></small><p>Tags: ",
+		([.tags[] | [
 			"<a class='p-category' rel='category tag' href='",
 			$tag_prefix,
 			.,
 			"'>",
 			.,
-			"</a>"
-		]),
-		"</article>"
+			"</a>, "
+		]] | flatten | join("")[:-2]),
+		"</p></footer></article>"
 	]),
 	"</body></html>"
 ] | flatten | join("")
