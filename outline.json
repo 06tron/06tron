@@ -19,6 +19,10 @@
 		"id": "urn:uuid:22620929-5413-4211-BE95-59BD3594FD14",
 		"self_link": "https://home.6t.lt/atom.xml"
 	},
+	"_mf2_elements": {
+		"self_link": "https://home.6t.lt/feed.html",
+		"prefix_for_tag_urls": "https://home.6t.lt/?s=section."
+	},
 	"_named_items": {
 		"68f": {
 			"id": "urn:uuid:9F42BD4A-51FF-4FF6-86E6-5ACF8DDC3DFE",

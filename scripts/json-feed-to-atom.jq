@@ -1,5 +1,5 @@
-[
-	"<?xml version='1.0' encoding='utf-8'?><?xml-stylesheet href='698/style-atom.css'?><feed xmlns='http://www.w3.org/2005/Atom'><about xmlns='https://6t.lt/about'>Use the URL of this XML file to read posts from my website in any feed reader that supports the Atom Syndication Format.</about><title>",
+._mf2_elements.prefix_for_tag_urls as $tag_prefix | [
+	"<?xml version='1.0' encoding='utf-8'?><?xml-stylesheet href='https://home.6t.lt/698/style-atom.css'?><feed xmlns='http://www.w3.org/2005/Atom'><about xmlns='https://6t.lt/about'>Use the URL of this XML file to read posts from my website in any feed reader that supports the Atom Syndication Format.</about><title>",
 	.title,
 	"</title><subtitle>",
 	.description,
@@ -38,6 +38,9 @@
 		"</div></content>",
 		(.tags[] | [
 			"<category term='",
+			$tag_prefix,
+			.,
+			"' label='",
 			.,
 			"'/>"
 		]),

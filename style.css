@@ -233,10 +233,10 @@ label > textarea {
 }
 
 /* single target */
-div#collage_619 {
+section#collage_619 {
 	position: relative;
 }
-div#collage_619 > figure > figcaption {
+section#collage_619 > figcaption {
 	max-width: 390px;
 	position: absolute;
 	top: 294px;
