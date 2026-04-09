@@ -19,11 +19,11 @@
 
 <section class="projects art svg">
 
-	<h3 class="fl"><span class="fl">Granjon Boxes</span></h3>
+	<h3><span class="fl">Granjon Boxes</span></h3>
 
 	<p>I started working on a font which will recreate some of the typographical ornaments designed by <a href="https://www.wikidata.org/wiki/Q321678">Robert Granjon</a>. A few years ago, in an essay by <a href="https://elliotoffner.com/bio.html">Elliot Offner</a>, I was introduced to the following set of six pieces of moveable type which can serve as the building blocks for complex printed arabesques.</p>
 
-	<figure class="art"><img height="50" loading="lazy" src="https://home.6t.lt/690/six-piece-arabesque.png" alt="Six decorative characters printed to a binary bitmap."/></figure>
+	<figure><img height="50" loading="lazy" src="https://home.6t.lt/690/six-piece-arabesque.png" alt="Six decorative characters printed to a binary bitmap."/></figure>
 
 	<p>Offner published <cite>The Granjon Arabesque</cite>, which is a book showcasing thirty arrangements pressed using these characters. The glyphs that I've added to the <cite>Granjon Boxes</cite> font so far are based on photos I took of the book's pages.</p>
 
