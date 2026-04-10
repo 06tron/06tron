@@ -3,8 +3,7 @@
 rm -r export # 00
 mkdir -p export/shortcuts/blog # 01
 jq scripts/json-feed-to-atom.jq -rf articles/feed.json > export/atom.xml # 10
-jq scripts/json-feed-to-html.jq -rf articles/feed.json | sed -E "s;=(\"|')https://home.6t.lt/;=\\1../../;g" > export/shortcuts/blog/index.html # 11
-jq scripts/json-feed-to-mf2.jq -rf articles/feed.json | sed -E "s;=(\"|')https://home.6t.lt/;=\\1./;g" > export/feed.html # 12
+jq scripts/json-feed-to-html.jq -rf articles/feed.json | sed -E "s;=(\"|')https://home.6t.lt/;=\\1/;g" > export/shortcuts/blog/index.html # 11
 cp articles/feed.json export/feed.json # 20
 rsync -r --exclude='.*' fonts icons periods index.html style.css export # 21
 mv export/icons/favicon.ico export # 22

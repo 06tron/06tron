@@ -21,6 +21,8 @@
 	.home_page_url,
 	"'/><link rel='alternate' type='application/feed+json' href='",
 	.feed_url,
+	"'/><link rel='related' type='text/html' href='",
+	._sitemap_url,
 	"'/><icon>",
 	.icon,
 	"</icon>",

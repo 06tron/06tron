@@ -226,10 +226,10 @@ a:hover {
 a.naked::after {
 	content: " → " attr(href);
 }
-a > img {
+a > img[alt=""] {
 	height: 2rem;
-	margin: 0px 0.7rem;
-	vertical-align: -0.6rem;
+	margin: 0px 0.4rem 0.4rem 1.6rem;
+	vertical-align: -1rem;
 }
 
 /* form elements */
