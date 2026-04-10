@@ -15,7 +15,7 @@
 	._atom_elements.updated,
 	"</time></hgroup><p class='p-summary'>",
 	.description,
-	"</p><a rel='alternate home' type='text/html' href='",
+	"</p><nav><a rel='alternate home' type='text/html' href='",
 	._sitemap_url,
 	"'>sitemap</a>",
 	(.authors[] | [
@@ -31,7 +31,7 @@
 	.feed_url,
 	"'><img alt='' src='https://home.6t.lt/icons/feed+json.webp'/>JSON</a><a rel='alternate' type='application/atom+xml' href='",
 	._atom_elements.self_link,
-	"'><img alt='' src='https://home.6t.lt/icons/atom+xml.webp'/>Atom</a>",
+	"'><img alt='' src='https://home.6t.lt/icons/atom+xml.webp'/>Atom</a></nav>",
 	(.items | length as $len | to_entries[] | [
 		"<article\nid='",
 		$len - .key,
