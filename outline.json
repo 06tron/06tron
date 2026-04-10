@@ -4,7 +4,7 @@
 	"feed_url": "https://home.6t.lt/feed.json",
 	"title": "○–○––○–○ blog",
 	"home_page_url": "https://6t.lt/blog",
-	"description": "Matthew R. Richardson’s articles on topics such as web programming and recreational math.",
+	"description": "Entries on topics such as web programming and recreational math.",
 	"icon": "https://home.6t.lt/icons/48.svg",
 	"authors": [
 		{
@@ -19,10 +19,7 @@
 		"id": "urn:uuid:22620929-5413-4211-BE95-59BD3594FD14",
 		"self_link": "https://home.6t.lt/atom.xml"
 	},
-	"_mf2_elements": {
-		"self_link": "https://home.6t.lt/feed.html",
-		"prefix_for_tag_urls": "https://home.6t.lt/index.html?s=section."
-	},
+	"_prefix_for_tag_urls": "https://home.6t.lt/index.html?s=section.",
 	"_named_items": {
 		"68f": {
 			"id": "urn:uuid:9F42BD4A-51FF-4FF6-86E6-5ACF8DDC3DFE",

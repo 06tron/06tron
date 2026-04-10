@@ -37,6 +37,9 @@ body {
 }
 
 /* main layout */
+address {
+	display: inline;
+}
 article {
 	margin-top: 4rem;
 }
@@ -51,20 +54,26 @@ dl > dd {
 footer {
 	text-align: center;
 }
+footer > p {
+	margin-top: 0.3rem;
+}
 footer > small {
 	font-style: italic;
 	opacity: 0.7;
 }
-footer > small > samp.u-uid {
+footer > small > samp {
 	font-style: italic;
 }
 h1 {
 	font-family: var(--title-text);
 	font-weight: normal;
 }
-hgroup > h2 {
+hgroup > :is(h1, h2) {
 	display: inline-block;
 	margin: 1rem 0px 0px;
+}
+hgroup > :is(h1, h2) > a {
+	color: CanvasText;
 }
 hgroup > time {
 	display: inline-block;
@@ -217,6 +226,11 @@ a:hover {
 a.naked::after {
 	content: " → " attr(href);
 }
+a > img {
+	height: 2rem;
+	margin: 0px 0.7rem;
+	vertical-align: -0.6rem;
+}
 
 /* form elements */
 input[type="text"] {
@@ -238,7 +252,7 @@ label > textarea {
 section#collage_619 {
 	position: relative;
 }
-section#collage_619 > figcaption {
+section#collage_619 > figure > figcaption {
 	max-width: 390px;
 	position: absolute;
 	top: 294px;
