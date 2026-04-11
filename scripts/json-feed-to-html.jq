@@ -7,7 +7,7 @@
 	.description,
 	"'/><meta name='format-detection' content='telephone=no'/><meta name='viewport' content='width=device-width'/><link rel='icon' href='",
 	.icon,
-	"'/><link rel='stylesheet' href='https://home.6t.lt/style.css'/></head><body><hgroup><h1 class='p-name site-title'><a class='u-url' rel='bookmark' href='",
+	"'/><link rel='stylesheet' href='https://home.6t.lt/style.css'/></head><body><header><hgroup><h1 class='p-name site-title'><a class='u-url' rel='bookmark' href='",
 	.home_page_url,
 	"'>",
 	.title,
@@ -31,7 +31,7 @@
 	.feed_url,
 	"'><img alt='' src='https://home.6t.lt/icons/feed+json.webp'/>JSON</a><a rel='alternate' type='application/atom+xml' href='",
 	._atom_elements.self_link,
-	"'><img alt='' src='https://home.6t.lt/icons/atom+xml.webp'/>Atom</a></nav>",
+	"'><img alt='' src='https://home.6t.lt/icons/atom+xml.webp'/>Atom</a></nav></header>",
 	(.items | length as $len | to_entries[] | [
 		"<article\nid='",
 		$len - .key,
