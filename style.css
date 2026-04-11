@@ -75,7 +75,7 @@ hgroup > :is(h1, h2) {
 hgroup > :is(h1, h2) > a {
 	color: CanvasText;
 }
-hgroup > time {
+hgroup > p:has(> time) {
 	display: inline-block;
 	font-size: 0.8em;
 	font-style: italic;
