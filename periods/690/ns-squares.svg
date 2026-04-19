@@ -7,8 +7,10 @@
 	p { color: Black; line-height: 1.3; margin: 0 5px; }
 	p.url { letter-spacing: 0.3px; }
 	p.gap { margin-top: 3px; }
+	p a { color: Black; }
 	@media print {
 		#shading { display: none; }
+		p a { text-decoration: none; }
 	}
 	@page { margin-top: -0.2in; } /* for Safari */
 </style>
@@ -31,7 +33,7 @@
 <path fill="none" stroke="White" stroke-opacity="0.4" stroke-width="50" d="M70-35h130M-60,245h110"/>
 <foreignObject x="70" y="-57" width="130" height="50">
 <p xmlns="http://www.w3.org/1999/xhtml" id="desc">
-	These Sudoku puzzles are based on fundamental polygons for the real projective plane and the sphere. Both have 27 cells, and are set on a square with its sides connected together. The rows and columns pass through the sides of the square, wrapping around in a way similar to Pac-Man. The four surrounding copies of each puzzle are there just to make solving easier. Each puzzle has its own set of nine symbols, and you can't treat the symbols like colors as in regular Sudoku.
+	These Sudoku puzzles are based on <a href="https://en.wikipedia.org/wiki/Fundamental_polygon#Examples_of_fundamental_polygons_generated_by_parallelograms">fundamental polygons</a> for the real projective plane and the sphere. Both have 27 cells, and are set on a square with its sides connected together. The rows and columns pass through the sides of the square, wrapping around in a way similar to Pac-Man. The four surrounding copies of each puzzle are there just to make solving easier. Each puzzle has its own set of nine symbols, and you can't treat the symbols like colors as in regular Sudoku.
 </p>
 </foreignObject>
 <foreignObject x="-60" y="224" width="110" height="40">
