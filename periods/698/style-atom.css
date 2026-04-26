@@ -1,54 +1,222 @@
+/* initialize */
 :root {
-	color-scheme: dark light;
+	--body-max-width: 60rem;
+	--body-side-margin: 2rem;
+	--thin-solid-border: 2px solid #7776;
 	--fl-heading: "American Typewriter", "Century Gothic", monospace;
+	--monospaced: ui-monospace, "Menlo", "Courier New", monospace;
 	--sans-serif: "Avenir", "Segoe UI", sans-serif;
+	--title-text: "Tsukushi B Round Gothic", "Gulim", "Menlo", "Courier New", monospace;
+	color-scheme: dark light;
+	counter-reset: note-indicator note-target;
+}
+feed {
+	font-family: var(--sans-serif);
+	line-height: 1.3;
+	margin: 0px var(--body-side-margin) 1rem;
+	max-width: var(--body-max-width);
+	overflow-wrap: break-word;
 }
 
-about, entry, published, title {
+/* main layout */
+author, subtitle {
 	display: block;
 }
-
-author, category, icon, id, link, updated {
+button {
+	font: larger var(--monospaced);
+	line-height: 1;
+	margin-left: 4rem;
+}
+feed > author, feed > id, feed > link[rel="related"], icon {
 	display: none;
 }
+dl {
+	display: grid;
+	max-width: max-content;
+	row-gap: 0.3rem;
+}
+dl > dd {
+	grid-column-start: 2;
+}
+entry {
+	background-color: #5af3;
+	display: block;
+	margin-top: 4rem;
+	padding: 1rem;
+}
+footer {
+	text-align: center;
+}
+footer > p {
+	margin-top: 0.3rem;
+}
+footer > small {
+	font-style: italic;
+	opacity: 0.7;
+}
+footer > small > samp {
+	font-style: italic;
+}
+title {
+	display: inline-block;
+	font-weight: bold;
+	margin: 0px;
+}
+entry > title {
+	font-size: x-large;
+}
+feed > title {
+	font: xx-large var(--title-text);
+}
+entry > published, feed > updated {
+	display: inline-block;
+	font-size: 0.8em;
+	font-style: italic;
+	margin: 0px 1rem 0px;
+	opacity: 0.7;
+}
+iframe {
+	border: var(--thin-solid-border);
+	box-sizing: border-box;
+	height: 500px;
+	width: 100%;
+}
+p, subtitle {
+	margin: 1rem 0px;
+}
+span.fl {
+	font-family: var(--fl-heading);
+	font-weight: normal;
+}
 
+/* variables from code and computer data */
+samp, dl.variables > dd {
+	font: smaller var(--monospaced);
+	word-break: break-all;
+}
+samp > u, dl.variables > dd > u {
+	font-style: italic;
+	opacity: 0.7;
+	text-decoration: none;
+}
+var > code, dl.variables > dt {
+	font: normal bold smaller var(--monospaced);
+}
+
+/* horizontal scrolling */
+figure {
+	margin-left: 4rem;
+	overflow-x: auto;
+}
+figure > img {
+	vertical-align: bottom;
+}
+pre {
+	background-color: #7772;
+	border: var(--thin-solid-border);
+	max-width: max-content;
+	overflow-x: auto;
+	padding: 0.7rem;
+}
+
+/* pseudo-code block with <br/> line separator */
+p:has(> code:first-child:last-child) { 
+	border-left: var(--thin-solid-border);
+	padding-left: 0.7rem;
+	text-indent: 2rem hanging each-line;
+}
+
+/* aside-note */
+p > [id^="note_"]::after {
+	content: "[" counter(note-indicator) "]";
+	counter-increment: note-indicator;
+	font-size: smaller;
+	line-height: 0px;
+	vertical-align: super;
+}
+aside {
+	border-top: var(--thin-solid-border);
+	font-size: smaller;
+	margin-left: 4rem;
+}
+aside :has(> a[href^="#note_"])::before {
+	content: counter(note-target) ". ";
+	counter-increment: note-target;
+}
+
+/* hyperlink cosmetics */
+a {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: underline;
+}
 a.naked::after {
 	content: " → " attr(href);
 }
 
+/* Atom feed <link> */
+link {
+	display: block;
+}
+link::after {
+	content: " " attr(href);
+	font: smaller var(--monospaced);
+	vertical-align: super;
+}
+link[type="text/mf2+html"]::before {
+	content: url(../icons/mf2+html.webp);
+}
+link[type="application/feed+json"]::before {
+	content: url(../icons/feed+json.webp);
+}
+link[type="application/atom+xml"]::before {
+	content: url(../icons/atom+xml.webp);
+}
+
+/* Closing text of Atom entry */
+entry > category::after {
+	content: attr(label);
+}
+entry > category:first-of-type::before {
+	content: "Tags: ";
+}
+entry > category:not(:first-of-type)::before {
+	content: ", ";
+}
+entry > id, entry > updated {
+	display: inline;
+	font-size: 0.8em;
+	font-style: italic;
+	opacity: 0.7;
+}
+entry > id::after {
+	content: " | ";
+}
+entry > updated::after {
+	content: "\a";
+	white-space: pre;
+}
+
+/* single target */
+section#collage_619 {
+	position: relative;
+}
+section#collage_619 > figure > figcaption {
+	max-width: 390px;
+	position: absolute;
+	top: 294px;
+}
+
+/* https://6t.lt/about */
 about {
 	background-color: #f053;
+	display: block;
 	margin-bottom: 1rem;
 	max-width: 30rem;
 	padding: 0.5rem;
 }
-
-about uri {
+about > uri {
 	font-style: italic;
 }
 
-entry {
-	background-color: #5af3;
-	margin: 1rem 0;
-	padding: 1rem;
-}
-
-figure, pre {
-	overflow-x: auto;
-}
-
-feed {
-	font-family: var(--sans-serif);
-	max-width: 60rem;
-	margin: 1rem;
-	overflow-wrap: break-word;
-}
-
-iframe {
-	height: 500px;
-	width: 100%;
-}
-
-span.fl, title {
-	font: normal 1.7em var(--fl-heading);
-}
