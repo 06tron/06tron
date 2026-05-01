@@ -184,6 +184,9 @@ entry > category:first-of-type::before {
 entry > category:not(:first-of-type)::before {
 	content: ", ";
 }
+entry > id, category:first-of-type {
+	margin-left: 4rem;
+}
 entry > id, entry > updated {
 	display: inline;
 	font-size: 0.8em;
