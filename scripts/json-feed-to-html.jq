@@ -5,7 +5,7 @@
 	.authors[0].url,
 	"'/><meta name='color-scheme' content='dark light'/><meta name='description' content='",
 	.description,
-	"'/><meta name='format-detection' content='telephone=no'/><meta name='viewport' content='width=device-width'/><link rel='icon' href='",
+	"'/><meta name='format-detection' content='telephone=no'/><meta name='viewport' content='width=device-width'/><base href='../../'/><link rel='icon' href='",
 	.icon,
 	"'/><link rel='stylesheet' href='https://home.6t.lt/style.css'/></head><body><header><hgroup><h1 class='p-name site-title'><a class='u-url' rel='bookmark' href='",
 	.home_page_url,
