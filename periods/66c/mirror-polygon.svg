@@ -5,5 +5,4 @@ xmlns='http://www.w3.org/2000/svg'
 viewBox='0,0,100,100'
 style='background-color:Canvas;color-scheme:light dark'
 cursor='crosshair'><title>Mirror Polygon Arrangement</title><script
-href='mirror-polygon-script.js'
-id='script'/><desc>Zero or more copies of an SVG polygon element.</desc></svg>
+href='mirror-polygon-script.js'/><desc>Zero or more copies of an SVG polygon element.</desc></svg>

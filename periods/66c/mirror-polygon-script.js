@@ -181,7 +181,7 @@ const params = {
 	vertices: "5",
 	xlinkHrefs: "false"
 };
-const scriptElement = document.getElementById("script");
+const scriptElement = document.querySelector("script");
 const svg = scriptElement.parentElement;
 scriptElement.outerHTML = `<metadata><about xmlns="https://6t.lt/about"><![CDATA[
 Initially created at ${window.location.href.replaceAll(">", "%3E")}
@@ -364,15 +364,9 @@ function applyAnimation(svgOut, useGroupOut) {
 	}
 	const style = document.createElementNS(svg.namespaceURI, "style");
 	style.textContent = `
-@property --a {
-	syntax: "<angle>";
-	inherits: true;
-	initial-value: 0deg;
-}
-@keyframes close {
-	from { --a: 0deg; }
-	to { --a: ${+params.animationFoldAngle}deg; }
-}`;
+@property --a{syntax:'<angle>';inherits:true;initial-value:0deg}
+@keyframes close{from{--a:0deg}to{--a:${+params.animationFoldAngle}deg}}
+`;
 	svgOut.insertAdjacentElement("afterbegin", style);
 	if (params.glTF) {
 		const script = document.createElementNS(svg.namespaceURI, "script");
