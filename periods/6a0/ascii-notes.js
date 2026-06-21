@@ -32,7 +32,8 @@ const ascii = [
 		"reversals": {
 			"hexadecimal": 16,
 			"quaternary": 64
-		}
+		},
+		"ibm866": "☺"
 	},
 	{
 		"id": "␂",
@@ -49,7 +50,8 @@ const ascii = [
 		"reversals": {
 			"hexadecimal": 32,
 			"binary": 64
-		}
+		},
+		"ibm866": "☻"
 	},
 	{
 		"id": "␃",
@@ -65,7 +67,8 @@ const ascii = [
 		],
 		"reversals": {
 			"hexadecimal": 48
-		}
+		},
+		"ibm866": "♥"
 	},
 	{
 		"id": "␄",
@@ -83,7 +86,8 @@ const ascii = [
 			"hexadecimal": 64,
 			"quaternary": 16,
 			"binary": 32
-		}
+		},
+		"ibm866": "♦"
 	},
 	{
 		"id": "␅",
@@ -100,7 +104,8 @@ const ascii = [
 		"reversals": {
 			"hexadecimal": 80,
 			"quaternary": 80
-		}
+		},
+		"ibm866": "♣"
 	},
 	{
 		"id": "␆",
@@ -117,7 +122,8 @@ const ascii = [
 		"reversals": {
 			"hexadecimal": 96,
 			"binary": 96
-		}
+		},
+		"ibm866": "♠"
 	},
 	{
 		"id": "␇",
@@ -133,7 +139,8 @@ const ascii = [
 		],
 		"reversals": {
 			"hexadecimal": 112
-		}
+		},
+		"ibm866": "•"
 	},
 	{
 		"id": "\b",
@@ -150,7 +157,8 @@ const ascii = [
 		"reversals": {
 			"quaternary": 32,
 			"binary": 16
-		}
+		},
+		"ibm866": "◘"
 	},
 	{
 		"id": "\t",
@@ -166,7 +174,8 @@ const ascii = [
 		],
 		"reversals": {
 			"quaternary": 96
-		}
+		},
+		"ibm866": "○"
 	},
 	{
 		"id": "\n",
@@ -182,7 +191,8 @@ const ascii = [
 		],
 		"reversals": {
 			"binary": 80
-		}
+		},
+		"ibm866": "◙"
 	},
 	{
 		"id": "␋",
@@ -195,7 +205,8 @@ const ascii = [
 		"svg": [
 			7,
 			"not allowed in XML 1.0"
-		]
+		],
+		"ibm866": "♂"
 	},
 	{
 		"id": "\f",
@@ -212,7 +223,8 @@ const ascii = [
 		"reversals": {
 			"quaternary": 48,
 			"binary": 48
-		}
+		},
+		"ibm866": "♀"
 	},
 	{
 		"id": "\r",
@@ -228,7 +240,8 @@ const ascii = [
 		],
 		"reversals": {
 			"quaternary": 112
-		}
+		},
+		"ibm866": "♪"
 	},
 	{
 		"id": "␎",
@@ -244,7 +257,8 @@ const ascii = [
 		],
 		"reversals": {
 			"binary": 112
-		}
+		},
+		"ibm866": "♫"
 	},
 	{
 		"id": "␏",
@@ -257,7 +271,8 @@ const ascii = [
 		"svg": [
 			7,
 			"not allowed in XML 1.0"
-		]
+		],
+		"ibm866": "☼"
 	},
 	{
 		"id": "␐",
@@ -275,7 +290,8 @@ const ascii = [
 			"hexadecimal": 1,
 			"quaternary": 4,
 			"binary": 8
-		}
+		},
+		"ibm866": "►"
 	},
 	{
 		"id": "␑",
@@ -292,7 +308,8 @@ const ascii = [
 		"reversals": {
 			"hexadecimal": 17,
 			"quaternary": 68
-		}
+		},
+		"ibm866": "◄"
 	},
 	{
 		"id": "␒",
@@ -309,7 +326,8 @@ const ascii = [
 		"reversals": {
 			"hexadecimal": 33,
 			"binary": 72
-		}
+		},
+		"ibm866": "↕"
 	},
 	{
 		"id": "␓",
@@ -325,7 +343,8 @@ const ascii = [
 		],
 		"reversals": {
 			"hexadecimal": 49
-		}
+		},
+		"ibm866": "‼"
 	},
 	{
 		"id": "␔",
@@ -343,7 +362,8 @@ const ascii = [
 			"hexadecimal": 65,
 			"quaternary": 20,
 			"binary": 40
-		}
+		},
+		"ibm866": "¶"
 	},
 	{
 		"id": "␕",
@@ -360,7 +380,8 @@ const ascii = [
 		"reversals": {
 			"hexadecimal": 81,
 			"quaternary": 84
-		}
+		},
+		"ibm866": "§"
 	},
 	{
 		"id": "␖",
@@ -377,7 +398,8 @@ const ascii = [
 		"reversals": {
 			"hexadecimal": 97,
 			"binary": 104
-		}
+		},
+		"ibm866": "▬"
 	},
 	{
 		"id": "␗",
@@ -393,7 +415,8 @@ const ascii = [
 		],
 		"reversals": {
 			"hexadecimal": 113
-		}
+		},
+		"ibm866": "↨"
 	},
 	{
 		"id": "␘",
@@ -410,7 +433,8 @@ const ascii = [
 		"reversals": {
 			"quaternary": 36,
 			"binary": 24
-		}
+		},
+		"ibm866": "↑"
 	},
 	{
 		"id": "␙",
@@ -426,7 +450,8 @@ const ascii = [
 		],
 		"reversals": {
 			"quaternary": 100
-		}
+		},
+		"ibm866": "↓"
 	},
 	{
 		"id": "␚",
@@ -442,7 +467,8 @@ const ascii = [
 		],
 		"reversals": {
 			"binary": 88
-		}
+		},
+		"ibm866": "→"
 	},
 	{
 		"id": "␛",
@@ -455,7 +481,8 @@ const ascii = [
 		"svg": [
 			7,
 			"not allowed in XML 1.0"
-		]
+		],
+		"ibm866": "←"
 	},
 	{
 		"id": "␜",
@@ -472,7 +499,8 @@ const ascii = [
 		"reversals": {
 			"quaternary": 52,
 			"binary": 56
-		}
+		},
+		"ibm866": "∟"
 	},
 	{
 		"id": "␝",
@@ -488,7 +516,8 @@ const ascii = [
 		],
 		"reversals": {
 			"quaternary": 116
-		}
+		},
+		"ibm866": "↔"
 	},
 	{
 		"id": "␞",
@@ -504,7 +533,8 @@ const ascii = [
 		],
 		"reversals": {
 			"binary": 120
-		}
+		},
+		"ibm866": "▲"
 	},
 	{
 		"id": "␟",
@@ -517,7 +547,8 @@ const ascii = [
 		"svg": [
 			7,
 			"not allowed in XML 1.0"
-		]
+		],
+		"ibm866": "▼"
 	},
 	{
 		"id": "␠",
@@ -2032,7 +2063,8 @@ const ascii = [
 		"reversals": {
 			"quaternary": 61,
 			"binary": 62
-		}
+		},
+		"ibm866": "¦"
 	},
 	{
 		"id": "}",
@@ -2077,7 +2109,8 @@ const ascii = [
 		"svg": [
 			6,
 			"discouraged in XML 1.0"
-		]
+		],
+		"ibm866": "⌂"
 	}
 ];
 

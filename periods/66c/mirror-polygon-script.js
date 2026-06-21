@@ -264,7 +264,7 @@ const matrixIndices = "abcdef".split("");
  * @param {boolean} rounded
  * @returns {string}
  */
-function getMatrixString(matrix, rounded) {
+function getMatrixString(matrix, rounded) { // TODO use rounded at end?
 	const entries = matrixIndices.map(function (i) {
 		return rounded ? round(matrix[i], params.decimalPlaces) : matrix[i];
 	});

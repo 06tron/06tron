@@ -96,7 +96,7 @@ style='
 const note = document.getElementById("note");
 const notice = document.getElementById("notice");
 let noClipboard = false;
-if (new URLSearchParams(window.location.search).get("no-title") !== null) {
+if (!(location.protocol === "data:" || new URLSearchParams(location.search).get("no-title") === null)) {
 	note.replaceChildren();
 }
 if (!note.isContentEditable) {
