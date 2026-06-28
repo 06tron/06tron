@@ -1,10 +1,4 @@
 {
-	"[html]": {
-		"editor.tabSize": 2
-	},
-	"[typescript]": {
-		"editor.tabSize": 2
-	},
 	"cSpell.enabledNotifications": {
 		"Lines too Long": false
 	},
@@ -54,10 +48,11 @@
 	"editor.insertSpaces": false,
 	"editor.links": false,
 	"editor.rulers": [
-		64,
-		80,
+		32,
+		67,
 		100
 	],
+	"editor.tabSize": 2,
 	"editor.tokenColorCustomizations": {
 		"textMateRules": [
 			{

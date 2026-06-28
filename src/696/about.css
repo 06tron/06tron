@@ -1,0 +1,11 @@
+a::before { content: attr(href) }
+body { font-family: "Avenir", "Segoe UI", sans-serif; max-width: 80rem; }
+p { max-width: 40rem; }
+h1 { font: italic 300 1.6rem 'Cascadia Mono', monospace; }
+th { font: italic 300 1.2rem 'Cascadia Mono', monospace; }
+#t, #j { font: italic 300 1rem 'Cascadia Mono', monospace; white-space: pre-wrap; }
+table { table-layout: fixed; width: 100%; overflow-wrap: break-word; }
+td { padding: 0 0.5rem; }
+th:nth-child(2n+1), td:nth-child(2n+1) { background-color: #5af3; }
+th:nth-child(2n+2), td:nth-child(2n+2) { background-color: #f053; }
+footer { font-style: italic; opacity: 0.7; text-align: center; }

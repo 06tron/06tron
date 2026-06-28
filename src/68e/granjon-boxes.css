@@ -1,0 +1,106 @@
+@font-face {
+	font-family: "Granjon Boxes";
+	src: url("../../fonts/granjon-boxes.woff2") format("woff2");
+}
+@font-face {
+	font-family: "Kreative Square";
+	src: url("../../fonts/k-square-boxes.woff2") format("woff2");
+}
+body {
+	font-family: "Avenir", "Segoe UI", sans-serif;
+}
+th {
+	text-align: left;
+}
+table.spec tr td:nth-child(1) {
+	font-family: monospace;
+}
+table.spec tr td:nth-child(2) {
+	font-family: "Kreative Square";
+	font-size: 1.2rem;
+}
+table.spec tr td:nth-child(3) {
+	font-family: "Granjon Boxes";
+	font-size: 1.2rem;
+}
+table.spec {
+	counter-reset: desc-number;
+}
+table.spec tr td.desc::before {
+	counter-increment: desc-number;
+	content: counter(desc-number) ". ";
+}
+table.adj {
+	border-spacing: 0;
+	width: 100%;
+}
+table.adj tr td {
+	text-align: center;
+}
+table.adj tr:nth-child(2n+1) td {
+	font-family: "Kreative Square";
+	font-size: 2rem;
+	padding-bottom: 0.7rem;
+	text-decoration: light-dark(#EEE, rgba(187, 187, 187, 0.25)) underline;
+	text-underline-offset: 0.7rem;
+}
+table.adj tr:nth-child(2n+2) {
+	font-family: "Granjon Boxes";
+	font-size: 10vw;
+	line-height: 1;
+}
+table.adj tr:nth-child(4n+1) td:nth-child(2n+1),
+table.adj tr:nth-child(4n+2) td:nth-child(2n+1),
+table.adj tr:nth-child(4n+3) td:nth-child(2n+2),
+table.adj tr:nth-child(4n+4) td:nth-child(2n+2) {
+	background-color: rgba(115, 115, 115, 0.25);
+}
+.v42ef,
+.r21-c,
+.r21-h,
+.v45,
+.r31,
+.across,
+.two-corner,
+.edge-var-1,
+.v42g,
+.edge-var-2,
+.v42cdg,
+.right-angle,
+.stripe { /* first */
+	background-color: rgba(155, 155, 235, 0.25);
+}
+.r21-v,
+.r21-vc,
+.block-side,
+.edge-var-3,
+.skew-corner,
+.three-way-1,
+.four-way-1 { /* second */
+	background-color: rgba(255, 191, 87, 0.25);
+}
+.block-diag,
+.v42ab,
+.r21-hc,
+.three-way-2,
+.v96 { /* third */
+	background-color: rgba(131, 255, 255, 0.25);
+}
+.block-3,
+.r21-hv,
+.three-way-3,
+.four-way-3 { /* fourth */
+	background-color: rgba(255, 147, 135, 0.25);
+}
+.four-way-4 {
+	background-color: rgba(255, 255, 195, 0.25);
+}
+.single,
+.stripe-cross {
+	background-color: rgba(195, 255, 195, 0.25);
+}
+details summary {
+	font-size: x-large;
+	font-weight: bold;
+	margin: 1rem;
+}

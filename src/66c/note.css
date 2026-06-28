@@ -1,0 +1,28 @@
+body {
+	font-family: monospace;
+	margin: 0px;
+	position: relative;
+}
+
+#note {
+	line-height: 1.4;
+	margin: 0px;
+	min-height: calc(100vh - 8rem);
+	overflow-wrap: break-word;
+	overflow-x: auto;
+	padding: 4rem;
+}
+
+@media only screen and (max-width: 450px) {
+	#note {
+		font-size: 16pt;
+	}
+}
+
+#notice {
+	margin: 0px;
+	position: absolute;
+	right: 1rem;
+	top: 1rem;
+	transition: opacity 0.2s ease-out;
+}
