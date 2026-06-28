@@ -1,11 +1,8 @@
-<!DOCTYPE html><html
+<!DOCTYPE
+html><html
 xmlns='http://www.w3.org/1999/xhtml'
-lang='en'
->
-
-<head><meta
-charset='utf-8'
-/><title>Unsaved Note</title><link
+lang='en'><head><meta
+charset='utf-8'/><title>Unsaved Note</title><link
 rel='license'
 href='data:,
 	BSD Zero Clause License: 
@@ -38,28 +35,23 @@ href='data:,
 	eventually write this replacement.
 '/><link
 rel='alternate'
-href="data:text/html;charset=utf-8,%3C!DOCTYPE%20html%3E%3Chtml%0Acontenteditable='plaintext-only'%0Alang='en'%0Astyle='color-scheme:light%20dark;font-family:monospace;line-height:1.4;padding:4rem;'%3E%3Cmeta%0Acharset='utf-8'%3E%3Ctitle%3EUnsaved%20Note%3C/title%3E"
-/><link
+href="data:text/html;charset=utf-8,%3C!DOCTYPE%20html%3E%3Chtml%0Acontenteditable='plaintext-only'%0Alang='en'%0Astyle='color-scheme:light%20dark;font-family:monospace;line-height:1.4;padding:4rem;'%3E%3Cmeta%0Acharset='utf-8'%3E%3Ctitle%3EUnsaved%20Note%3C/title%3E"/><link
 rel='canonical'
-href='https://home.6t.lt/shortcuts/note/index.html'
-/><meta
+href='https://home.6t.lt/shortcuts/note/index.html'/><meta
 name='author'
-content='https://orcid.org/0009-0001-0977-2029'
-/><meta
+content='https://orcid.org/0009-0001-0977-2029'/><meta
 name='color-scheme'
-content='dark light'
-/><meta
+content='dark light'/><meta
 name='description'
-content='A text area for temporary notes with a copy to data URI feature.'
-/><meta
+content='A text area for temporary notes with a copy to data URI feature.'/><meta
 name='viewport'
-content='width=device-width'
-/><style>
+content='width=device-width'/><style>
 body {
 	font-family: monospace;
 	margin: 0px;
 	position: relative;
 }
+
 #note {
 	line-height: 1.4;
 	margin: 0px;
@@ -68,11 +60,13 @@ body {
 	overflow-x: auto;
 	padding: 4rem;
 }
+
 @media only screen and (max-width: 450px) {
 	#note {
 		font-size: 16pt;
 	}
 }
+
 #notice {
 	margin: 0px;
 	position: absolute;
@@ -80,9 +74,7 @@ body {
 	top: 1rem;
 	transition: opacity 0.2s ease-out;
 }
-</style></head>
-
-<body><p
+</style></head><body><p
 id='note'
 contenteditable='plaintext-only'
 style='
@@ -140,10 +132,9 @@ document.addEventListener("keydown", function (event) {
 		notice.style.opacity = "0";
 	}, 1800);
 });
+
 function replaceNote() {
 	note.textContent = "data:text/html;charset=utf-8,%3C!DOCTYPE%20html%3E"
 		+ encodeURI(document.documentElement.outerHTML).replaceAll("#", "%23");
 }
-</script></body>
-
-</html>
+</script></body></html>

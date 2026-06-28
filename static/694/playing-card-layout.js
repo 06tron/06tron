@@ -1,7 +1,7 @@
 function singleCard(recipe, r = 0, c = 0) {
 	let svg;
 	if (r == 0 && c == 0) {
-		svg ='<g>';
+		svg = '<g>';
 	} else if (r == 0) {
 		svg = `<g transform="translate(${6 * c})">`;
 	} else {
@@ -88,6 +88,32 @@ const cards = [
 		'hhhhhh'
 	],
 	[
+		'-----b',
+		'--b---',
+		'--b--b',
+		'rl----',
+		'rl---b',
+		'rlb---',
+		'rlb--b',
+		'rl-rl-',
+		'rl-rlb',
+		'rlbrl-',
+		'rlbrlb'
+	],
+	[
+		'-----b',
+		'-l----',
+		'-l---b',
+		'-l-r--',
+		'-l-r-b',
+		'-l-rl-',
+		'-l-rlb',
+		'-lbrl-',
+		'-lbrlb',
+		'rlbrl-',
+		'rlbrlb'
+	],
+	[
 		'-----u',
 		'-----w',
 		'----uu',
@@ -112,7 +138,20 @@ const cards = [
 		'uwwwww',
 		'wwwwwu',
 		'wwwwww'
-	]
+	],
+	// [
+	// 	'-----p',
+	// 	'----p-',
+	// 	'----pp',
+	// 	'---pp-',
+	// 	'---ppp',
+	// 	'-ppp--',
+	// 	'-ppp-p',
+	// 	'pp-pp-',
+	// 	'pp-ppp',
+	// 	'ppppp-',
+	// 	'pppppp'
+	// ]
 ];
 
 let svg = '';
