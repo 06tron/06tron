@@ -1,0 +1,15 @@
+<?xml
+version='1.0'
+encoding='utf-8'?><svg
+xmlns='http://www.w3.org/2000/svg'
+preserveAspectRatio='none'
+viewBox='0,0,9e2,.9'
+fill='url(#g)'><linearGradient
+id='g'><stop
+stop-color='red'/><stop
+stop-opacity='.3'
+stop-color='red'
+offset='1'/></linearGradient><path
+transform='matrix(-1,0,0,1,9e2,0)'
+d='M3e2,0H0V.6H3e2L5e2.5H9e2V.1H5e2z'/><path
+d='M6e2.6H9e2V.9H0V.5H4e2z'/></svg>
