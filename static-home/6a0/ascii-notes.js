@@ -566,7 +566,8 @@ const ascii = [
 			"hexadecimal": 2,
 			"quaternary": 8,
 			"binary": 4
-		}
+		},
+		"visual conjugate": "\u200B"
 	},
 	{
 		"id": "!",
@@ -717,7 +718,8 @@ const ascii = [
 		],
 		"reversals": {
 			"quaternary": 104
-		}
+		},
+		"visual conjugate": "("
 	},
 	{
 		"id": "*",
@@ -763,7 +765,8 @@ const ascii = [
 		"reversals": {
 			"quaternary": 56,
 			"binary": 52
-		}
+		},
+		"visual conjugate": "'"
 	},
 	{
 		"id": "-",
@@ -911,7 +914,8 @@ const ascii = [
 		"reversals": {
 			"hexadecimal": 83,
 			"quaternary": 92
-		}
+		},
+		"visual conjugate": "2"
 	},
 	{
 		"id": "6",
@@ -977,7 +981,8 @@ const ascii = [
 		],
 		"reversals": {
 			"quaternary": 108
-		}
+		},
+		"visual conjugate": "6"
 	},
 	{
 		"id": ":",
@@ -1055,7 +1060,8 @@ const ascii = [
 		],
 		"reversals": {
 			"binary": 124
-		}
+		},
+		"visual conjugate": "<"
 	},
 	{
 		"id": "?",
@@ -1431,7 +1437,8 @@ const ascii = [
 		"reversals": {
 			"hexadecimal": 85,
 			"quaternary": 85
-		}
+		},
+		"visual conjugate": "C"
 	},
 	{
 		"id": "V",
@@ -1464,7 +1471,8 @@ const ascii = [
 		],
 		"reversals": {
 			"hexadecimal": 117
-		}
+		},
+		"visual conjugate": "M"
 	},
 	{
 		"id": "X",
@@ -1513,7 +1521,8 @@ const ascii = [
 		],
 		"reversals": {
 			"binary": 90
-		}
+		},
+		"visual conjugate": "N"
 	},
 	{
 		"id": "[",
@@ -1543,7 +1552,8 @@ const ascii = [
 		"reversals": {
 			"quaternary": 53,
 			"binary": 58
-		}
+		},
+		"visual conjugate": "/"
 	},
 	{
 		"id": "]",
@@ -1559,7 +1569,8 @@ const ascii = [
 		],
 		"reversals": {
 			"quaternary": 117
-		}
+		},
+		"visual conjugate": "["
 	},
 	{
 		"id": "^",
@@ -1575,7 +1586,8 @@ const ascii = [
 		],
 		"reversals": {
 			"binary": 122
-		}
+		},
+		"visual conjugate": "<"
 	},
 	{
 		"id": "_",
@@ -1674,7 +1686,8 @@ const ascii = [
 			"hexadecimal": 70,
 			"quaternary": 25,
 			"binary": 38
-		}
+		},
+		"visual conjugate": "b"
 	},
 	{
 		"id": "e",
@@ -1835,7 +1848,8 @@ const ascii = [
 		],
 		"reversals": {
 			"binary": 118
-		}
+		},
+		"visual conjugate": "c"
 	},
 	{
 		"id": "o",
@@ -1866,7 +1880,8 @@ const ascii = [
 			"hexadecimal": 7,
 			"quaternary": 13,
 			"binary": 14
-		}
+		},
+		"visual conjugate": "b"
 	},
 	{
 		"id": "q",
@@ -1883,7 +1898,8 @@ const ascii = [
 		"reversals": {
 			"hexadecimal": 23,
 			"quaternary": 77
-		}
+		},
+		"visual conjugate": "b"
 	},
 	{
 		"id": "r",
@@ -1951,7 +1967,8 @@ const ascii = [
 		"reversals": {
 			"hexadecimal": 87,
 			"quaternary": 93
-		}
+		},
+		"visual conjugate": "c"
 	},
 	{
 		"id": "v",
@@ -1968,7 +1985,8 @@ const ascii = [
 		"reversals": {
 			"hexadecimal": 103,
 			"binary": 110
-		}
+		},
+		"visual conjugate": "<"
 	},
 	{
 		"id": "w",
@@ -1984,7 +2002,8 @@ const ascii = [
 		],
 		"reversals": {
 			"hexadecimal": 119
-		}
+		},
+		"visual conjugate": "m"
 	},
 	{
 		"id": "x",
@@ -2017,7 +2036,8 @@ const ascii = [
 		],
 		"reversals": {
 			"quaternary": 109
-		}
+		},
+		"visual conjugate": "h"
 	},
 	{
 		"id": "z",
@@ -2080,7 +2100,8 @@ const ascii = [
 		],
 		"reversals": {
 			"quaternary": 125
-		}
+		},
+		"visual conjugate": "{"
 	},
 	{
 		"id": "~",
