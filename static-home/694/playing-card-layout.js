@@ -1,163 +1,97 @@
-function singleCard(recipe, r = 0, c = 0) {
-	let svg;
-	if (r == 0 && c == 0) {
-		svg = '<g>';
-	} else if (r == 0) {
-		svg = `<g transform="translate(${6 * c})">`;
-	} else {
-		svg = `<g transform="translate(${6 * c},${10 * r})">`;
+const pipSize = 2**13;
+const columnOverlap = pipSize * (3 - 20/7);
+
+function pipOrigin(pipRow, pipCol, cardRow, cardCol, mirror) {
+	if (mirror) {
+		pipCol *= -1;
+		cardCol *= -1;
 	}
-	const notBlank = Array.from(recipe).map(c => c != '-');
-	if (notBlank[5]) {
-		svg += `<use href="#${recipe[5]}" x="2" y="4" transform="translate(6)scale(-1,1)"/>`;
-	}
-	if (recipe.startsWith('-----')) {
-		return svg + '</g>';
-	}
-	const topID = `top_${r}_${c}`;
-	svg += `<g id="${topID}">`;
-	if (notBlank[0]) {
-		svg += `<use href="#${recipe[0]}" x="1" y="1"/>`;
-	}
-	if (notBlank[1]) {
-		svg += `<use href="#${recipe[1]}" x="3" y="1"/>`;
-	}
-	if (notBlank[2]) {
-		svg += `<use href="#${recipe[2]}" x="2" y="2" transform="translate(6)scale(-1,1)"/>`;
-	}
-	if (notBlank[3]) {
-		svg += `<use href="#${recipe[3]}" x="1" y="3"/>`;
-	}
-	if (notBlank[4]) {
-		svg += `<use href="#${recipe[4]}" x="3" y="3"/>`;
-	}
-	return svg + `</g><use href="#${topID}" transform="rotate(180,3,5)"/></g>`;
+	return [
+		pipSize * (cardRow*4 + cardCol*3 + pipRow + pipCol) - cardCol*columnOverlap,
+		pipSize * (cardRow*4 - cardCol*3 + pipRow - pipCol) + cardCol*columnOverlap
+	];
 }
 
-const cards = [
+const svg = document.documentElement;
+const svgNS = svg.namespaceURI;
+
+function pipElement(pipId, pipRow, pipCol, cardRow, cardCol, mirror) {
+	const use = document.createElementNS(svgNS, 'use');
+	use.setAttribute('href', '#p' + pipId);
+	let [pipX, pipY] = pipOrigin(pipRow, pipCol, cardRow, cardCol, mirror);
+	if (mirror) {
+		use.setAttribute('transform', 'matrix(0,1,1,0,0,0)');
+	}
+	use.setAttribute('x', pipX);
+	use.setAttribute('y', pipY);
+	return use;
+}
+
+const pipRows = [0, 0, 0.5, 1, 1];
+const lefty = false;
+const pipCols = lefty ? [1, 0, 0.5, 1, 0] : [0, 1, 0.5, 0, 1]; 
+
+function cardElement(pipId, pipPlacement, cardRow, cardCol, odd) {
+	const g1 = document.createElementNS(svgNS, 'g');
+	if (pipPlacement.length > 0) {
+		const g2 = document.createElementNS(svgNS, 'g');
+		for (let i = 0; i < pipPlacement.length; ++i) {
+			const pipRow = pipRows[pipPlacement[i]];
+			const pipCol = pipCols[pipPlacement[i]];
+			const mirror = pipPlacement[i] == 2;
+			g2.append(pipElement(pipId, pipRow, pipCol, cardRow, cardCol, mirror));
+		}
+		const g2Id = `top_${cardRow}_${cardCol}`;
+		g2.setAttribute('id', g2Id);
+		const use = document.createElementNS(svgNS, 'use');
+		use.setAttribute('href', '#' + g2Id);
+		use.setAttribute('transform', 'matrix(-1,0,0,-1,0,0)');
+		use.setAttribute('x', -2 * (pipSize * (cardRow*4 + cardCol*3 + 2.5) - cardCol*columnOverlap));
+		use.setAttribute('y', -2 * (pipSize * (cardRow*4 - cardCol*3 + 1.5) + cardCol*columnOverlap));
+		g1.append(g2, use);
+	}
+	if (odd) {
+		g1.append(pipElement(pipId, 1.5, 0.5, cardRow, cardCol, true));
+	}
+	return g1;
+}
+
+const pipIds = ['H', 'D', 'C', 'S'];
+
+const layouts = [
 	[
-		'-----s',
-		'--s---',
-		'--s--s',
-		'ss----',
-		'ss---s',
-		'sss---',
-		'sss--s',
-		'ss-ss-',
-		'ss-sss',
-		'sssss-',
-		'ssssss'
+		[2],
+		[0, 1],
+		[0, 1, 2],
+		[0, 1, 3, 4]
 	],
 	[
-		'-----d',
-		'-d----',
-		'-d---d',
-		'-d-d--',
-		'-d-d-d',
-		'-d-dd-',
-		'-d-ddd',
-		'-dddd-',
-		'-ddddd',
-		'ddddd-',
-		'dddddd'
+		[1],
+		[1, 3],
+		[1, 3, 4],
+		[1, 2, 3, 4]
 	],
 	[
-		'-----c',
-		'-c----',
-		'-c---c',
-		'-c-c--',
-		'-c-c-c',
-		'-c-cc-',
-		'-c-ccc',
-		'-cccc-',
-		'-ccccc',
-		'ccccc-',
-		'cccccc'
+		[3],
+		[2, 3],
+		[0, 1, 4],
+		[0, 1, 2, 4]
 	],
 	[
-		'-----h',
-		'--h---',
-		'--h--h',
-		'hh----',
-		'hh---h',
-		'hhh---',
-		'hhh--h',
-		'hh-hh-',
-		'hh-hhh',
-		'hhhhh-',
-		'hhhhhh'
-	],
-	[
-		'-----b',
-		'--b---',
-		'--b--b',
-		'rl----',
-		'rl---b',
-		'rlb---',
-		'rlb--b',
-		'rl-rl-',
-		'rl-rlb',
-		'rlbrl-',
-		'rlbrlb'
-	],
-	[
-		'-----b',
-		'-l----',
-		'-l---b',
-		'-l-r--',
-		'-l-r-b',
-		'-l-rl-',
-		'-l-rlb',
-		'-lbrl-',
-		'-lbrlb',
-		'rlbrl-',
-		'rlbrlb'
-	],
-	[
-		'-----u',
-		'-----w',
-		'----uu',
-		'----uw',
-		'----wu',
-		'----ww',
-		'---uwu',
-		'---uww',
-		'---wwu',
-		'---www',
-		'--uwwu'
-	],
-	[
-		'--uwww',
-		'--wwwu',
-		'--wwww',
-		'-uwwwu',
-		'-uwwww',
-		'-wwwwu',
-		'-wwwww',
-		'uwwwwu',
-		'uwwwww',
-		'wwwwwu',
-		'wwwwww'
-	],
-	// [
-	// 	'-----p',
-	// 	'----p-',
-	// 	'----pp',
-	// 	'---pp-',
-	// 	'---ppp',
-	// 	'-ppp--',
-	// 	'-ppp-p',
-	// 	'pp-pp-',
-	// 	'pp-ppp',
-	// 	'ppppp-',
-	// 	'pppppp'
-	// ]
+		[2],
+		[0, 1],
+		[0, 1, 2],
+		[0, 1, 3, 4]
+	]
 ];
 
-let svg = '';
-for (let r = 0; r < cards.length; ++r) {
-	for (let c = 0; c < cards[r].length; ++c) {
-		svg += singleCard(cards[r][c], r, c);
+for (let cardRow = 0; cardRow < layouts.length; ++cardRow) {
+	let cardCol = -cardRow;
+	svg.append(cardElement(pipIds[cardRow], [], cardRow, cardCol++, true));
+	while (cardCol + cardRow != 9) {
+		const layout = layouts[cardRow][(cardCol+cardRow-1)/2];
+		svg.append(cardElement(pipIds[cardRow], layout, cardRow, cardCol++, false));
+		svg.append(cardElement(pipIds[cardRow], layout, cardRow, cardCol++, true));
 	}
+	svg.append(cardElement(pipIds[cardRow], [0, 1, 2, 3, 4], cardRow, cardCol, false));
 }
-document.getElementById('layout').outerHTML = svg;
