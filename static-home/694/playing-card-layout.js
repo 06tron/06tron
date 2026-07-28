@@ -95,3 +95,42 @@ for (let cardRow = 0; cardRow < layouts.length; ++cardRow) {
 	}
 	svg.append(cardElement(pipIds[cardRow], [0, 1, 2, 3, 4], cardRow, cardCol, false));
 }
+
+const batons = [
+	[
+		[],
+		[1],
+		[],
+		[],
+		[2],
+		[],
+		[],
+		[4],
+		[],
+		[]
+	],
+	[
+		[],
+		[],
+		[1],
+		[],
+		[],
+		[2],
+		[],
+		[],
+		[4],
+		[]
+	],
+	[
+		[],
+		[],
+		[],
+		[1],
+		[1],
+		[1],
+		[1, 2],
+		[1, 2],
+		[1, 2],
+		[1, 2, 4]
+	]
+]

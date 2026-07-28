@@ -1,0 +1,48 @@
+:root {
+	counter-reset: note-indicator note-text;
+	font-family: 'Avenir', 'Segoe UI', sans-serif;
+	overflow-wrap: break-word;
+}
+
+[id^='note_']::after {
+	content: '[' counter(note-indicator) ']';
+	counter-increment: note-indicator;
+	font-size: smaller;
+	line-height: 0px;
+	vertical-align: super;
+}
+
+a {
+	&:hover {
+		text-decoration: underline;
+	}
+	text-decoration: none;
+}
+
+aside > p:has(> a:first-child[href*='#note_'])::before {
+	content: counter(note-text) '. ';
+	counter-increment: note-text;
+}
+
+header#shared_top {
+	& + main {
+		margin-top: 60px;
+	}
+	& > a:nth-child(1) > img {
+		display: block;
+	}
+	& > a:nth-child(3) {
+		color: CanvasText;
+		font-style: italic;
+		opacity: 0.7;
+	}
+	column-gap: 10px;
+	display: grid;
+	grid-template-columns: 40px 1fr 1fr 1fr;
+	inset: 0px 0px auto;
+	margin: 10px;
+	overflow-x: auto;
+	place-items: center;
+	position: absolute;
+	text-wrap-mode: nowrap;
+}
