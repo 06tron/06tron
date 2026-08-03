@@ -1,100 +1,123 @@
-const pipSize = 2**13;
-const columnOverlap = pipSize * (3 - 20/7);
+const cutSpacingAlongX = 250;
+const cutSpacingAlongY = 350;
+const pipHalfWidth = cutSpacingAlongX / (6 * Math.sqrt(2));
+const pipDesignWidth = 64;
+const pipScaling = 2 * pipHalfWidth / pipDesignWidth;
+const lefty = false;
+const blueBack = false;
+let cardCount = 0;
 
-function pipOrigin(pipRow, pipCol, cardRow, cardCol, mirror) {
-	if (mirror) {
-		pipCol *= -1;
-		cardCol *= -1;
+function matrixString(indexInD4, shiftX, shiftY, scaleX, scaleY = scaleX) {
+	if (indexInD4 & 1) {
+		scaleX *= -1;
+		scaleY *= -1;
 	}
-	return [
-		pipSize * (cardRow*4 + cardCol*3 + pipRow + pipCol) - cardCol*columnOverlap,
-		pipSize * (cardRow*4 - cardCol*3 + pipRow - pipCol) + cardCol*columnOverlap
-	];
+	if (indexInD4 & 2) {
+		scaleX *= -1;
+	}
+	const initArray = (
+		indexInD4 & 4
+		? [0, scaleX, scaleY, 0]
+		: [scaleX, 0, 0, scaleY]
+	);
+	initArray.push(shiftX, shiftY);
+	return `matrix(${initArray.join()})`;
 }
 
 const svg = document.documentElement;
 const svgNS = svg.namespaceURI;
 
-function pipElement(pipId, pipRow, pipCol, cardRow, cardCol, mirror) {
+// type PipPrint = [string, number, number, number]
+// type CardHalf = PipPrint[]
+
+// pipElement: ([pipId, pipX, pipY, pipOri]: PipPrint) => SVGUseElement
+function pipElement([pipId, pipX, pipY, pipOri]) {
 	const use = document.createElementNS(svgNS, 'use');
 	use.setAttribute('href', '#p' + pipId);
-	let [pipX, pipY] = pipOrigin(pipRow, pipCol, cardRow, cardCol, mirror);
-	if (mirror) {
-		use.setAttribute('transform', 'matrix(0,1,1,0,0,0)');
-	}
-	use.setAttribute('x', pipX);
-	use.setAttribute('y', pipY);
+	use.setAttribute('transform', matrixString(
+		pipOri,
+		pipHalfWidth * (pipY + pipX - 1),
+		pipHalfWidth * (pipY - pipX - 1),
+		pipScaling
+	));
 	return use;
 }
 
-const pipRows = [0, 0, 0.5, 1, 1];
-const lefty = false;
-const pipCols = lefty ? [1, 0, 0.5, 1, 0] : [0, 1, 0.5, 0, 1]; 
-
-function cardElement(pipId, pipPlacement, cardRow, cardCol, odd) {
+// cardElement: (cardHalf: CardHalf) => SVGGElement
+function cardElement(cardHalf) {
 	const g1 = document.createElementNS(svgNS, 'g');
-	if (pipPlacement.length > 0) {
+	if (cardHalf[0][1] == 0 && cardHalf[0][2] == 0) {
+		g1.append(pipElement(cardHalf.shift()));
+	}
+	if (cardHalf.length > 0) {
 		const g2 = document.createElementNS(svgNS, 'g');
-		for (let i = 0; i < pipPlacement.length; ++i) {
-			const pipRow = pipRows[pipPlacement[i]];
-			const pipCol = pipCols[pipPlacement[i]];
-			const mirror = pipPlacement[i] == 2;
-			g2.append(pipElement(pipId, pipRow, pipCol, cardRow, cardCol, mirror));
-		}
-		const g2Id = `top_${cardRow}_${cardCol}`;
+		cardHalf.forEach(p => g2.append(pipElement(p)));
+		const g2Id = 'half_' + cardCount++;
 		g2.setAttribute('id', g2Id);
 		const use = document.createElementNS(svgNS, 'use');
 		use.setAttribute('href', '#' + g2Id);
 		use.setAttribute('transform', 'matrix(-1,0,0,-1,0,0)');
-		use.setAttribute('x', -2 * (pipSize * (cardRow*4 + cardCol*3 + 2.5) - cardCol*columnOverlap));
-		use.setAttribute('y', -2 * (pipSize * (cardRow*4 - cardCol*3 + 1.5) + cardCol*columnOverlap));
 		g1.append(g2, use);
-	}
-	if (odd) {
-		g1.append(pipElement(pipId, 1.5, 0.5, cardRow, cardCol, true));
 	}
 	return g1;
 }
 
-const pipIds = ['H', 'D', 'C', 'S'];
-
-const layouts = [
-	[
-		[2],
-		[0, 1],
-		[0, 1, 2],
-		[0, 1, 3, 4]
-	],
-	[
-		[1],
-		[1, 3],
-		[1, 3, 4],
-		[1, 2, 3, 4]
-	],
-	[
-		[3],
-		[2, 3],
-		[0, 1, 4],
-		[0, 1, 2, 4]
-	],
-	[
-		[2],
-		[0, 1],
-		[0, 1, 2],
-		[0, 1, 3, 4]
-	]
+const basicLayout = [
+	[ 0,-2],
+	[-1,-3,  1,-3],
+	[-1,-3,  1,-3,  0,-2],
+	[-1,-3,  1,-3, -1,-1,  1,-1],
+	[-1,-3,  1,-3,  0,-2, -1,-1,  1,-1]
 ];
 
-for (let cardRow = 0; cardRow < layouts.length; ++cardRow) {
-	let cardCol = -cardRow;
-	svg.append(cardElement(pipIds[cardRow], [], cardRow, cardCol++, true));
-	while (cardCol + cardRow != 9) {
-		const layout = layouts[cardRow][(cardCol+cardRow-1)/2];
-		svg.append(cardElement(pipIds[cardRow], layout, cardRow, cardCol++, false));
-		svg.append(cardElement(pipIds[cardRow], layout, cardRow, cardCol++, true));
-	}
-	svg.append(cardElement(pipIds[cardRow], [0, 1, 2, 3, 4], cardRow, cardCol, false));
+// pipCardHalves: (layout: number[][]) => (rank: number) => CardHalf
+function pipCardHalves(pipId, layout, lefty, blueBack) {
+	const normalOri = blueBack ? 7 : 0;
+	const mirrorOri = blueBack ? 2 : 4;
+	const centerPip = [pipId, 0, 0, mirrorOri];
+	return rank => {
+		const pips = [];
+		const hasCenterPip = Boolean(rank & 1);
+		if (hasCenterPip) {
+			pips.push(centerPip);
+			--rank;
+		}
+		const coords = (rank == 10)
+			? basicLayout[4]
+			: (rank == 0) ? [] : layout[(rank - 2) / 2];
+		for (let i = 0; i < coords.length; i += 2) {
+			let [x, y] = [coords[i], coords[i + 1]];
+			if (lefty) {
+				x *= -1;
+			}
+			if (blueBack && x == -1) {
+				x = 1;
+				y *= -1;
+			}
+			pips.push([pipId, x, y, (x == 0) ? mirrorOri : normalOri]);
+		}
+		return pips;
+	};
 }
+
+const frenchCardHalves = Object.entries({
+	'H': basicLayout,
+	'D': [
+		[ 1,-3],
+		[ 1,-3, -1,-1],
+		[ 1,-3, -1,-1,  1,-1],
+		[ 1,-3,  0,-2, -1,-1,  1,-1]
+	],
+	'C': [
+		[-1,-1],
+		[ 0,-2, -1,-1],
+		[-1,-3,  1,-3,  1,-1],
+		[-1,-3,  1,-3,  0,-2,  1,-1]
+	],
+	'S': basicLayout
+}).map(([k, v]) => pipCardHalves(k, v, lefty, blueBack));
+
+svg.append(cardElement(frenchCardHalves[0](9)));
 
 const batons = [
 	[
