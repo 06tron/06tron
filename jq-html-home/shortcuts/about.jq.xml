@@ -1,20 +1,34 @@
-{ head:
+{ name: "xmlns About"
+
+, head:
 "<meta
 name='description'
-content='Reference for the \"https://6t.lt/about\" XML namespace.'/><title>xmlns About</title><base
-href='https://home.6t.lt/'/><link
+content='Reference for the \"https://6t.lt/about\" XML namespace.'/><link
 rel='stylesheet'
-href='https://fonts.googleapis.com/css2?family=Cascadia+Mono:ital,wght@1,300&amp;text=%E2%98%99%20florahetsx%E2%9D%A7JSONmn=%22p:/6.bu%3C%3Eij'/><template><about
-xmlns='https://6t.lt/about'>So far the namespace has four elements, and this website states their general purpose and provides an example.<txt>☙ flo
-ral hearts text ❧</txt><uri>https://6t.lt?h=%E2%98%99+floral+hearts+%E2%9D%A7</uri><json>'☙ floral heart\u0073 JSON \u2767'</json></about></template>"
-, body:
-"<h1>xmlns='https://6t.lt/about'</h1><table><thead><tr><th>&lt;about></th><th>&lt;txt></th><th>&lt;uri></th><th>&lt;json></th></tr></thead><tbody><tr><td>Can contain a combination of text and child elements.</td><td>Plain text such as CSV file content.</td><td>A single URI.</td><td>Data in JSON format.</td></tr><tr><td
+href='https://fonts.googleapis.com/css2?family=Cascadia+Mono:ital,wght@1,300&amp;text=%E2%98%99%20florahetsx%E2%9D%A7JSONmn=%27p:/6.bu%3C%3Eij'/><!--
+ABOUT --><template><about
+xmlns='https://6t.lt/about'>
+So far the namespace has four elements, and this website states
+their general purpose and provides an example.<!--
+TXT --><txt>☙ flo
+ral hearts text ❧</txt><!--
+URI --><uri>https://6t.lt?h=%E2%98%99+floral+hearts+%E2%9D%A7</uri><!--
+JSON --><json>\"☙ floral heart\\u0073 JSON \\u2767\"</json></about></template>"
+
+, main:
+"<h1>xmlns='https://6t.lt/about'</h1><table><thead><tr><th>&lt;about></th><th>&lt;txt></th><th>&lt;uri></th><th>&lt;json></th></tr></thead><tbody><tr><td>Can contain a combination of text and child elements.</td><td>Plain text such as CSV file content.</td><td>A single URI.</td><td>Data in JSON format.</td></tr><!--
+this table row contains empty elements which will
+be filled with content from <about> via javascript --><tr><td
 id='a'></td><td
 id='t'></td><td><a
+class='naked'
 id='u'></a></td><td
-id='j'></td></tr><tr><td>e.querySelector('txt')</td><td>e.textContent.split('\n')</td><td>setAttribute('src', e.textContent)</td><td>JSON.parse(e.textContent)</td></tr></tbody></table><p>View this page's source to see the &lt;about> element in use. You can put elements from this namespace into the SVG &lt;metadata> element, and it seems you can do the same with the HTML &lt;template> element.</p><p>Also in use at:<br/><a
-href='677/entity-test-atom.xml'></a><br/><a
-href='692/dark-mode-highlighter.xht'></a><br/><a
-href='696/great-dodecahedron-net.svg'></a><br/><a
-href='696/ML%20Window.svg'></a></p><footer><a
-href='sitemap'></a> | Updated 2026-02-11</footer>" }
+id='j'></td></tr><tr><td>e.querySelector('txt')</td><td>e.textContent.split('\\n')</td><td>setAttribute('src', e.textContent)</td><td>JSON.parse(e.textContent)</td></tr></tbody></table><p>View this page's source to see the &lt;about> element in use. You can put elements from this namespace into the SVG &lt;metadata> element, and it seems you can do the same with the HTML &lt;template> element.</p><p>Also in use at:<br/><a
+href='./677/entity-test-atom.xml'
+class='naked'></a><br/><a
+href='./692/dark-mode-highlighter.xht'
+class='naked'></a><br/><a
+href='./696/great-dodecahedron-net.svg'
+class='naked'></a><br/><a
+href='./696/ML%20Window.svg'
+class='naked'></a></p>" }

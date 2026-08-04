@@ -38,9 +38,9 @@ href='data:,
 	eventually write this replacement.
 '/><link
 rel='alternate'
-href='data:text/html;charset=utf-8,%3C!DOCTYPE%20html%3E%3Chtml%0Acontenteditable=%22plaintext-only%22%0Alang=%22en%22%0Astyle=%22color-scheme:light%20dark;font-family:monospace;line-height:1.4;padding:4rem;%22%3E%3Cmeta%0Acharset=%22utf-8%22%3E%3Ctitle%3EUnsaved%20Note%3C/title%3E'/>"
+href=\"data:text/html;charset=utf-8,%3C!DOCTYPE%0Ahtml%3E%3Chtml%0Astyle='color-scheme:light%20dark;font-family:monospace;line-height:1.4;padding:4rem'%0Acontenteditable=plaintext-only%0Alang=en%3E%3Cmeta%0Acharset=utf-8%3E%3Ctitle%3EUnsaved%20Note%3C/title%3E\"/>"
 
-, body:
+, main:
 "<p
 contenteditable='plaintext-only'
 style='white-space:pre-wrap'

@@ -13,6 +13,10 @@
 }
 
 a {
+	&.naked::after {
+		content: ' → ' attr(href);
+		word-break: break-all;
+	}
 	&:hover {
 		text-decoration: underline;
 	}
@@ -26,7 +30,8 @@ aside > p:has(> a:first-child[href*='#note_'])::before {
 
 header#shared_top {
 	& + main {
-		margin-top: 60px;
+		margin-top: 30px;
+		padding-top: 30px;
 	}
 	& > a:nth-child(1) > img {
 		display: block;
@@ -36,11 +41,18 @@ header#shared_top {
 		font-style: italic;
 		opacity: 0.7;
 	}
+	background: linear-gradient(to right,
+		transparent,
+		transparent 50px,
+		#7f7f7f14 calc(50% + 25px),
+		transparent
+	);
 	column-gap: 10px;
 	display: grid;
 	grid-template-columns: 40px 1fr 1fr 1fr;
 	inset: 0px 0px auto;
 	margin: 10px;
+	max-width: 40rem;
 	overflow-x: auto;
 	place-items: center;
 	position: absolute;
