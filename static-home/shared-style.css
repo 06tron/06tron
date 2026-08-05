@@ -1,11 +1,13 @@
+@charset "utf-8";
+
 :root {
 	counter-reset: note-indicator note-text;
-	font-family: 'Avenir', 'Segoe UI', sans-serif;
+	font-family: "Avenir", "Segoe UI", sans-serif;
 	overflow-wrap: break-word;
 }
 
-[id^='note_']::after {
-	content: '[' counter(note-indicator) ']';
+[id^="note_"]::after {
+	content: "[" counter(note-indicator) "]";
 	counter-increment: note-indicator;
 	font-size: smaller;
 	line-height: 0px;
@@ -14,7 +16,7 @@
 
 a {
 	&.naked::after {
-		content: ' → ' attr(href);
+		content: " → " attr(href);
 		word-break: break-all;
 	}
 	&:hover {
@@ -23,8 +25,8 @@ a {
 	text-decoration: none;
 }
 
-aside > p:has(> a:first-child[href*='#note_'])::before {
-	content: counter(note-text) '. ';
+aside > p:has(> a:first-child[href*="#note_"])::before {
+	content: counter(note-text) ". ";
 	counter-increment: note-text;
 }
 
@@ -41,12 +43,7 @@ header#shared_top {
 		font-style: italic;
 		opacity: 0.7;
 	}
-	background: linear-gradient(to right,
-		transparent,
-		transparent 50px,
-		#7f7f7f14 calc(50% + 25px),
-		transparent
-	);
+	background: linear-gradient(to right, transparent, transparent 50px, #7f7f7f14 calc(50% + 25px), transparent);
 	column-gap: 10px;
 	display: grid;
 	grid-template-columns: 40px 1fr 1fr 1fr;
