@@ -1,0 +1,29 @@
+@charset "utf-8";
+
+:root {
+	--column-width: 60rem;
+}
+
+code > var,
+dl.programming > dt {
+	font-family: monospace;
+	font-style: normal;
+	font-weight: bold;
+}
+
+dl.programming > dd,
+samp {
+	& > u {
+		font-style: italic;
+		opacity: 0.7;
+		text-decoration: none;
+	}
+	font-family: monospace;
+}
+
+article {
+	& p {
+		line-height: 1.5;
+	}
+	max-width: var(--column-width);
+}
