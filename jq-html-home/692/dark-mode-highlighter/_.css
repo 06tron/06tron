@@ -1,0 +1,45 @@
+body {
+	margin: 2rem;
+}
+label {
+	background-color: #77B3;
+	display: block;
+	line-height: 2;
+	max-width: 40rem;
+	padding: 2rem;
+}
+label b {
+	margin-right: 2rem;
+}
+label input {
+	width: 100%;
+}
+table {
+	width: 100%;
+}
+tbody tr:nth-child(1) {
+	background-color: White;
+	color: Black;
+}
+tbody tr td {
+	font-size: x-large;
+	padding: 5vh 5vw;
+}
+tbody tr td::before {
+	content: "It was still dark when Stuart ";
+}
+tbody tr td::after {
+	content: " out to the car.";
+}
+tbody tr td:nth-child(2) span {
+	background-color: var(--start-color);
+}
+tbody tr td:nth-child(3) span {
+	background-color: var(--new-color);
+}
+thead tr td {
+	text-align: center;
+}
+thead tr:nth-child(2) {
+	background-color: #77B3;
+}
