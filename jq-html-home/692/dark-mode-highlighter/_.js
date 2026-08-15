@@ -1,83 +1,4 @@
-<!DOCTYPE HTML>
-<html xmlns="http://www.w3.org/1999/xhtml" lang="en">
-
-<head>
-	<meta charset="utf-8"/>
-	<title>Dark Mode Highlighter</title>
-	<meta name="author" content="https://orcid.org/0009-0001-0977-2029"/>
-	<meta name="color-scheme" content="dark light"/>
-	<meta name="description" content="Use the slider to adjust a given color's transparency, while attempting to preserve its appearance on a white background. This should allow the same highlight color look good on both light and dark backgrounds."/>
-	<meta name="viewport" content="width=device-width"/>
-	<template>
-		<about xmlns="https://6t.lt/about">Interactive demonstration at https://www.desmos.com/calculator/rhwetca3iz</about>
-	</template>
-	<style>
-		body {
-			font-family: "Avenir", "Segoe UI", sans-serif;
-			margin: 2rem;
-		}
-		label {
-			background-color: #77B3;
-			display: block;
-			line-height: 2;
-			max-width: 40rem;
-			padding: 2rem;
-		}
-		label b {
-			margin-right: 2rem;
-		}
-		label input {
-			width: 100%;
-		}
-		table {
-			width: 100%;
-		}
-		tbody tr:nth-child(1) {
-			background-color: White;
-			color: Black;
-		}
-		tbody tr td {
-			font-size: x-large;
-			padding: 5vh 5vw;
-		}
-		tbody tr td::before {
-			content: "It was still dark when Stuart ";
-		}
-		tbody tr td::after {
-			content: " out to the car.";
-		}
-		tbody tr td:nth-child(2) span {
-			background-color: var(--start-color);
-		}
-		tbody tr td:nth-child(3) span {
-			background-color: var(--new-color);
-		}
-		thead tr td {
-			text-align: center;
-		}
-		thead tr:nth-child(2) {
-			background-color: #77B3;
-		}
-	</style>
-</head>
-
-<body style="--start-color: MistyRose; --new-color: MistyRose;">
-	<h1>Dark Mode Highlighter</h1>
-	<p id="desc"></p>
-	<table>
-		<thead>
-			<tr><th></th><th>Start Color</th><th>New Color</th></tr>
-			<tr><th>Hex</th><td id="parsed-hex"></td><td id="new-hex"></td></tr>
-			<tr><th>Parsed</th><td id="parsed-val"></td><td id="parsed-new"></td></tr>
-		</thead>
-		<tbody>
-			<tr><th>On White</th><td><span id="start-rendered">carried his suitcase</span></td><td><span id="new-rendered">carried his suitcase</span></td></tr>
-			<tr><th>On Canvas</th><td><span>carried his suitcase</span></td><td><span>carried his suitcase</span></td></tr>
-		</tbody>
-	</table>
-	<label><b>Start Color</b><input id="start-color" type="text" value="MistyRose" oninput="updateColor()"/></label>
-	<label><b>Target Alpha</b> [ <span id="alpha-int"></span>/255 ≈ <span id="alpha-dec"></span> ]<input id="target-alpha" type="range" min="1" max="255" step="1" value="255" oninput="updateColor()"/></label>
-	<script>//<![CDATA[
+//<![CDATA[
 
 String.prototype.pullNumberArray = function () {
 	return (this.match(/-?(?:\d*\.)?\d+(?:[eE]-?\d+)?/g) ?? []).map(Number);
@@ -119,9 +40,10 @@ const parsedNewOut = document.getElementById("parsed-new");
 const alphaIntOut = document.getElementById("alpha-int");
 const alphaDecOut = document.getElementById("alpha-dec");
 const colorOut = document.getElementById("new-hex");
+const styleVars = document.getElementById("style-vars").style;
 
 function updateColor() {
-	document.body.style.setProperty("--start-color", colorIn.value);
+	styleVars.setProperty("--start-color", colorIn.value);
 	const computedColor = startRenderedStyle.backgroundColor;
 	parsedValOut.textContent = computedColor;
 	alphaIntOut.textContent = alphaIn.value;
@@ -145,7 +67,7 @@ function updateColor() {
 		// error += Math.abs(ideal - Math.max(0, Math.min(newRGBA[i], 255)));
 	}
 	const newHex = colorString(newRGBA);
-	document.body.style.setProperty("--new-color", newHex);
+	styleVars.setProperty("--new-color", newHex);
 	parsedNewOut.textContent = newRenderedStyle.backgroundColor;
 	colorOut.textContent = newHex;
 }
@@ -153,7 +75,4 @@ function updateColor() {
 document.getElementById("desc").textContent = document.querySelector('meta[name="description"]').content;
 updateColor();
 
-//]]></script>
-</body>
-
-</html>
+//]]>

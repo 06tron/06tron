@@ -1,0 +1,57 @@
+{ name: "Dark Mode Highlighter"
+
+, head:
+"<meta
+name='description'
+content='Use the slider to adjust a given color&apos;s transparency, while attempting to preserve its appearance on a white background. This should allow the same highlight color look good on both light and dark backgrounds.'/><template><about
+xmlns='https://6t.lt/about'>Interactive demonstration at https://www.desmos.com/calculator/rhwetca3iz</about></template>"
+
+, main:
+"<div
+id='style-vars'
+style='--start-color:MistyRose;--new-color:MistyRose'><h1>Dark Mode Highlighter</h1><p
+id='desc'></p><table><thead>
+
+<tr>
+	<th></th>
+	<th>Start Color</th>
+	<th>New Color</th>
+</tr>
+<tr>
+	<th>Hex</th>
+	<td id='parsed-hex'></td>
+	<td id='new-hex'></td>
+</tr>
+<tr>
+	<th>Parsed</th>
+	<td id='parsed-val'></td>
+	<td id='parsed-new'></td>
+</tr>
+
+</thead><tbody>
+
+<tr>
+	<th>On White</th>
+	<td><span id='start-rendered'>carried his suitcase</span></td>
+	<td><span id='new-rendered'>carried his suitcase</span></td>
+</tr>
+<tr>
+	<th>On Canvas</th>
+	<td><span>carried his suitcase</span></td>
+	<td><span>carried his suitcase</span></td>
+</tr>
+
+</tbody></table><label><b>Start Color</b><input
+id='start-color'
+oninput='updateColor()'
+value='MistyRose'
+type='text'/></label><label><b>Target Alpha</b> [ <span
+id='alpha-int'></span>/255 ≈ <span
+id='alpha-dec'></span> ]<input
+id='target-alpha'
+oninput='updateColor()'
+type='range'
+value='255'
+step='1'
+min='1'
+max='255'/></label></div>" }

@@ -5,7 +5,7 @@
 name='description'
 content='A list of all characters present in the Granjon Boxes font.'/>"
 
-, body:
+, main:
 "<h1>Z<sub style='font-size: large'>2</sub> Granjon Boxes</h1>
 <p>This table was adapted from webpages provided by Unicode for the <a href='https://unicode.org/charts/nameslist/n_2500.html'>Box Drawing</a> and <a href='https://unicode.org/charts/nameslist/n_1CC00.html'>Symbols for Legacy Computing Supplement</a> blocks.</p>
 <table class='spec'><tbody>
