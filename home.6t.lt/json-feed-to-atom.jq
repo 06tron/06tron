@@ -1,5 +1,14 @@
+# Copyright (c) 2026, Matthew Richardson
+# (https://orcid.org/0009-0001-0977-2029).
+#
+# This Source Code Form is subject to the terms of the Mozilla Public
+# License, v. 2.0. If a copy of the MPL was not distributed with this
+# file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
 ._prefix_for_tag_urls as $tag_prefix | [
-	"<?xml version='1.0' encoding='utf-8'?><?xml-stylesheet href='https://home.6t.lt/698/style-atom.css'?><feed xmlns='http://www.w3.org/2005/Atom'><about xmlns='https://6t.lt/about'>Use the URL of this XML file to read posts from my website in any feed reader that supports the Atom Syndication Format.</about><title>",
+	"<?xml\nversion='1.0'\nencoding='utf-8'?>",
+	"<feed\nxmlns='http://www.w3.org/2005/Atom'\nxml:base='https://home.6t.lt/'>","<about\nxmlns='https://6t.lt/about'>Use the URL of this XML file to read posts from my website in any feed reader that supports the Atom Syndication Format.</about>",
+	"<title>",
 	.title,
 	"</title><updated>",
 	._atom_elements.updated,
@@ -7,9 +16,7 @@
 	.description,
 	"</subtitle><icon>",
 	.icon,
-	"</icon><link rel='related' type='text/html' href='",
-	._sitemap_url,
-	"'/>",
+	"</icon>",
 	(.authors[] | [
 		"<author><name>",
 		.name,
@@ -17,21 +24,26 @@
 		.url,
 		"</uri></author>"
 	]),
-	"<link rel='alternate' type='text/mf2+html' href='",
+	"<link\nrel='alternate'\nhref='",
 	.home_page_url,
-	"'/><link rel='alternate' type='application/feed+json' href='",
+	"'\ntype='text/mf2+html'/>",
+	"<link\nrel='alternate'\nhref='",
 	.feed_url,
-	"'/><link rel='self' type='application/atom+xml' href='",
+	"'\ntype='application/feed+json'/>",
+	"<link\nrel='self'\nhref='",
 	._atom_elements.self_link,
-	"'/>",
+	"'\ntype='application/atom+xml'/>",
 	(.items[] | [
 		"<entry><title>",
 		.title,
 		"</title><published>",
 		.date_published,
-		"</published><link rel='alternate'\nhref='",
+		"</published>",
+		"<link rel='alternate'\nhref='",
 		.url,
-		"'/><content type='xhtml'><div xmlns='http://www.w3.org/1999/xhtml'>",
+		"'/>",
+		"<content\ntype='xhtml'>",
+		"<div\nxmlns='http://www.w3.org/1999/xhtml'>",
 		.content_html,
 		"</div></content><id>",
 		.id,
@@ -39,10 +51,10 @@
 		.date_modified,
 		"</updated>",
 		(.tags[] | [
-			"<category term='",
+			"<category\nterm='",
 			$tag_prefix,
 			.,
-			"' label='",
+			"'\nlabel='",
 			.,
 			"'/>"
 		]),
