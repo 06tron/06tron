@@ -1,53 +1,58 @@
-; // the variable 'jsonFeed' containing the contents of feed.json will be added by rebuild.sh
+;
 
-function getItemHTML(selector, verbose, relativeLinks) {
-	let fullHTML = jsonFeed.items.reduce(function (acc, { content_html }) {
-		return acc + content_html;
-	}, "");
-	if (relativeLinks) {
-		fullHTML = fullHTML.replace(/=("|')https:\/\/home.6t.lt\//g, '=$1./');
-	}
-	const doc = new DOMParser().parseFromString(fullHTML, "text/html");
-	const selected = doc.querySelectorAll(selector);
-	const target = doc.createElement("div");
-	if (verbose) {
-		if (selected.length == 1) {
-			target.appendChild(selected[0]);
-		} else {
-			target.insertAdjacentHTML("afterbegin", `<h1>${selector}</h1>`);
-			let i = 0;
-			for (const element of selected) {
-				target.insertAdjacentHTML("beforeend", `<h2>${(++i).toString()}</h2>`);
-				target.appendChild(element);
-			}
-		}
+function selectContent(selector, unnumbered = true) {
+	const selected = new DOMParser().parseFromString(
+		jsonFeed.items.map(x => x["content_html"]).join(""),
+		"text/html"
+	).querySelectorAll(selector);
+	const main = document.createElement("main");
+	if (selected.length == 1 || unnumbered) {
+		selected.forEach(main.appendChild, main);
 	} else {
+		const h1 = document.createElement("h1");
+		h1.textContent = selector;
+		main.appendChild(h1);
+		let i = 0;
 		for (const element of selected) {
-			target.appendChild(element);
+			const h2 = document.createElement("h2");
+			h2.textContent = ++i;
+			main.append(h2, element);
 		}
 	}
-	return target.innerHTML;
+	return main;
+}
+
+function articleContent(articleId) {
+	const feedItem = jsonFeed.items.at(-articleId);
+	const main = document.createElement("main");
+	const h1 = document.createElement("h1");
+	h1.textContent = feedItem.title;
+	main.appendChild(h1);
+	main.insertAdjacentHTML("beforeend", feedItem["content_html"]);
+	return main;
 }
 
 const urlParams = new URLSearchParams(window.location.search);
 const articleId = Math.floor(urlParams.get("article"));
+
+let isHome = false;
 let main;
-let selector = urlParams.get('s');
 
 if (articleId > 0 && articleId <= jsonFeed.items.length) {
-	const item = jsonFeed.items.at(-articleId);
-	main = `<h1>${item.title}</h1>${item.content_html}`;
-	selector = null;
-} else if (selector === null) {
-	main = getItemHTML('.featured,#collage_619,#window_68f', false, true);
+	main = articleContent(articleId);
 } else {
-	main = getItemHTML(selector, true, true);
+	let selector = urlParams.get("s");
+	if (selector === null) {
+		isHome = true;
+		selector = ".featured,#collage_619,#window_68f";
+	}
+	main = selectContent(selector, isHome);
 }
 
-if (selector !== null) {
-	document
-		.querySelectorAll('[id^="home.6t.lt_"]')
-		.forEach(document.body.removeChild, document.body);
-}
+const emailP = document.querySelector("body > p");
 
-document.querySelector('main').innerHTML = main;
+emailP.insertAdjacentElement("beforebegin", main);
+if (!isHome) {
+	document.querySelector("body > h1").remove();
+	emailP.remove();
+}
