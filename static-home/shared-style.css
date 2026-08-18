@@ -36,7 +36,7 @@ aside > p:has(> a:first-child[href*="#note_"])::before {
 }
 
 header#shared_top {
-	& + main {
+	& + :is(article, hgroup, main, section) {
 		margin-top: 30px;
 		padding-top: 30px;
 	}

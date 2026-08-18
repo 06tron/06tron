@@ -63,7 +63,7 @@
 		.value.id,
 		"</samp> | Updated <time\nclass=dt-updated>",
 		.value.date_modified,
-		"</time></small>"
+		"</time></small>",
 		"<p>Tags: ",
 		([.value.tags[] | [
 			"<a\nrel='category tag'\nhref=",
