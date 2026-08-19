@@ -7,6 +7,7 @@
 
 ._prefix_for_tag_urls as $tag_prefix | [
 	"<?xml\nversion='1.0'\nencoding='utf-8'?>",
+	"<?xml-stylesheet\nhref='data:text/css,@namespace%22http://www.w3.org/2005/Atom%22;*%7Bdisplay:block%7Dfeed%7Bmargin:9Q;max-width:9in;overflow-wrap:break-word%7Dentry%7Bmargin-top:4em%7D'?>",
 	"<feed\nxmlns='http://www.w3.org/2005/Atom'\nxml:base='https://home.6t.lt/'>","<about\nxmlns='https://6t.lt/about'>Use the URL of this XML file to read posts from my website in any feed reader that supports the Atom Syndication Format.</about>",
 	"<title>",
 	.title,
