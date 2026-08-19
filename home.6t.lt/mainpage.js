@@ -49,10 +49,10 @@ if (articleId > 0 && articleId <= jsonFeed.items.length) {
 	main = selectContent(selector, isHome);
 }
 
-const emailP = document.querySelector("body > p");
+const emailP = document.querySelector("article > p");
 
 emailP.insertAdjacentElement("beforebegin", main);
 if (!isHome) {
-	document.querySelector("body > h1").remove();
+	document.querySelector("article > h1").remove();
 	emailP.remove();
 }
