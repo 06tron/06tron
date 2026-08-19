@@ -64,6 +64,7 @@ h1 {
 	font-weight: normal;
 }
 hgroup {
+	margin: 0px var(--col-side-margin);
 	max-width: var(--col-max-width);
 }
 hgroup > :is(h1, h2) {
