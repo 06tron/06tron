@@ -56,3 +56,12 @@ if (!isHome) {
 	document.querySelector("article > h1").remove();
 	emailP.remove();
 }
+
+const time = document.querySelector("#shared_top > time");
+const unit = 65536e3; // number of milliseconds in 1/16 of a mebisecond
+const stamp = Math.floor(Date.now() / unit);
+const hex = stamp.toString(16);
+time.textContent = hex.slice(0, 3) + "." + hex.slice(3);
+const date = new Date(stamp * unit);
+time.dateTime = date.toISOString();
+time.title = date.toString();
