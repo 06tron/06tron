@@ -43,7 +43,7 @@ header#shared_top {
 	& > a:nth-child(1) > img {
 		display: block;
 	}
-	& > a:nth-child(3) {
+	& > :nth-child(3) {
 		color: CanvasText;
 		font-style: italic;
 		opacity: 0.7;

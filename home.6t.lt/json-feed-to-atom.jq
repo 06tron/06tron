@@ -10,15 +10,17 @@
 	"<?xml-stylesheet\nhref='data:text/css,@namespace%22http://www.w3.org/2005/Atom%22;*%7Bdisplay:block%7Dfeed%7Bmargin:9Q;max-width:9in;overflow-wrap:break-word%7Dentry%7Bmargin-top:4em%7D'?>",
 	"<feed\nxmlns='http://www.w3.org/2005/Atom'>",
 	"<about\nxmlns='https://6t.lt/about'>Use the URL of this XML file to read posts from my website in any feed reader that supports the Atom Syndication Format.</about>",
-	"<title>",
+	"<icon>",
+	.icon,
+	"</icon><title>",
 	.title,
 	"</title><updated>",
 	._atom_elements.updated,
 	"</updated><subtitle>",
 	.description,
-	"</subtitle><icon>",
-	.icon,
-	"</icon>",
+	"</subtitle><id>",
+	._atom_elements.id,
+	"</id>",
 	(.authors[] | [
 		"<author><name>",
 		.name,
@@ -43,7 +45,7 @@
 		"</published>",
 		"<link rel='alternate'\nhref='",
 		.url,
-		"'/>",
+		"'\ntype='text/mf2+html'/>",
 		"<content\ntype='xhtml'>",
 		"<div\nxmlns='http://www.w3.org/1999/xhtml'>",
 		.content_html,
@@ -62,7 +64,5 @@
 		]),
 		"</entry>"
 	]),
-	"<id>",
-	._atom_elements.id,
-	"</id></feed>"
+	"</feed>"
 ] | flatten | join("")

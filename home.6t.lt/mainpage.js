@@ -49,19 +49,19 @@ if (articleId > 0 && articleId <= jsonFeed.items.length) {
 	main = selectContent(selector, isHome);
 }
 
-const emailP = document.querySelector("article > p");
+const footer = document.querySelector("article > footer");
 
-emailP.insertAdjacentElement("beforebegin", main);
+footer.insertAdjacentElement("beforebegin", main);
 if (!isHome) {
 	document.querySelector("article > h1").remove();
-	emailP.remove();
+	document.querySelector("article > footer > p:first-child").remove();
 }
 
 const time = document.querySelector("#shared_top > time");
 const unit = 65536e3; // number of milliseconds in 1/16 of a mebisecond
 const stamp = Math.floor(Date.now() / unit);
 const hex = stamp.toString(16);
-time.textContent = hex.slice(0, 3) + "." + hex.slice(3);
+time.textContent = hex.slice(0, -1) + "." + hex.slice(-1);
 const date = new Date(stamp * unit);
 time.dateTime = date.toISOString();
 time.title = date.toString();
