@@ -1,8 +1,73 @@
-{ name: "HTML Viewer"
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+License, v. 2.0. If a copy of the MPL was not distributed with this
+file, You can obtain one at https://mozilla.org/MPL/2.0/. --><!DOCTYPE
+html><html
+lang=en><meta
+charset=utf-8><title>HTML Viewer</title><base
+href=../><link
+rel=author
+href=https://orcid.org/0009-0001-0977-2029><meta
+name=color-scheme
+content='dark light'><meta
+name=description
+content='HTML passed through the "b" query parameter is sanitized and then copied into the body of this page.'><meta
+name=viewport
+content='width=device-width'><style>
+@font-face {
+	font-family: "EB Garamond";
+	font-style: normal;
+	src: url("./fonts/eb-garamond-normal.woff") format("woff");
+}
+@font-face {
+	font-family: "EB Garamond";
+	font-style: italic;
+	src: url("./fonts/eb-garamond-italic.woff") format("woff");
+}
+@font-face {
+	font-family: "Granjon Boxes";
+	src: url("./fonts/granjon-boxes.woff2") format("woff2");
+}
+@font-face {
+	font-family: "Kreative Square";
+	src: url("./fonts/k-square-boxes.woff2") format("woff2");
+}
+body {
+	margin: 0;
+	min-width: min-content;
+}
+</style><script
+src=./dist/purify.min.js></script><script>
+/**
+ * Swaps characters in the string 'str' according to the
+ * mapping string 'm'. The mapping contains exactly the
+ * characters to be swapped, ordered such that all
+ * occurrences in 'str' of the i-th character in 'm' are
+ * swapped for the i-th character in the reversal of
+ * 'm'. So the last and first characters of 'm' are
+ * paired, as are the second and second-to-last. Note
+ * that replace() is used twice because the four
+ * characters of "\^]-" sometimes need to be escaped
+ * before inclusion in a JavaScript regular expression
+ * character class.
+ */
+function charSwap(str, m) {
+	return str?.replace(new RegExp(`[${m.replace(/[\\^\]-]/g, "\\$&")}]`, "g"), char => m.charAt(m.length - m.indexOf(char) - 1));
+}
 
-, separate: true
+DOMPurify.addHook("uponSanitizeAttribute", function (node, data) {
+	if (node.tagName === "A") {
+		const valStart = data.attrValue.trimStart().slice(0, 15);
+		if (valStart.startsWith("data:") && valStart !== "data:text/vcard") {
+			data.keepAttr = false;
+		}
+	}
+});
 
-, head:
-"<meta
-name='description'
-content='HTML passed through the &apos;b&apos; query parameter is sanitized and then copied into the body of this page.'>" }
+const query = new URLSearchParams(window.location.search);
+const input = query.get("b")
+	?? charSwap(query.get("h"), query.get("m") ?? `&"><'%X\tZ\n$~()*@`)
+	?? document.querySelector('meta[name="description"]').content + ` You might also be looking for this website's <a href="https://home.6t.lt">homepage</a>.`;
+addEventListener("DOMContentLoaded", function() {
+	document.body.innerHTML = DOMPurify.sanitize(input, { ADD_DATA_URI_TAGS: ["a"] });
+});
+</script>

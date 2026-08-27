@@ -47,6 +47,7 @@
 	"editor.fontWeight": "200",
 	"editor.insertSpaces": false,
 	"editor.links": false,
+	"editor.maxTokenizationLineLength": 10000,
 	"editor.rulers": [
 		32,
 		72,
@@ -99,6 +100,9 @@
 	"html.format.preserveNewLines": false,
 	"html.format.unformatted": "base,br,foreignObject,img,link,meta,path",
 	"html.format.wrapLineLength": 0,
+	"[javascript]": {
+		"editor.maxTokenizationLineLength": 10000
+	},
 	"terminal.integrated.fontSize": 13,
 	"terminal.integrated.fontWeight": "200",
 	"terminal.integrated.suggest.enabled": false,
