@@ -1,18 +1,20 @@
 @charset "utf-8";
 
-/* initialize */
 @font-face {
 	font-family: "EB Garamond";
 	src: url("fonts/eb-garamond-normal.woff") format("woff");
 }
+
 @font-face {
 	font-family: "Granjon Boxes";
 	src: url("fonts/granjon-boxes.woff2") format("woff2");
 }
+
 @font-face {
 	font-family: "Kreative Square";
 	src: url("fonts/k-square-boxes.woff2") format("woff2");
 }
+
 :root {
 	--col-max-width: 60rem;
 	--col-side-margin: 2rem;
@@ -21,25 +23,11 @@
 	--title-text: "Tsukushi B Round Gothic", "Gulim", "Menlo", "Courier New", monospace;
 }
 
-/* column layout */
-article {
-	--l-indent: 0px;
-	--r-indent: 0px;
-	margin: 0px var(--col-side-margin);
-	max-width: var(--col-max-width);
-	& + article {
-		margin-top: 4rem;
-	}
+p {
+	line-height: 1.5;
 }
-article :is(aside, button.fl) {
-	--current-text-width: calc(
-		min(
-			100vw - 2*var(--col-side-margin),
-			var(--col-max-width)
-		) - var(--l-indent) - var(--r-indent)
-	);
-}
-article dl {
+
+dl {
 	display: grid;
 	max-width: max-content;
 	row-gap: 0.3rem;
@@ -47,48 +35,14 @@ article dl {
 		grid-column-start: 2;
 	}
 }
-article p {
-	line-height: 1.5;
-}
-article > footer:last-child > p {
-	font-size: smaller;
-	text-align: center;
-	white-space-collapse: preserve-breaks;
-	& > a.naked::after {
-		content: "\0A" attr(href);
-		letter-spacing: 0.05em;
-	}
-}
-h1 {
-	font-family: var(--title-text);
-	font-weight: normal;
-}
-hgroup {
-	margin: 0px var(--col-side-margin);
-	max-width: var(--col-max-width);
-}
-hgroup > :is(h1, h2) {
-	display: inline-block;
-	margin: 1rem 0px 0px;
-	& > a {
-		color: CanvasText;
-	}
-}
-hgroup > p {
-	display: inline-block;
-	font-size: 0.8em;
-	font-style: italic;
-	margin: 0px 1rem 0px;
-	opacity: 0.7;
-}
 
-/* general layout */
 code > var,
 dl.programming > dt {
 	font-family: monospace;
 	font-style: normal;
 	font-weight: bold;
 }
+
 dl.programming > dd,
 samp {
 	font-family: monospace;
@@ -98,20 +52,59 @@ samp {
 		text-decoration: none;
 	}
 }
+
 iframe {
 	border: var(--thin-solid-border);
 	box-sizing: border-box;
 	height: 500px;
 	width: 100%;
 }
+
 span.fl {
 	font-family: var(--fl-heading);
 	font-size: 1.7em;
 	font-weight: normal;
 }
 
-/* featured section */
-section.featured {
+figure {
+	margin: 0px auto;
+	max-width: min-content;
+	overflow-x: auto;
+	& > img {
+		vertical-align: bottom;
+	}
+}
+
+article,
+hgroup:has(+ article) {
+	--l-indent: 0px;
+	--r-indent: 0px;
+	margin: 0px var(--col-side-margin);
+	max-width: var(--col-max-width);
+
+& + article {
+	margin-top: 4rem;
+}
+
+& h1 {
+	font-family: var(--title-text);
+	font-weight: normal;
+}
+
+& hgroup > :is(h1, h2):first-child {
+	display: inline-block;
+	& > a {
+		color: CanvasText;
+	}
+}
+
+& hgroup > p:has(> small:first-child:last-child) {
+	display: inline-block;
+	font-style: italic;
+	opacity: 0.7;
+}
+
+& section.featured {
 	--l-indent: calc(15px + 1rem);
 	--r-indent: var(--l-indent);
 	background-color: #F193;
@@ -124,48 +117,25 @@ section.featured {
 	}
 }
 
-/* horizontal scrolling */
-figure {
-	margin: 0px auto;
-	max-width: min-content;
-	overflow-x: auto;
-	& > img {
-		vertical-align: bottom;
+& > footer:last-child > p {
+	text-align: center;
+	white-space-collapse: preserve-breaks;
+	& > a.naked::after {
+		content: "\0A" attr(href);
+		letter-spacing: 0.05em;
 	}
 }
-pre {
-	background-color: #7772;
-	border: var(--thin-solid-border);
-	display: flex;
-	max-width: calc(100vw
-		- 4px
-		- 1.4rem
-		- 2*var(--col-side-margin)
-		- var(--l-indent)
-		- var(--r-indent));
-	overflow-x: auto;
-	padding: 0.7rem;
-	width: max-content;
-}
-pre::after {
-	content: "";
-	flex: 0 0 max(0px, 100%
-		+ 4px
-		+ 1.4rem
-		+ var(--l-indent)
-		+ var(--r-indent)
-		- var(--col-max-width));
+
+& :is(aside, button.fl) {
+	--current-text-width: calc(
+		min(
+			100vw - 2 * var(--col-side-margin),
+			var(--col-max-width)
+		) - var(--l-indent) - var(--r-indent)
+	);
 }
 
-/* pseudo-code block with <br/> line separator */
-p:has(> code:first-child:last-child) { 
-	border-left: var(--thin-solid-border);
-	padding-left: 0.7rem;
-	text-indent: 2rem hanging each-line;
-}
-
-/* aside-note */
-article aside {
+& aside {
 	--l-indent: 3rem; /* should be larger than the indent of a featured section */
 	border-top: var(--thin-solid-border);
 	font-size: smaller;
@@ -174,8 +144,7 @@ article aside {
 	width: max-content;
 }
 
-/* box-drawing button */
-article button.fl {
+& button.fl {
 	appearance: none;
 	background-color: transparent;
 	border-style: none;
@@ -186,17 +155,51 @@ article button.fl {
 	text-align: center;
 	user-select: text;
 	width: 100%;
+	& > samp {
+		color: CanvasText;
+		cursor: help;
+		display: block;
+		font-family: "Granjon Boxes", monospace;
+		font-size: calc(var(--current-text-width) / 16 - 10px); /* subtract 10px to prevent wrapping */
+		line-height: 1;
+		text-decoration: none;
+	}
+	&:is(:focus, :active) > samp {
+		cursor: text;
+		font-family: "Kreative Square", monospace;
+	}
 }
-article button.fl > samp {
-	color: CanvasText;
-	cursor: help;
-	display: block;
-	font-family: "Granjon Boxes", monospace;
-	font-size: calc(var(--current-text-width) / 16 - 1px); /* subtract 1px to prevent wrapping */
-	line-height: 1;
-	text-decoration: none;
+
+/* pseudo-code block with <br/> line separator */
+& p:has(> code:first-child:last-child) { 
+	border-left: var(--thin-solid-border);
+	padding-left: 0.7rem;
+	text-indent: 2rem hanging each-line;
 }
-article button.fl:is(:focus, :active) > samp {
-	cursor: text;
-	font-family: "Kreative Square", monospace;
+
+& pre {
+	background-color: #7772;
+	border: var(--thin-solid-border);
+	display: flex;
+	max-width: calc(
+		100vw - 4px - 1.4rem
+			- 2 * var(--col-side-margin)
+			- var(--l-indent)
+			- var(--r-indent)
+	);
+	overflow-x: auto;
+	padding: 0.7rem;
+	width: max-content;
+	&::after {
+		content: "";
+		flex: 0 0 max(
+			0px,
+			100% + 2px + 0.7rem
+				+ var(--l-indent)
+				+ var(--r-indent)
+				- var(--col-max-width)
+		);
+	}
+}
+
 }
