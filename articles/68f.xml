@@ -29,7 +29,7 @@
 
 	<button class="fl"><samp>╺┑┏╸╺┑┏╸╺┑┏╸╺┑┏╸<br/>┨┝┫├┨┝┫├┨┝┫├┨┝┫├<br/>┖╴╶┘┖╴╶┘┖╴╶┘┖╴╶┘</samp></button>
 
-	<p>The arrangement of Unicode box-drawing characters above is my recreation of a design featured on page 105 of <cite><a href="https://www.tug.org/TUGboat/tb41-3/tb129reviews-vervliet.pdf">Granjon's flowers</a></cite> by Hendrik D. L. Vervliet. The characters were traced in Inkscape, creating an SVG file, which was converted to WOFF2 using FontForge. The 2025 version of <cite>Granjon Boxes</cite> contains the characters <q><code>┑┘┖┏╺╸╷╻╴╶╹╵┝┫┬┰┨├┻┷</code></q> and the space character U+20. The <a href="https://home.6t.lt/fonts">fonts directory</a> on my website will include the latest version licensed under the SIL Open Font License.</p>
+	<p>The arrangement of Unicode box-drawing characters above is my recreation of a design featured on page 105 of <cite><a href="https://www.tug.org/TUGboat/tb41-3/tb129reviews-vervliet.pdf">Granjon's flowers</a></cite> by Hendrik D. L. Vervliet. The characters were traced in Inkscape, creating an SVG file, which was converted to WOFF2 using FontForge. The 2025 version of <cite>Granjon Boxes</cite> contains the characters <q><code>┑┘┖┏╺╸╷╻╴╶╹╵┝┫┬┰┨├┻┷</code></q> and the space character U+20. The <a href="https://home.6t.lt/fonts/index.html">fonts directory</a> on my website will include the latest version licensed under the SIL Open Font License.</p>
 
 	<p>If you are reading this on my website, clicking on the arrangements might reveal the typical box-drawing character designs by displaying them in the <cite><a href="https://www.kreativekorp.com/software/fonts/ksquare/">Kreative Square</a></cite> font.</p>
 
@@ -45,11 +45,10 @@
 
 	<ul>
 		<li><a href="https://home.6t.lt/atom.xml">Atom feed for the blog</a> (or <a href="https://home.6t.lt/feed.json">JSON feed</a>)</li>
-		<li><a href="https://home.6t.lt/shortcuts/note/">Text box for note-taking</a></li>
-		<li><a href="https://home.6t.lt/?s=%23mirror_polygon_66c">Mirror polygon drawing tool</a></li>
-		<li><a href="https://home.6t.lt/?s=%23percent_encode_677">Percent-encoding guide</a></li>
-		<li><a href="https://home.6t.lt/?s=:is(p,dl,ol,ul):has(a%5Bhref%5E=%22http%22%5D)">All external links from the blog</a></li>
-		<li><a href="https://home.6t.lt/shortcuts/strings/">String manipulation tool</a></li>
+		<li><a href="https://home.6t.lt/shortcuts/note.html">Text box for note-taking</a></li>
+		<li><a href="https://home.6t.lt/index.html?s=%23mirror_polygon_66c">Mirror polygon drawing tool</a></li>
+		<li><a href="https://home.6t.lt/index.html?s=%23percent_encode_677">Percent-encoding guide</a></li>
+		<li><a href="https://home.6t.lt/index.html?s=:is(p,dl,ol,ul):has(a%5Bhref%5E=%22http%22%5D)">All external links from the blog</a></li>
 	</ul>
 
 </section>
