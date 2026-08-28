@@ -2,17 +2,17 @@
 
 @font-face {
 	font-family: "EB Garamond";
-	src: url("fonts/eb-garamond-normal.woff") format("woff");
+	src: url("./fonts/eb-garamond-normal.woff") format("woff");
 }
 
 @font-face {
 	font-family: "Granjon Boxes";
-	src: url("fonts/granjon-boxes.woff2") format("woff2");
+	src: url("./fonts/granjon-boxes.woff2") format("woff2");
 }
 
 @font-face {
 	font-family: "Kreative Square";
-	src: url("fonts/k-square-boxes.woff2") format("woff2");
+	src: url("./fonts/k-square-boxes.woff2") format("woff2");
 }
 
 :root {
@@ -93,6 +93,7 @@ hgroup:has(+ article) {
 
 & hgroup > :is(h1, h2):first-child {
 	display: inline-block;
+	margin-top: 0px;
 	& > a {
 		color: CanvasText;
 	}
@@ -101,6 +102,7 @@ hgroup:has(+ article) {
 & hgroup > p:has(> small:first-child:last-child) {
 	display: inline-block;
 	font-style: italic;
+	margin: 0px 0px 0px 1rem;
 	opacity: 0.7;
 }
 
@@ -115,6 +117,7 @@ hgroup:has(+ article) {
 		margin-top: 0px;
 		text-align: center;
 	}
+	/* last child bottom margin? */
 }
 
 & > footer:last-child > p {
@@ -160,7 +163,7 @@ hgroup:has(+ article) {
 		cursor: help;
 		display: block;
 		font-family: "Granjon Boxes", monospace;
-		font-size: calc(var(--current-text-width) / 16 - 10px); /* subtract 10px to prevent wrapping */
+		font-size: calc(var(--current-text-width) / 16 - 2px); /* subtract 2px to prevent wrapping */
 		line-height: 1;
 		text-decoration: none;
 	}
