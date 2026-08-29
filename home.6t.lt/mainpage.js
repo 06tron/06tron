@@ -19,6 +19,10 @@ function selectContent(selector, unnumbered = true) {
 			main.append(h2, element);
 		}
 	}
+	const selfLinks = main.querySelectorAll("a[href^='https://home.6t.lt/']");
+	for (const a of selfLinks) {
+		a.href = "." + a.href.slice(18);
+	}
 	return main;
 }
 

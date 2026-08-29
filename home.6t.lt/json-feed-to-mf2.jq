@@ -66,7 +66,7 @@
 		"<samp\nclass=u-uid>",
 		.value.id,
 		"</samp> | <a\nhref=https://tangled.org/mrichardson.tngl.sh/06tron/tree/homepage/articles/",
-		value.title[:3],
+		.value.title[:3],
 		">updated <time\nclass=dt-updated>",
 		.value.date_modified,
 		"</time></a></small>",
