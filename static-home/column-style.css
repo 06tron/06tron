@@ -93,7 +93,7 @@ hgroup:has(+ article) {
 
 & :is(hgroup > :is(h1, h2):first-child) {
 	display: inline-block;
-	margin: 0px;
+	margin-bottom: 0px;
 	& > a {
 		color: CanvasText;
 	}
@@ -117,7 +117,9 @@ hgroup:has(+ article) {
 		margin-top: 0px;
 		text-align: center;
 	}
-	/* last child bottom margin? */
+	& p:last-child:not(section :not(:last-child) p) {
+		margin-bottom: 0px;
+	}
 }
 
 & > footer:last-child > p {
