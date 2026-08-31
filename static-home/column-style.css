@@ -129,6 +129,13 @@ hgroup:has(+ article) {
 		content: "\0A" attr(href);
 		letter-spacing: 0.05em;
 	}
+	& > small:first-child:last-child {
+		font-style: italic;
+		opacity: 0.7;
+		& > a {
+			color: CanvasText;
+		}
+	}
 }
 
 & :is(aside, button.fl) {
