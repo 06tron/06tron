@@ -87,8 +87,6 @@
 			}
 		]
 	},
-	"editor.wordWrap": "bounded",
-	"editor.wordWrapColumn": 100,
 	"explorer.compactFolders": false,
 	"extensions.ignoreRecommendations": true,
 	"files.associations": {
