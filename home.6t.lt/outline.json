@@ -1,75 +1,76 @@
 {
-	"version": "https://jsonfeed.org/version/1.1",
-	"user_comment": "Use the URL of this JSON file to read posts from my website in any feed reader that supports the JSON Feed format.",
-	"feed_url": "https://home.6t.lt/feed.json",
-	"title": "○–○––○–○ blog",
-	"home_page_url": "https://6t.lt/blog",
-	"description": "Entries on topics such as web programming and recreational math.",
-	"icon": "https://home.6t.lt/icons/%E2%99%A5.svg",
-	"authors": [
-		{
-			"name": "Matthew Richardson",
-			"url": "https://orcid.org/0009-0001-0977-2029",
-			"avatar": "https://home.6t.lt/613/mt-tom-headshot.jpg"
+	"feed_outline": {
+		"version": "https://jsonfeed.org/version/1.1",
+		"user_comment": "Use the URL of this JSON file to read posts from my website in any feed reader that supports the JSON Feed format.",
+		"home_page_url": "https://6t.lt/blog",
+		"title": "○–○––○–○ blog",
+		"description": "Entries on topics such as web programming and recreational math.",
+		"authors": [
+			{
+				"name": "Matthew Richardson",
+				"url": "https://orcid.org/0009-0001-0977-2029",
+				"avatar": "https://home.6t.lt/613/mt-tom-headshot.jpg"
+			}
+		],
+		"language": "en-US",
+		"icon": "https://home.6t.lt/icons/%E2%99%A5.svg",
+		"feed_url": "https://home.6t.lt/feed.json",
+		"_mrichardson": {
+			"about": "Extra information used in XML and HTML versions of this feed.",
+			"id": "urn:uuid:22620929-5413-4211-BE95-59BD3594FD14",
+			"atom_url": "https://home.6t.lt/atom.xml",
+			"prefix_for_tag_urls": "https://home.6t.lt/index.html?s=section."
 		}
-	],
-	"language": "en-US",
-	"items": [],
-	"_atom_elements": {
-		"id": "urn:uuid:22620929-5413-4211-BE95-59BD3594FD14",
-		"self_link": "https://home.6t.lt/atom.xml"
 	},
-	"_prefix_for_tag_urls": "https://home.6t.lt/index.html?s=section.",
-	"_named_items": {
-		"68f": {
-			"id": "urn:uuid:9F42BD4A-51FF-4FF6-86E6-5ACF8DDC3DFE",
-			"url": "https://6t.lt/blog#4",
-			"title": "Ornamental Box-drawing",
-			"summary": "Introduces an SVG I wrote and the Granjon Boxes font.",
-			"date_published": "2025-10-19T22:11:11-04:00",
-			"tags": [
-				"art",
-				"encodings",
-				"projects",
-				"svg"
-			]
-		},
-		"677": {
-			"id": "urn:uuid:5C8A5076-C850-41ED-A02F-B06ABFC87D66",
-			"url": "https://6t.lt/blog#3",
-			"title": "URI Encoding",
-			"summary": "How to encode Uniform Resource Identifiers, with specifics on data URIs and query strings.",
-			"date_published": "2024-12-29T22:35:12-05:00",
-			"tags": [
-				"changelog",
-				"software",
-				"web"
-			]
-		},
-		"66f": {
-			"id": "urn:uuid:A499496A-A687-42D1-8E39-91850DD661AA",
-			"url": "https://6t.lt/blog#2",
-			"title": "Square Mesh Navigation",
-			"summary": "An introduction to Number Space and the blog.",
-			"date_published": "2024-09-27T15:01:38-04:00",
-			"tags": [
-				"art",
-				"projects"
-			]
-		},
-		"66c": {
-			"id": "urn:uuid:46CAC173-449A-455A-8E13-BDAA58EA546F",
-			"url": "https://6t.lt/blog#1",
-			"title": "Death and the Compass",
-			"summary": "Webpage for drawing with mirror reflections.",
-			"date_published": "2024-08-27T22:07:34-06:00",
-			"tags": [
-				"booknotes",
-				"encodings",
-				"projects",
-				"svg",
-				"web"
-			]
-		}
-	}
+	"68f": {
+		"id": "urn:uuid:9F42BD4A-51FF-4FF6-86E6-5ACF8DDC3DFE",
+		"url": "https://6t.lt/blog#4",
+		"title": "Ornamental Box-drawing",
+		"summary": "Introduces an SVG I wrote and the Granjon Boxes font.",
+		"date_published": "2025-10-19T22:11:11-04:00",
+		"tags": [
+			"art",
+			"encodings",
+			"projects",
+			"svg"
+		]
+	},
+	"677": {
+		"id": "urn:uuid:5C8A5076-C850-41ED-A02F-B06ABFC87D66",
+		"url": "https://6t.lt/blog#3",
+		"title": "URI Encoding",
+		"summary": "How to encode Uniform Resource Identifiers, with specifics on data URIs and query strings.",
+		"date_published": "2024-12-29T22:35:12-05:00",
+		"tags": [
+			"changelog",
+			"software",
+			"web"
+		]
+	},
+	"66f": {
+		"id": "urn:uuid:A499496A-A687-42D1-8E39-91850DD661AA",
+		"url": "https://6t.lt/blog#2",
+		"title": "Square Mesh Navigation",
+		"summary": "An introduction to Number Space and the blog.",
+		"date_published": "2024-09-27T15:01:38-04:00",
+		"tags": [
+			"art",
+			"projects"
+		]
+	},
+	"66c": {
+		"id": "urn:uuid:46CAC173-449A-455A-8E13-BDAA58EA546F",
+		"url": "https://6t.lt/blog#1",
+		"title": "Death and the Compass",
+		"summary": "Webpage for drawing with mirror reflections.",
+		"date_published": "2024-08-27T22:07:34-06:00",
+		"tags": [
+			"booknotes",
+			"encodings",
+			"projects",
+			"svg",
+			"web"
+		]
+	},
+	"$schema": "./outline.schema.jsonc"
 }

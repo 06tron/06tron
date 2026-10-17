@@ -6,7 +6,7 @@ function selectContent(selector, unnumbered = true) {
 		"text/html"
 	).querySelectorAll(selector);
 	const main = document.createElement("main");
-	if (selected.length == 1 || unnumbered) {
+	if (unnumbered || /^#\w*$/.test(selector)) {
 		selected.forEach(main.appendChild, main);
 	} else {
 		const h1 = document.createElement("h1");
@@ -19,9 +19,11 @@ function selectContent(selector, unnumbered = true) {
 			main.append(h2, element);
 		}
 	}
-	const selfLinks = main.querySelectorAll("a[href^='https://home.6t.lt/']");
-	for (const a of selfLinks) {
+	for (const a of main.querySelectorAll("a[href^='https://home.6t.lt/']")) {
 		a.href = "." + a.href.slice(18);
+	}
+	for (const e of main.querySelectorAll(":is(iframe,img)[src^='https://home.6t.lt/']")) {
+		e.src = "." + e.src.slice(18);
 	}
 	return main;
 }
