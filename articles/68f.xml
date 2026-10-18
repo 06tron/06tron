@@ -44,11 +44,18 @@
 	<h3><span class="fl">Found on home.6t.lt</span></h3>
 
 	<ul>
-		<li><a href="https://home.6t.lt/atom.xml">Atom feed for the blog</a> (or <a href="https://home.6t.lt/feed.json">JSON feed</a>)</li>
-		<li><a href="https://home.6t.lt/shortcuts/note.html">Text box for note-taking</a></li>
+		<li><a href="https://home.6t.lt/shortcuts/note.html">Text box for note-taking</a> (bookmarkable, downloadable)</li>
+		<li>A blog in multiple web feed varieties:
+
+			<ul>
+				<li><a href="https://home.6t.lt/mf2.html">mf2.html</a> → HTML with <a href="https://microformats.org/wiki/microformats2">microformats2</a></li>
+				<li><a href="https://home.6t.lt/atom.xml">atom.xml</a> → XML for news aggregators</li>
+				<li><a href="https://home.6t.lt/feed.json">feed.json</a> → JSON in <a href="https://www.jsonfeed.org/version/1.1/">jsonfeed.org</a> format</li>
+			</ul>
+		</li>
 		<li><a href="https://home.6t.lt/index.html?s=%23mirror_polygon_66c">Mirror polygon drawing tool</a></li>
-		<li><a href="https://home.6t.lt/index.html?s=%23percent_encode_677">Percent-encoding guide</a></li>
-		<li><a href="https://home.6t.lt/index.html?s=:is(p,dl,ol,ul):has(a%5Bhref%5E=%22http%22%5D)">All external links from the blog</a></li>
+		<li><a href="https://home.6t.lt/index.html?s=%23percent_encode_677">Percent-encoding guide</a> for URLs and URIs</li>
+		<li><a href="https://home.6t.lt/index.html?s=:is(p,dl,ol,ul):has(a%5Bhref%5E=%22http%22%5D)">All external links</a> from the blog</li>
 	</ul>
 
 </section>
