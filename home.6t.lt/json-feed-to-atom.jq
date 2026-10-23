@@ -5,7 +5,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-._prefix_for_tag_urls as $tag_prefix | [
+._mrichardson.prefix_for_tag_urls as $tag_prefix | [
 	"<?xml\nversion='1.0'\nencoding='utf-8'?>",
 	"<?xml-stylesheet\nhref='data:text/css,@namespace%22http://www.w3.org/2005/Atom%22;*%7Bdisplay:block%7Dfeed%7Bmargin:9Q;max-width:9in;overflow-wrap:break-word%7Dentry%7Bmargin-top:1in%7D'?>",
 	"<feed\nxmlns='http://www.w3.org/2005/Atom'>",
@@ -15,11 +15,11 @@
 	"</icon><title>",
 	.title,
 	"</title><updated>",
-	._atom_elements.updated,
+	._mrichardson.updated,
 	"</updated><subtitle>",
 	.description,
 	"</subtitle><id>",
-	._atom_elements.id,
+	._mrichardson.id,
 	"</id>",
 	(.authors[] | [
 		"<author><name>",
@@ -35,7 +35,7 @@
 	.feed_url,
 	"'\ntype='application/feed+json'/>",
 	"<link\nrel='self'\nhref='",
-	._atom_elements.self_link,
+	._mrichardson.self_link,
 	"'\ntype='application/atom+xml'/>",
 	(.items[] | [
 		"<entry><title>",
