@@ -45,17 +45,17 @@
 
 	<ul>
 		<li><a href="https://home.6t.lt/shortcuts/note.html">Text box for note-taking</a> (bookmarkable, downloadable)</li>
-		<li>A blog in multiple web feed varieties:
+		<li>Blog in multiple web feed varieties:
 
 			<ul>
 				<li><a href="https://home.6t.lt/mf2.html">mf2.html</a> → HTML with <a href="https://microformats.org/wiki/microformats2">microformats2</a></li>
 				<li><a href="https://home.6t.lt/atom.xml">atom.xml</a> → XML for news aggregators</li>
-				<li><a href="https://home.6t.lt/feed.json">feed.json</a> → JSON in <a href="https://www.jsonfeed.org/version/1.1/">jsonfeed.org</a> format</li>
+				<li><a href="https://home.6t.lt/feed.json">feed.json</a> → JSON in <a href="https://www.jsonfeed.org/">jsonfeed.org</a> format</li>
 			</ul>
 		</li>
 		<li><a href="https://home.6t.lt/index.html?s=%23mirror_polygon_66c">Mirror polygon drawing tool</a></li>
 		<li><a href="https://home.6t.lt/index.html?s=%23percent_encode_677">Percent-encoding guide</a> for URLs and URIs</li>
-		<li><a href="https://home.6t.lt/index.html?s=:is(p,dl,ol,ul):has(a%5Bhref%5E=%22http%22%5D)">All external links</a> from the blog</li>
+		<li><a href="https://home.6t.lt/index.html?s=:is(p,dl,ol,ul):not(li+*,dd+*):has(a:not(%5Bhref%5E='https://home.6t.lt/'%5D,%5Bhref%5E='%23'%5D))">All external links</a> from the blog</li>
 	</ul>
 
 </section>
