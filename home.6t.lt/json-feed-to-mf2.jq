@@ -63,7 +63,7 @@
 		"</div><footer><p><small>",
 		"<samp\nclass=u-uid>",
 		.value.id,
-		"</samp> | <a\nhref=https://tangled.org/mrichardson.tngl.sh/06tron/tree/homepage/articles/",
+		"</samp> | <a\nhref=https://tangled.org/mrichardson.tngl.sh/06tron/blob/homepage/articles/",
 		(.value.title | .[:index(" ")]),
 		".xml>updated <time\nclass=dt-updated>",
 		.value.date_modified,
