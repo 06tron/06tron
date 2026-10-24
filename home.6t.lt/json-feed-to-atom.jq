@@ -35,7 +35,7 @@
 	.feed_url,
 	"'\ntype='application/feed+json'/>",
 	"<link\nrel='self'\nhref='",
-	._mrichardson.self_link,
+	._mrichardson.atom_url,
 	"'\ntype='application/atom+xml'/>",
 	(.items[] | [
 		"<entry><title>",

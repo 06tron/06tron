@@ -16,6 +16,7 @@
 	"<link\nrel=stylesheet\nhref=./column-style.css>",
 	"<link\nrel=icon\nhref=./icons/♥.svg>",
 	"<link\nrel=canonical\nhref=https://home.6t.lt/mf2.html>",
+	"<link\nrel=alternate\nhref=./atom.xml\ntype=application/atom+xml>"
 	"<meta\nname=color-scheme\ncontent='dark light'>",
 	"<meta\nname=description\ncontent='",
 	.description,
