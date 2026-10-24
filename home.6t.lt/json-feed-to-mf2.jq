@@ -5,7 +5,7 @@
 # License, v. 2.0. If a copy of the MPL was not distributed with this
 # file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-._prefix_for_tag_urls as $tag_prefix | [
+._mrichardson.prefix_for_tag_urls as $tag_prefix | [
 	"<!DOCTYPE\nhtml>",
 	"<html\nclass=h-feed\nlang=en>",
 	"<meta\ncharset=utf-8>",
