@@ -1,3 +1,6 @@
+/* Copyright (c) April 2025, Matthew Richardson
+(https://orcid.org/0009-0001-0977-2029). */
+
 // these are the letters defined as polygons inside a square with side length 39
 // (0,0) is top left, bottom right is (39,39)
 // L is left R is right, T is top and B is bottom
@@ -263,7 +266,6 @@ function squareCoordsToQuad(sideLength, coords, quad) {
 		const b2 = add(quad[1], scale(farY, y));
 		return lineIntersection(a1, b1, a2, b2);
 	});
-
 }
 
 /**
