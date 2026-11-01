@@ -75,29 +75,39 @@ if (!isHome) {
 }
 
 /**
- * @returns An object containing properties to be added to a <time> element. The property values are a hexadecimal representation of the current mebisecond truncated to one radix place, and two date string representations of the current mebisecond's start.
+ * @returns An object containing properties to be added to a <time> element. The property values include a hexadecimal representation of the current mebisecond truncated to one radix place.
  */
 function timeTemporal() {
-	const ms = Temporal.Now.instant().epochMilliseconds;
+	const now = Temporal.Now.instant();
+	const ms = now.epochMilliseconds;
 	const hex = Math.floor(ms / 65536e3).toString(16);
 	const unit = 1048576e3;
-	const start = Temporal.Instant.fromEpochMilliseconds(Math.floor(ms / unit) * unit);
+	const start = Math.floor(ms / unit) * unit;
 	return {
 		textContent: hex.slice(0, -1) + "." + hex.slice(-1),
-		dateTime: start.toString(),
-		title: start.toLocaleString()
+		dateTime: now.toString(),
+		title: `${
+			Temporal.Instant.fromEpochMilliseconds(start).toLocaleString()
+		} to ${
+			Temporal.Instant.fromEpochMilliseconds(start + unit).toLocaleString()
+		}`
 	};
 }
 
 function timeDate() {
-	const ms = Date.now();
+	const now = new Date();
+	const ms = now.valueOf();
 	const hex = Math.floor(ms / 65536e3).toString(16);
 	const unit = 1048576e3;
-	const start = new Date(Math.floor(ms / unit) * unit);
+	const start = Math.floor(ms / unit) * unit;
 	return {
 		textContent: hex.slice(0, -1) + "." + hex.slice(-1),
-		dateTime: date.toISOString(),
-		title: start.toString()
+		dateTime: now.toISOString(),
+		title: `${
+			new Date(start).toLocaleString()
+		} to ${
+			new Date(start + unit).toLocaleString()
+		}`
 	};
 }
 
