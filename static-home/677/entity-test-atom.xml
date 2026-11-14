@@ -1,52 +1,45 @@
-<?xml
-version="1.0"
-encoding="utf-8"
-?><?xml-stylesheet
-href="../698/style-atom.css"
-?><!DOCTYPE feed [
-	<!ENTITY page_path "https://home.6t.lt/677/">
-]><feed
-xmlns="http://www.w3.org/2005/Atom"
->
+<?xml version='1.0' encoding='utf-8'?>
+<?xml-stylesheet href='https://home.6t.lt/698/style-atom.css'?>
 
-<title>Entity Test</title>
-<author>
-	<name>06tron</name>
-</author>
-<updated>2026-02-02T14:29:31-05:00</updated>
+<!DOCTYPE feed [
+	<!ENTITY path 'https://home.6t.lt/677/'>
+]>
+
+<feed xmlns='http://www.w3.org/2005/Atom' xml:lang='en'>
 <id>urn:uuid:255660A3-DC5B-4545-95A0-593EC117C27B</id>
-<link
-rel="self"
-href="&page_path;entity-test-atom.xml"
-/>
-<link
-rel="alternate"
-href="https://github.com/06tron/06tron/blob/main/periods/677/entity-test-atom.xml"
-/>
+<title>Test Internal Entity</title>
+<updated>2026-11-13T23:08:08-05:00</updated>
+<link rel='self' href='&path;test-internal-entity.atom'/>
+<link rel='alternate' href='https://tangled.org/mrichardson.tngl.sh/06tron/blob/main/static-home/677/test-internal-entity.atom'/>
 
 <entry>
-<title>Ampersand (&amp;)</title>
-<updated>2025-11-22T11:36:30-05:00</updated>
 <id>urn:uuid:CF81A3CD-0C80-4BC8-A67E-DC9A98E32379</id>
-<content type="xhtml">
-	<div xmlns="http://www.w3.org/1999/xhtml">
-		<p>R &amp; D at &page_path;entity-test-atom.xml</p>
-	</div>
+<title>Ampersand (&amp;)</title>
+<updated>2026-11-13T22:27:48-05:00</updated>
+<link rel='alternate' href='https://6t.lt?m=%26%3E%3C()@&amp;h=(h1)Ampersand+%3C@amp;%3E(/h1)(p)R+@amp;+D+at+&path;index.html(/p)'/>
+<author>
+<name>Matthew Richardson</name>
+<uri>https://orcid.org/0009-0001-0977-2029</uri>
+</author>
+<content type='xhtml'>
+<div xmlns='http://www.w3.org/1999/xhtml'>
+
+	<p>R &amp; D at &path;index.html</p>
+
+</div>
 </content>
-<link
-rel="alternate"
-href="https://6t.lt?m=%26%3E%3C()@&amp;h=(h1)Ampersand+%3C@amp;%3E(/h1)(p)R+@amp;+D+at+&page_path;entity-test-atom.xml(/p)"
-/>
 </entry>
 
-<about
-xmlns="https://6t.lt/about"
-><![CDATA[
-
-The main Atom feed for my website originally used a DTD internal entity declaration, and it was sometimes parsed incorrectly, so I made this small feed to test compatibility.
-	
-The entry has title "Ampersand (&)" and content "R & D at https://home.6t.lt/677/entity-test-atom.xml".
-
-]]><uri>https://validator.w3.org/feed/check.cgi?url=https://home.6t.lt/677/entity-test-atom.xml</uri></about>
+<about xmlns='https://6t.lt/about'>
+<![CDATA[
+	Originally the main Atom feed for my website used a DTD internal
+	entity declaration, and it was sometimes parsed incorrectly, so I made
+	this small feed to test compatibility. The single entry has title:
+		"Ampersand (&)"
+	and content:
+		"R & D at https://home.6t.lt/677/index.html"
+]]>
+<uri>https://validator.w3.org/feed/check.cgi?url=https://home.6t.lt/677/test-internal-entity.atom</uri>
+</about>
 
 </feed>
