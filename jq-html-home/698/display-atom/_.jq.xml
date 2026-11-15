@@ -1,0 +1,9 @@
+{ name: "Styled Atom Feed"
+
+, separate: true
+
+, head:
+"<base
+href='../'/><link
+rel='stylesheet'
+href='./698/style-atom.css'/>" }
