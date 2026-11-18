@@ -16,15 +16,15 @@ URI --><uri>https://6t.lt?h=%E2%98%99+floral+hearts+%E2%9D%A7</uri><!--
 JSON --><json>\"☙ floral heart\\u0073 JSON \\u2767\"</json></about></template>"
 
 , main:
-"<h1>xmlns='https://6t.lt/about'</h1><table><thead><tr><th>&lt;about></th><th>&lt;txt></th><th>&lt;uri></th><th>&lt;json></th></tr></thead><tbody><tr><td>Can contain a combination of text and child elements.</td><td>Plain text such as CSV file content.</td><td>A single URI.</td><td>Data in JSON format.</td></tr><!--
+"<h1>xmlns=<wbr/>'https://6t.lt/about'</h1><figure><table><thead><tr><th>&lt;about></th><th>&lt;txt></th><th>&lt;uri></th><th>&lt;json></th></tr></thead><tbody><tr><td>Can contain a combination of text and child elements.</td><td>Plain text such as CSV file content.</td><td>A single URI.</td><td>Data in JSON format.</td></tr><!--
 this table row contains empty elements which will
 be filled with content from <about> via javascript --><tr><td
 id='a'></td><td
 id='t'></td><td><a
 class='naked'
 id='u'></a></td><td
-id='j'></td></tr><tr><td>e.querySelector('txt')</td><td>e.textContent.split('\\n')</td><td>setAttribute('src', e.textContent)</td><td>JSON.parse(e.textContent)</td></tr></tbody></table><p>View this page's source to see the &lt;about> element in use. You can put elements from this namespace into the SVG &lt;metadata> element, and it seems you can do the same with the HTML &lt;template> element.</p><p>Also in use at:<br/><a
-href='./677/entity-test-atom.xml'
+id='j'></td></tr><tr><td>e.querySelector('txt')</td><td>e.textContent.split('\\n')</td><td>setAttribute('src', e.textContent)</td><td>JSON.parse(e.textContent)</td></tr></tbody></table></figure><p>View this page's source to see the &lt;about> element in use. You can put elements from this namespace into the SVG &lt;metadata> element, and it seems you can do the same with the HTML &lt;template> element.</p><p>Also in use at:<br/><a
+href='./677/text-internal-entity.atom'
 class='naked'></a><br/><a
 href='./692/dark-mode-highlighter.xht'
 class='naked'></a><br/><a

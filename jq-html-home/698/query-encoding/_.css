@@ -1,5 +1,5 @@
-dt a::after {
-	content: attr(href);
+dt > a::after {
+	content: " " attr(href);
 	font-family: monospace;
 }
 
