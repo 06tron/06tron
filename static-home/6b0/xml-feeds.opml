@@ -1,0 +1,22 @@
+<?xml
+version='1.0'
+encoding='utf-8'?><?xml-stylesheet
+href='data:text/css,opml%7Bcolor-scheme:dark%20light%7Dhead%3E*,outline%7Bdisplay:block;margin:9Q%7D'?><opml
+version='2.0'><head><title>Selected XML Web Feeds</title><dateModified>21 Nov 2026 00:33 EST</dateModified><about
+xmlns='https://6t.lt/about'>Atom or RSS feeds and my reasons for adding them to this list. Descriptions are not comprehensive.</about><docs>https://opml.org/spec2.opml</docs></head><body><outline
+type='rss'
+text='lyra.horse/blog/index.xml'
+xmlUrl='https://lyra.horse/blog/index.xml'/><!--Lyra Rebane's blog contains many cool uses of web platform features. (Her forum post about 1kB/s page loading showed up in my web search results.)--><outline
+type='rss'
+text='djr.com/feed.rss'
+xmlUrl='https://djr.com/feed.rss'/><!--David Jonathan Ross designs fonts. (Chanced upon ornaments from his font Fern.)--><outline
+type='rss'
+text='cathystanton.net/feed/atom/'
+xmlUrl='https://cathystanton.net/feed/atom/'/><!--Cathy Stanton writes about food systems in the US. (I read part of her ethnographic study on Boston Harbor Peddocks Island cottages.)--></body><script
+xmlns='http://www.w3.org/1999/xhtml'>
+document.querySelectorAll("outline").forEach(function (outline) {
+	const a = document.createElementNS("http://www.w3.org/1999/xhtml", "a");
+	a.textContent = outline.nextSibling.data;
+	outline.appendChild(a).href = outline.getAttribute("xmlUrl");
+});
+</script></opml>

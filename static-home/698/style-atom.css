@@ -16,8 +16,8 @@ feed {
 	font-family: "Avenir", "Segoe UI", sans-serif;
   margin: var(--text-margin);
   max-width: var(--max-feed-width);
-	overflow: hidden;
   overflow-wrap: break-word;
+	overflow-x: hidden;
 }
 feed > title {
 	font-size: xx-large;
