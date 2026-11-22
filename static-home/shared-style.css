@@ -6,57 +6,60 @@
 	overflow-wrap: break-word;
 }
 
-[id^="note_"] {
-	& > slot {
-		display: none;
-	}
-	&::after {
-		content: "[" counter(note-indicator) "]";
-		counter-increment: note-indicator;
-		font-size: smaller;
-		line-height: 0px;
-		vertical-align: super;
-	}
+[id^="note_"] > slot {
+	display: none;
+}
+[id^="note_"]::after {
+	content: "[" counter(note-indicator) "]";
+	counter-increment: note-indicator;
+	font-size: smaller;
+	line-height: 0px;
+	vertical-align: super;
 }
 
 a {
-	&.naked::after {
-		content: " → " attr(href);
-		word-break: break-all;
-	}
-	&:hover {
-		text-decoration: underline;
-	}
 	text-decoration: none;
 }
+a.naked::after {
+	content: " → " attr(href);
+	word-break: break-all;
+}
+a:hover {
+	text-decoration: underline;
+}
 
-aside > p:has(> a:first-child[href*="#note_"])::before {
+aside > p > a:first-child[href*="#note_"]::before {
 	content: counter(note-text) ". ";
 	counter-increment: note-text;
 }
 
-header#shared_top {
-	& + :is(article, hgroup, main, section) {
-		margin-top: 30px;
-		padding-top: 30px;
-	}
-	& > a:nth-child(1) > img {
-		display: block;
-	}
-	& > :nth-child(3) {
-		color: CanvasText;
-		font-style: italic;
-		opacity: 0.7;
-	}
+#shared_top {
 	background: linear-gradient(to right, transparent 50px, #7f7f7f14 calc(50% + 25px), transparent);
 	column-gap: 10px;
 	display: grid;
 	grid-template-columns: 40px 1fr 1fr 1fr;
-	inset: 0px 0px auto;
+	left: 0px;
 	margin: 10px;
 	max-width: 40rem;
 	overflow-x: auto;
 	place-items: center;
 	position: absolute;
-	text-wrap-mode: nowrap;
+	right: 0px;
+	top: 0px;
+	white-space: nowrap;
+}
+#shared_top + article,
+#shared_top + hgroup,
+#shared_top + main,
+#shared_top + section {
+	margin-top: 30px;
+	padding-top: 30px;
+}
+#shared_top > a:nth-child(1) > img {
+	display: block;
+}
+#shared_top > :nth-child(3) {
+	color: CanvasText;
+	font-style: italic;
+	opacity: 0.7;
 }
