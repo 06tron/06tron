@@ -1,9 +1,12 @@
 <?xml
 version='1.0'
 encoding='utf-8'?><?xml-stylesheet
-href='data:text/css,opml%7Bcolor-scheme:dark%20light%7Dhead%3E*,outline%7Bdisplay:block;margin:9Q%7D'?><opml
+href='data:text/css,opml%7Bcolor-scheme:dark%20light%7Dhead%3E*,outline%7Bdisplay:block;margin:9px%7D'?><opml
 version='2.0'><head><title>Selected XML Web Feeds</title><dateModified>21 Nov 2026 00:33 EST</dateModified><about
 xmlns='https://6t.lt/about'>Atom or RSS feeds and my reasons for adding them to this list. Descriptions are not comprehensive.</about><docs>https://opml.org/spec2.opml</docs></head><body><outline
+type='rss'
+text='vale.rocks/posts/feed.xml'
+xmlUrl='https://vale.rocks/posts/feed.xml'/><!--Declan Chidlow publishes detailed articles related to web technology.--><outline
 type='rss'
 text='lyra.horse/blog/index.xml'
 xmlUrl='https://lyra.horse/blog/index.xml'/><!--Lyra Rebane's blog contains many cool uses of web platform features. (Her forum post about 1kB/s page loading showed up in my web search results.)--><outline
