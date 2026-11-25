@@ -1,0 +1,116 @@
+{ name: "Aside Notes"
+
+, head:
+"<link
+rel='stylesheet'
+href='./column-style.css'/>"
+
+, main:
+"<article><p>These five aside-notes use <code><var>id</var></code> attributes starting with <q><samp>body_</samp></q>, allowing them to be styled with CSS counters by my website's <a
+href='./shared-style.css'
+class='naked'>main stylesheet</a>.</p>
+
+<blockquote>
+
+<p>
+
+On a cold November evening Hadji Murád rode into Makhmet, a hostile Chechen <i>aoul</i>,<span id='note_1.1'></span>
+
+that was filled with the scented smoke of burning <i>kizyák</i>,<span id='note_1.2'><slot>*</slot></span>
+
+and that lay some fifteen miles from Russian territory. The strained chant of the muezzin had just ceased, and though the clear mountain air, impregnated with <i>kizyák</i> smoke, above the lowing of the cattle and the bleating of the sheep that were dispersing among the <i>sáklyas</i><a id='note_1.3' href='./6a7/aside-notes.html#text_1.3'></a>
+
+(which were crowded together like the cells of honeycomb), could be clearly heard the guttural voices of disputing men, and sounds of women’s and children’s voices rising from near the fountain below.
+
+</p>
+
+<p>
+
+This was Hadji Murád, Shamil’s <i>naïb</i>,<a id='note_1.4' href='./6a7/aside-notes.html#text_1.4'><slot>*</slot></a>
+
+famous for his exploits, who used never to ride out without his banner, and was always accompanied by some dozens of <i>murids</i>, who caracoled and showed off before him. Now, with one <i>murid</i> only, wrapped in a hood and <i>búrka</i>,<a id='note_1.5' href='./6a7/aside-notes.html#text_1.5'><slot><sup>5</sup></slot></a>
+
+from under which protruded a rifle, he rode, a fugitive, trying to attract as little attention as possible, and peering with his quick black eyes into the faces of those he met on his way.
+
+</p>
+
+</blockquote>
+
+<aside>
+
+<p>
+<a href='./6a7/aside-notes.html#note_1.1'>^</a> <i>Aoul</i>, Tartar village.
+</p>
+
+<p>
+<a href='./6a7/aside-notes.html#note_1.2'>^</a> <i>Kizyák</i>, fuel made of straw and manure.
+</p>
+
+<p id='text_1.3'>
+<a href='./6a7/aside-notes.html#note_1.3'>^</a> <i>Sáklya</i>, a Caucasian house, clay plastered and often built of earth.
+</p>
+
+<p id='text_1.4'>
+<a href='./6a7/aside-notes.html#note_1.4'>^</a> <i>Naïb</i>, lieutenant or governor.
+</p>
+
+<p id='text_1.5'>
+<a href='./6a7/aside-notes.html#note_1.5'>^</a> <i>Búrka</i>, a long, round felt cape.
+</p>
+
+</aside>
+
+<hr/><p>These five aside-notes use <code><var>id</var></code> attributes starting with <q><samp>no_css_</samp></q>, and will not receive any extra CSS styling.</p>
+
+<blockquote>
+
+<p>
+
+On a cold November evening Hadji Murád rode into Makhmet, a hostile Chechen <i>aoul</i>,<span id='no_css_2.1'></span>
+
+that was filled with the scented smoke of burning <i>kizyák</i>,<span id='no_css_2.2'><slot>*</slot></span>
+
+and that lay some fifteen miles from Russian territory. The strained chant of the muezzin had just ceased, and though the clear mountain air, impregnated with <i>kizyák</i> smoke, above the lowing of the cattle and the bleating of the sheep that were dispersing among the <i>sáklyas</i><a id='no_css_2.3' href='./6a7/aside-notes.html#text_2.3'></a>
+
+(which were crowded together like the cells of honeycomb), could be clearly heard the guttural voices of disputing men, and sounds of women’s and children’s voices rising from near the fountain below.
+
+</p>
+
+<p>
+
+This was Hadji Murád, Shamil’s <i>naïb</i>,<a id='no_css_2.4' href='./6a7/aside-notes.html#text_2.4'><slot>*</slot></a>
+
+famous for his exploits, who used never to ride out without his banner, and was always accompanied by some dozens of <i>murids</i>, who caracoled and showed off before him. Now, with one <i>murid</i> only, wrapped in a hood and <i>búrka</i>,<a id='no_css_2.5' href='./6a7/aside-notes.html#text_2.5'><slot><sup>5</sup></slot></a>
+
+from under which protruded a rifle, he rode, a fugitive, trying to attract as little attention as possible, and peering with his quick black eyes into the faces of those he met on his way.
+
+</p>
+
+</blockquote>
+
+<aside>
+
+<p>
+<a href='./6a7/aside-notes.html#no_css_2.1'>^</a> <i>Aoul</i>, Tartar village.
+</p>
+
+<p>
+<a href='./6a7/aside-notes.html#no_css_2.2'>^</a> <i>Kizyák</i>, fuel made of straw and manure.
+</p>
+
+<p id='text_2.3'>
+<a href='./6a7/aside-notes.html#no_css_2.3'>^</a> <i>Sáklya</i>, a Caucasian house, clay plastered and often built of earth.
+</p>
+
+<p id='text_2.4'>
+<a href='./6a7/aside-notes.html#no_css_2.4'>^</a> <i>Naïb</i>, lieutenant or governor.
+</p>
+
+<p id='text_2.5'>
+<a href='./6a7/aside-notes.html#no_css_2.5'>^</a> <i>Búrka</i>, a long, round felt cape.
+</p>
+
+</aside></article><img
+style='display:block;height:100vh;width:100%'
+src='./icons/folder.svg'
+alt=''/>" }
