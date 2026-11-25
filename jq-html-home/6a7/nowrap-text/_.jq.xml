@@ -1,0 +1,157 @@
+{ name: "text-wrap-mode: nowrap;"
+
+, head:
+"<link
+rel='icon'
+href='./icons/folder.svg'/>"
+
+, main:
+"
+
+<h1>CSS for non-wrapping text</h1>
+
+<p>Websites often have a maximum paragraph width, as long lines can be hard to read. It's usually no issue to insert line breaks automatically, but some text, like the preformatted contents of a &lt;pre> element, are not supposed to be altered.</p>
+
+<p
+id='after_general_css'>Listed above are this page's CSS properties and values which define boxes around &lt;pre> elements and a maximum paragraph width.</p>
+
+<p>We can display the non-wrapping text within a box that scrolls if necessary. It makes sense to limit the width of the box to <var>--max-text-width</var>, as all text will remain within the same column. The four &lt;pre> elements that follow are of class <q>a</q>.</p>
+
+<pre
+id='after_pre_a_css'
+class='a'>	156-159
+This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain
+one at https://mozilla.org/MPL/2.0/.</pre>
+
+<pre
+class='a'>	64-86
+This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0.
+If a copy of the MPL was not distributed with this file, You can obtain one at
+https://mozilla.org/MPL/2.0/.
+
+	83
+This Source Code Form is subject to the terms of the Mozilla Public License, v.
+2.0. If a copy of the MPL was not distributed with this file, You can obtain one at
+https://mozilla.org/MPL/2.0/.</pre>
+
+<pre
+class='a'>	67-72
+This Source Code Form is subject to the terms of the Mozilla Public
+License, v. 2.0. If a copy of the MPL was not distributed with this
+file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
+	64-66
+This Source Code Form is subject to the terms of the Mozilla
+Public License, v. 2.0. If a copy of the MPL was not distributed
+with this file, You can obtain one at
+https://mozilla.org/MPL/2.0/.</pre>
+
+<pre
+class='a'>	51
+This Source Code Form is subject to the terms of
+the Mozilla Public License, v. 2.0. If a copy of
+the MPL was not distributed with this file, You can
+obtain one at https://mozilla.org/MPL/2.0/.
+
+	48-50
+This Source Code Form is subject to the terms of
+the Mozilla Public License, v. 2.0. If a copy of
+the MPL was not distributed with this file, You
+can obtain one at https://mozilla.org/MPL/2.0/.</pre>
+
+<p>We could instead allow the boxes to break out of the column and take advantage of empty horizontal space. This helps prevent the need for scrolling, but can take away the ability to read all text within the maximum paragraph width. The four &lt;pre> elements that follow are of class <q>b</q>.</p>
+
+<pre
+id='after_pre_b_css'
+class='b'>	160-162
+This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain one
+at https://mozilla.org/MPL/2.0/.</pre>
+
+<pre
+class='b'>	89-93
+This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a
+copy of the MPL was not distributed with this file, You can obtain one at
+https://mozilla.org/MPL/2.0/.
+
+	87-88
+This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If
+a copy of the MPL was not distributed with this file, You can obtain one at
+https://mozilla.org/MPL/2.0/.</pre>
+
+<pre
+class='b'>	76-78
+This Source Code Form is subject to the terms of the Mozilla Public License,
+v. 2.0. If a copy of the MPL was not distributed with this file, You can
+obtain one at https://mozilla.org/MPL/2.0/.
+
+	73-75
+This Source Code Form is subject to the terms of the Mozilla Public
+License, v. 2.0. If a copy of the MPL was not distributed with this file,
+You can obtain one at https://mozilla.org/MPL/2.0/.</pre>
+
+<pre
+class='b'>	54-55
+This Source Code Form is subject to the terms of the
+Mozilla Public License, v. 2.0. If a copy of the MPL
+was not distributed with this file, You can obtain one
+at https://mozilla.org/MPL/2.0/.
+
+	52-53
+This Source Code Form is subject to the terms of the
+Mozilla Public License, v. 2.0. If a copy of the MPL
+was not distributed with this file, You can obtain
+one at https://mozilla.org/MPL/2.0/.</pre>
+
+<p>A third approach combines the advantages seen above by adding extra horizontal space inside the boxes. The five &lt;pre> elements that follow are of class <q>c</q>.</p>
+
+<pre
+id='after_pre_c_css'
+class='c'>	163-192
+This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of the MPL was not distributed with this file, You can obtain one at
+https://mozilla.org/MPL/2.0/.</pre>
+
+<pre
+class='c'>	97-100
+This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy of
+the MPL was not distributed with this file, You can obtain one at https://mozilla.org/MPL/2.0/.
+
+	94-96
+This Source Code Form is subject to the terms of the Mozilla Public License, v. 2.0. If a copy
+of the MPL was not distributed with this file, You can obtain one at
+https://mozilla.org/MPL/2.0/.</pre>
+
+<pre
+class='c'>	80-82
+This Source Code Form is subject to the terms of the Mozilla Public License, v.
+2.0. If a copy of the MPL was not distributed with this file, You can obtain one
+at https://mozilla.org/MPL/2.0/.
+
+	79
+This Source Code Form is subject to the terms of the Mozilla Public License, v.
+2.0. If a copy of the MPL was not distributed with this file, You can obtain
+one at https://mozilla.org/MPL/2.0/.</pre>
+
+<pre
+class='c'>	60-63
+This Source Code Form is subject to the terms of the Mozilla
+Public License, v. 2.0. If a copy of the MPL was not
+distributed with this file, You can obtain one at
+https://mozilla.org/MPL/2.0/.
+
+	56-59
+This Source Code Form is subject to the terms of the
+Mozilla Public License, v. 2.0. If a copy of the MPL was
+not distributed with this file, You can obtain one at
+https://mozilla.org/MPL/2.0/.</pre>
+
+<pre
+class='c'>	29-30
+This Source Code Form is
+subject to the terms of the
+Mozilla Public License, v.
+2.0. If a copy of the MPL was
+not distributed with this
+file, You can obtain one at
+https://mozilla.org/MPL/2.0/.</pre>
+
+" }
