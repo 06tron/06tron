@@ -2,13 +2,13 @@
 @namespace xh "http://www.w3.org/1999/xhtml";
 @namespace about "https://6t.lt/about";
 
-* {
+*, about|* {
   display: block;
 }
 
 feed {
 	--max-feed-width: 9in;
-	--text-margin: 9Q;
+	--text-margin: 9px;
 	color: Gray;
 	color: rgb(from CanvasText r g b / 0.6);
 	color-scheme: dark light;
@@ -55,7 +55,7 @@ xh|*[id^="note_"]::after {
 	vertical-align: super;
 }
 
-xh|aside > xh|p:has(> xh|a:first-child[href*="#note_"])::before {
+xh|aside > xh|p > xh|a:first-child[href*="#note_"]::before {
 	content: counter(note-text) ". ";
 	counter-increment: note-text;
 }
@@ -94,18 +94,10 @@ xh|figure {
 	overflow-x: auto;
 }
 
-about|about {
-	background-color: #f053;
-	display: block;
-	margin: 6Q min(1in, 14vw);
-	padding: 3Q 6Q;
-}
-
 about|uri {
-	display: block;
 	font-style: italic;
+	word-break: break-all;
 }
 about|uri::before {
 	content: "\a0▪\a0";
-	word-break: break-all;
 }

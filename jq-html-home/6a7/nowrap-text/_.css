@@ -1,0 +1,43 @@
+html {
+	--box-border-width: 2px;
+	--box-padding-width: 0.7rem;
+	--max-text-width: 32rem;
+	--side-margin: 2rem;
+}
+body {
+	margin: 0px var(--side-margin);
+	max-width: var(--max-text-width);
+}
+pre {
+	border: var(--box-border-width) solid #7776;
+	padding: var(--box-padding-width);
+}
+pre.a {
+	max-width: max-content;
+	overflow-x: auto;
+}
+pre.b {
+	max-width: calc(
+		100vw - 2 * (var(--box-border-width) + var(--box-padding-width) + var(--side-margin))
+	);
+	overflow-x: auto;
+	width: max-content;
+}
+pre.c {
+	display: flex;
+	max-width: calc(
+		100vw - 2 * (var(--box-border-width) + var(--box-padding-width) + var(--side-margin))
+	);
+	overflow-x: auto;
+	width: max-content;
+}
+pre.c::after {
+	content: "";
+	flex: 0 0 max(
+		0px,
+		100% + var(--box-border-width) + var(--box-padding-width) - var(--max-text-width)
+	);
+}
+main {
+	background: linear-gradient(transparent 30px, #F002 30px);
+}

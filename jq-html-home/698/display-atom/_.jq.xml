@@ -3,7 +3,6 @@
 , separate: true
 
 , head:
-"<base
-href='../'/><link
+"<link
 rel='stylesheet'
-href='./698/style-atom.css'/>" }
+href='../698/style-atom.css'/>" }
